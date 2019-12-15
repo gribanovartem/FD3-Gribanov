@@ -1,0 +1,28 @@
+.shop .shopItems {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.shop .shopItem {
+    width: 300px;
+    height: 500px;
+    transition-duration: 0.5s;
+}
+/*.shop .shopItem:hover {*/
+/*    transform: scale(1.1);*/
+/*    transition-duration: 0.5s;*/
+/*}*/
+.shop .itemName,
+.shop .itemPrice,
+.shop .itemStock {
+    text-align: center;
+}
+.shop .itemImg {
+    max-width: 70%;
+    display: block;
+    margin: 0 auto;
+}
+.shop button {
+    display: block;
+    margin: 0 auto;
+}
