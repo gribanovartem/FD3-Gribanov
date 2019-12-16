@@ -1,0 +1,16 @@
+.filter {
+    margin: 10px;
+}
+.textInput {
+    width: 230px;
+}
+.filter .textArea {
+    margin-top: 10px;
+    width: 307px;
+    height: 100px;
+    border: 1px solid black;
+    overflow-y: scroll;
+}
+.filter .textArea p {
+    margin: 0;
+}
