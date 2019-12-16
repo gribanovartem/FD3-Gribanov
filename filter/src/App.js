@@ -7,8 +7,10 @@ export default class App extends React.Component {
         this.state = {
             checkbox: false,
             words: this.props.words,
+            regexp: /[а-яА-Я]*/,
         };
         this.checked= this.checked.bind(this);
+        this.changeText= this.changeText.bind(this);
     }
     checked() {
         if(this.state.checkbox===false) {
@@ -22,14 +24,21 @@ export default class App extends React.Component {
             console.log(this.props.words);
         }
     }
+    changeText(EO) {
+        let textValue = EO.target.value;
+        this.setState({regexp: new RegExp(textValue)})
+    }
     render() {
-        let wordElements = this.state.words.map((item, index)=>
-            <p key={index}>{item}</p>
+        let wordElements = this.state.words.map((item, index)=> {
+                if (this.state.regexp.test(item)) {
+                    return (<p key={index}>{item}</p>)
+                }
+            }
         );
         return (
             <div className='filter'>
                 <input type='checkbox' onClick={this.checked}/>
-                <input type='text' className='textInput'/>
+                <input type='text' className='textInput' onChange={this.changeText}/>
                 <button>Сброс</button><br/>
                 <div className='textArea'>
                     {wordElements}
