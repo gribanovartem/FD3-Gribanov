@@ -19,7 +19,8 @@ export default class ShopItem extends React.Component{
             this.setState({color: null, isActive: false});
         }
     }
-    deleteComponent() {
+    deleteComponent(EO) {
+        EO.stopPropagation();
         let result = window.confirm('Вы уверены, что хотите удалить компонент?');
         if(result) {
             this.setState({isShow: false})
