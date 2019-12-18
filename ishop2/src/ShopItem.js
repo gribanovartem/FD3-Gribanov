@@ -5,19 +5,13 @@ export default class ShopItem extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            isActive: false,
-            color: null,
             isShow: true,
         };
         this.highlightInColor = this.highlightInColor.bind(this);
         this.deleteComponent = this.deleteComponent.bind(this);
     }
     highlightInColor() {
-        if(this.state.isActive===false) {
-            this.setState({color: 'palegoldenrod', isActive: true});
-        } else {
-            this.setState({color: null, isActive: false});
-        }
+        this.props.updateItem(this.props.itemName);
     }
     deleteComponent(EO) {
         EO.stopPropagation();
@@ -29,7 +23,7 @@ export default class ShopItem extends React.Component{
     render() {
         if(this.state.isShow) {
             return (
-                <div className='shopItem' onClick={this.highlightInColor} style={{background: this.state.color}}>
+                <div className='shopItem' onClick={this.highlightInColor} style={this.props.itemStyle?{background: 'palegoldenrod'}:{background: 'none'}}>
                     <h2 className='itemName'>{this.props.itemName}</h2>
                     <p className='itemPrice'>Цена: {this.props.itemPrice} руб</p>
                     <img className='itemImg' src={this.props.itemImg} alt={this.props.itemName}/>

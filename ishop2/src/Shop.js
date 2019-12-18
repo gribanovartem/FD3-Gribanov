@@ -7,9 +7,14 @@ export default class Shop extends React.Component{
         super(props);
         this.state = {
             newArr: this.props.itemArr,
+            itemHighlight: null,
         };
+        this.updateItem = this.updateItem.bind(this);
     }
-  render() {
+    updateItem(value) {
+        this.setState({itemHighlight: value});
+    }
+    render() {
         let items = this.state.newArr.map((item)=>(
             <ShopItem
                 key={item.name}
@@ -17,6 +22,8 @@ export default class Shop extends React.Component{
                 itemPrice={item.price}
                 itemImg={item.url}
                 itemStock={item.stockBalance}
+                updateItem={this.updateItem}
+                itemStyle={item.name===this.state.itemHighlight?true:false}
             />
         ));
     return (
