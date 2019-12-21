@@ -1,6 +1,7 @@
 import React from 'react';
 import './Shop.css';
 import ShopItem from "./ShopItem";
+import PropTypes from 'prop-types';
 
 export default class Shop extends React.Component{
     constructor(props) {
@@ -35,3 +36,7 @@ export default class Shop extends React.Component{
     )
   }
 }
+Shop.propTypes = {
+    shopName: PropTypes.string,
+    itemArr: PropTypes.array,
+};

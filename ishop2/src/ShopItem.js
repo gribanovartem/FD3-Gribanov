@@ -1,5 +1,6 @@
 import React from 'react';
 import './ShopItem.css';
+import PropTypes from 'prop-types';
 
 export default class ShopItem extends React.Component{
     constructor(props) {
@@ -35,3 +36,11 @@ export default class ShopItem extends React.Component{
         } else return  null;
     }
 }
+ShopItem.propTypes = {
+    itemName: PropTypes.string,
+    itemPrice: PropTypes.number,
+    itemImg: PropTypes.string,
+    itemStock: PropTypes.number,
+    updateItem: PropTypes.func,
+    itemStyle: PropTypes.bool,
+};
