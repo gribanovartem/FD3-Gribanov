@@ -18,12 +18,10 @@ export default class ShopItem extends React.Component{
         EO.stopPropagation();
         let result = window.confirm('Вы уверены, что хотите удалить компонент?');
         if(result) {
-            // this.setState({isShow: false})
             this.props.deleteItem(this.props.id);
         }
     }
     render() {
-        // if(this.state.isShow) {
             return (
                 <div className='shopItem' onClick={this.highlightInColor} style={this.props.itemStyle?{background: 'palegoldenrod'}:{background: 'none'}}>
                     <h2 className='itemName'>{this.props.itemName}</h2>
@@ -32,9 +30,7 @@ export default class ShopItem extends React.Component{
                     <p className='itemStock'>Остаток на складе: {this.props.itemStock}</p>
                     <button onClick={this.deleteComponent}>Delete</button>
                 </div>
-
             )
-        // } else return  null;
     }
 }
 ShopItem.propTypes = {
