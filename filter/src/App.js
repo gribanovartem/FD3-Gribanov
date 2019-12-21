@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import PropTypes from 'prop-types';
 
 export default class App extends React.Component {
     constructor(props) {
@@ -9,38 +10,46 @@ export default class App extends React.Component {
             words: this.props.words,
             regexp: /[а-яА-Я]*/,
             textValue: '',
+            res: this.props.words,
         };
         this.checked= this.checked.bind(this);
         this.changeText= this.changeText.bind(this);
         this.discharge= this.discharge.bind(this);
     }
+
     checked() {
-        if(this.state.checkbox===false) {
-            let wordsToSorted = JSON.parse(JSON.stringify(this.props.words));// копирование Хэша
-            this.setState({checkbox: true});
-            this.setState({words: wordsToSorted.sort()});
-        } else {
-            this.setState({checkbox: false});
-            this.setState({words: this.props.words});
-        }
+            this.setState({checkbox: !this.state.checkbox},this.discharge);
     }
     changeText(EO) {
         let textValue = EO.target.value;
-        this.setState({regexp: new RegExp(textValue), textValue: textValue})
+        this.setState({regexp: new RegExp(textValue), textValue: textValue}, this.discharge);
     }
     discharge() {
-        this.setState({checkbox: false, words: this.props.words, regexp: /[а-яА-Я]*/, textValue: ''});
+        let res = this.state.words;
+        if(this.state.textValue) {
+            res = this.state.words.filter((item)=> {
+                        if (this.state.regexp.test(item)) {
+                            return item;
+                        }
+                        return null;
+                    }
+                );
+        } else {
+            res = this.state.words.slice();
+        }
+        if(this.state.checkbox) {
+            res = res.sort();
+        }
+        this.setState({res: res})
     }
     render() {
-        let wordElements = this.state.words.map((item, index)=> {
-                if (this.state.regexp.test(item)) {
+        let wordElements = this.state.res.map((item, index)=> {
                     return (<p key={index}>{item}</p>)
-                }
             }
         );
         return (
             <div className='filter'>
-                <input type='checkbox' onClick={this.checked} checked={this.state.checkbox}/>
+                <input type='checkbox' onChange={this.checked} checked={this.state.checkbox}/>
                 <input type='text' className='textInput' onChange={this.changeText} value={this.state.textValue}/>
                 <button onClick={this.discharge}>Сброс</button><br/>
                 <div className='textArea'>
@@ -49,4 +58,7 @@ export default class App extends React.Component {
             </div>
         )
     }
+};
+App.propTypes = {
+    words: PropTypes.array,
 };
