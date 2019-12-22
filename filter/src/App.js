@@ -14,17 +14,18 @@ export default class App extends React.Component {
         };
         this.checked= this.checked.bind(this);
         this.changeText= this.changeText.bind(this);
+        this.update= this.update.bind(this);
         this.discharge= this.discharge.bind(this);
     }
 
     checked() {
-            this.setState({checkbox: !this.state.checkbox},this.discharge);
+            this.setState({checkbox: !this.state.checkbox},this.update);
     }
     changeText(EO) {
         let textValue = EO.target.value;
-        this.setState({regexp: new RegExp(textValue), textValue: textValue}, this.discharge);
+        this.setState({regexp: new RegExp(textValue), textValue: textValue}, this.update);
     }
-    discharge() {
+    update() {
         let res = this.state.words;
         if(this.state.textValue) {
             res = this.state.words.filter((item)=> {
@@ -41,6 +42,9 @@ export default class App extends React.Component {
             res = res.sort();
         }
         this.setState({res: res})
+    }
+    discharge() {
+        this.setState({checkbox: false, textValue: '', res: this.props.words})
     }
     render() {
         let wordElements = this.state.res.map((item, index)=> {
