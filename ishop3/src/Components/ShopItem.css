@@ -1,0 +1,38 @@
+.shop .shopItems {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.shop .shopItem {
+    width: 200px;
+    height: 410px;
+    transition-duration: 0.5s;
+}
+.shop .itemName,
+.shop .itemPrice,
+.shop .itemStock {
+    text-align: center;
+}
+.shop .itemImg {
+    max-width: 70%;
+    display: block;
+    margin: 0 auto;
+}
+.shop .shopItem div {
+    display: flex;
+    justify-content: center;
+}
+.shop button {
+    margin: 5px;
+}
+.shop .shopItems .shopItemSelected {
+    margin: 0;
+    width: 200px;
+    height: 410px;
+    background: palegoldenrod;
+}
+.shop .shopItemSelected {
+    margin-top: 50px;
+    width: 200px;
+    height: 410px;
+}
