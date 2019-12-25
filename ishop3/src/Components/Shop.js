@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './Shop.css';
 import PropTypes from 'prop-types';
 import ShopItem from './ShopItem';
+import ShopItemDetail from './ShopItemDetail'
 
 class Shop extends React.Component {
   constructor(props) {
@@ -18,7 +19,6 @@ class Shop extends React.Component {
       this.setState({itemSelectedComponent: index});
   }
   render() {
-      let selectedItem;
       let items = this.props.shopList.map((item,index)=>(
           <ShopItem
               key={item.name}
@@ -32,12 +32,21 @@ class Shop extends React.Component {
               itemStyle={item.id===this.state.itemSelected?true:false}
           />
       ));
-
+      let selectedItem = this.props.shopList[this.state.itemSelectedComponent];
     return (
         <div className="shop">
           <h1>{this.props.shopName}</h1>
           <div className='shopItems'>{items}</div>
-            {items[this.state.itemSelectedComponent]}
+            {(this.state.itemSelectedComponent!==null) &&
+                <ShopItemDetail key={selectedItem.name}
+                                id={selectedItem.id}
+                                itemName={selectedItem.name}
+                                itemPrice={selectedItem.price}
+                                itemImg={selectedItem.url}
+                                itemStock={selectedItem.stockBalance}
+                                description={selectedItem.description}
+                />
+            }
         </div>
     );
   }
