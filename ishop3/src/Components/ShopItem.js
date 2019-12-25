@@ -6,9 +6,17 @@ class ShopItem extends React.Component{
     constructor(props) {
         super(props);
         this.selectItem = this.selectItem.bind(this);
+        this.deleteItem = this.deleteItem.bind(this);
     }
     selectItem() {
-        this.props.updateItem(this.props.id, this.props.index);
+        this.props.updateItem(this.props.id);
+    }
+    deleteItem(EO) {
+        EO.stopPropagation();
+        let result = window.confirm('Вы уверены, что хотите удалить компонент?');
+        if(result) {
+            this.props.deleteItem(this.props.id);
+        }
     }
     render() {
         return (
@@ -19,7 +27,7 @@ class ShopItem extends React.Component{
                 <p className='itemStock'>Остаток на складе: {this.props.itemStock}</p>
                 <div>
                     <button>Редактировать</button>
-                    <button>Удалить</button>
+                    <button onClick={this.deleteItem}>Удалить</button>
                 </div>
 
             </div>
@@ -35,4 +43,5 @@ ShopItem.propTypes = {
     itemImg: PropTypes.string,
     itemStock: PropTypes.number,
     updateItem: PropTypes.func,
+    deleteItem: PropTypes.func,
 };
