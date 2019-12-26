@@ -1,0 +1,16 @@
+.shop .addItem {
+    margin: 10px;
+}
+.shop .addItem input {
+    position: absolute;
+    left: 70px;
+}
+.shop .addItem .button {
+    position: static;
+    margin-top: 15px;
+}
+.shop .addItem .errorValidation {
+    position: absolute;
+    left: 250px;
+    color: red;
+}

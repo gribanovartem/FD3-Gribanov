@@ -3,6 +3,7 @@ import './Shop.css';
 import PropTypes from 'prop-types';
 import ShopItem from './ShopItem';
 import ShopItemDetail from './ShopItemDetail'
+import AddItem from './AddItem'
 
 class Shop extends React.Component {
   constructor(props) {
@@ -10,9 +11,11 @@ class Shop extends React.Component {
       this.state = {
           shopList: this.props.shopList,
           itemSelectedId: null,
+          addFormShow: false,
       };
       this.updateItem = this.updateItem.bind(this);
       this.deleteItem = this.deleteItem.bind(this);
+      this.addForm = this.addForm.bind(this);
   }
   updateItem(id) {
       this.setState({itemSelectedId: id});
@@ -28,6 +31,10 @@ class Shop extends React.Component {
       }
       this.setState({shopList: res});
 
+  }
+  addForm() {
+      this.setState({addFormShow: true});
+      this.setState({itemSelectedId: null});
   }
   render() {
       let items = this.state.shopList.map((item)=>(
@@ -48,6 +55,7 @@ class Shop extends React.Component {
         <div className="shop">
           <h1>{this.props.shopName}</h1>
           <div className='shopItems'>{items}</div>
+            <button onClick={this.addForm}>Новый товар</button>
             {(this.state.itemSelectedId!==null) &&
                 <ShopItemDetail key={selectedItem.name}
                                 id={selectedItem.id}
@@ -57,6 +65,9 @@ class Shop extends React.Component {
                                 itemStock={selectedItem.stockBalance}
                                 description={selectedItem.description}
                 />
+            }
+            {(this.state.addFormShow) &&
+                <AddItem lastId={this.state.shopList[this.state.shopList.length-1].id}/>
             }
         </div>
     );
