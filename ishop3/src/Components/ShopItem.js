@@ -9,15 +9,19 @@ class ShopItem extends React.Component{
         this.deleteItem = this.deleteItem.bind(this);
     }
     selectItem() {
-        this.props.updateItem(this.props.id);
+        (!this.props.disabled) && this.props.updateItem(this.props.id);
     }
     deleteItem(EO) {
-        EO.stopPropagation();
-        let result = window.confirm('Вы уверены, что хотите удалить компонент?');
-        if(result) {
-            this.props.deleteItem(this.props.id);
-        }
+            EO.stopPropagation();
+            let result = window.confirm('Вы уверены, что хотите удалить компонент?');
+            if (result) {
+                this.props.deleteItem(this.props.id);
+            }
     }
+    edit = (EO) => {
+        let itemId = this.props.id;
+        this.props.edit(itemId);
+    };
     render() {
         return (
             <div className={this.props.itemStyle?'shopItemSelected':'shopItem'} onClick={this.selectItem}>
@@ -26,8 +30,8 @@ class ShopItem extends React.Component{
                 <img className='itemImg' src={this.props.itemImg} alt={this.props.itemName}/>
                 <p className='itemStock'>Остаток на складе: {this.props.itemStock}</p>
                 <div>
-                    <button>Редактировать</button>
-                    <button onClick={this.deleteItem}>Удалить</button>
+                    <button disabled={this.props.disabled} onClick={this.edit}>Редактировать</button>
+                    <button disabled={this.props.disabled} onClick={this.deleteItem}>Удалить</button>
                 </div>
 
             </div>
@@ -44,4 +48,6 @@ ShopItem.propTypes = {
     itemStock: PropTypes.number,
     updateItem: PropTypes.func,
     deleteItem: PropTypes.func,
+    edit: PropTypes.func,
+    disabled: PropTypes.bool,
 };

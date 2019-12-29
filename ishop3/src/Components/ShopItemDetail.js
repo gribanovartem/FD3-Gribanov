@@ -3,9 +3,6 @@ import './ShopItemDetail.css';
 import PropTypes from 'prop-types';
 
 class ShopItemDetail extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <div className='shopItemDetail'>
