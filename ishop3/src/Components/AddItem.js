@@ -6,6 +6,7 @@ class AddItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            lastId: this.props.lastId,
             itemName: this.props.itemName,
             itemNameError: this.props.validateMode==='addItem'?true:false,
             itemPrice: this.props.itemPrice,
@@ -15,10 +16,22 @@ class AddItem extends React.Component {
             itemBalance: this.props.itemBalance,
             itemBalanceError: this.props.validateMode==='addItem'?true:false,
             disabled: true,
+            isChange: false,
         };
         this.handleChange = this.handleChange.bind(this);
+
+    }
+    componentDidUpdate(prevProps) {
+        if (this.props.lastId !== prevProps.lastId) {
+            this.setState({ itemName: this.props.itemName,
+                itemPrice: this.props.itemPrice,
+                itemURL: this.props.itemURL,
+                itemBalance: this.props.itemBalance
+            })
+        }
     }
     handleChange(EO) {
+        this.props.change(true);
         const name = EO.target.name;
         const value = EO.target.value;
         this.setState({[name]: value}, changeError);
@@ -65,12 +78,15 @@ class AddItem extends React.Component {
         }
     }
     cancel = () =>  {
+        this.setState({isChange: false});
         this.props.cancel();
     };
     addItem = () => {
+        this.setState({isChange: false});
         this.props.addItem(this.props.lastId, this.state.itemName, this.state.itemPrice, this.state.itemURL, this.state.itemBalance);
     };
     saveItem = () => {
+        this.setState({isChange: false});
         this.props.saveItem(this.props.lastId, this.state.itemName, this.state.itemPrice, this.state.itemURL, this.state.itemBalance);
     };
 
@@ -115,4 +131,5 @@ AddItem.propTypes = {
     disabled: PropTypes.bool,
     cancel: PropTypes.func,
     validateMode: PropTypes.string,
+    change: PropTypes.func,
 };

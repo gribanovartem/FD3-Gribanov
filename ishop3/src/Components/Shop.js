@@ -15,13 +15,18 @@ class Shop extends React.Component {
           validateMode: null,
           disabled: false,
           editItemId: null,
+          isChange: false,
+          editItem: null,
       };
       this.updateItem = this.updateItem.bind(this);
       this.deleteItem = this.deleteItem.bind(this);
       this.addForm = this.addForm.bind(this);
   }
   updateItem(id) {
-      this.setState({itemSelectedId: id});
+      if(this.state.isChange===false) {
+          this.setState({addFormShow: false});
+          this.setState({itemSelectedId: id});
+      }
   }
   deleteItem(id) {
       let res = this.state.shopList.filter(item=>{
@@ -35,6 +40,9 @@ class Shop extends React.Component {
       this.setState({shopList: res});
 
   }
+  change=(change)=> {
+      this.setState({isChange: change})
+  };
   addForm() {
       this.setState({validateMode: 'addItem'});
       this.setState({addFormShow: true});
@@ -57,10 +65,13 @@ class Shop extends React.Component {
   };
   edit = (id) => {
       this.setState({addFormShow: true});
-      this.setState({itemSelectedId: null});
+      this.setState({itemSelectedId: id});
       this.setState({validateMode: 'editItem'});
       this.setState({disabled: true});
       this.setState({editItemId: id});
+      let editItem = this.state.shopList.find(item=> item.id===id);
+      this.setState({editItem: editItem});
+
   };
   saveItem = (id, name, price, url, balance) => {
       let editItem = this.state.shopList.find(item=> item.id===id);
@@ -75,6 +86,7 @@ class Shop extends React.Component {
       this.setState({disabled: false});
       this.setState({itemSelectedId: null});
       this.setState({editItemId: null});
+      this.setState({isChange: false})
   };
     render() {
       let items = this.state.shopList.map((item)=>(
@@ -90,10 +102,11 @@ class Shop extends React.Component {
               edit={this.edit}
               disabled={this.state.disabled}
               itemStyle={item.id===this.state.itemSelectedId?true:false}
+              isChange={this.state.isChange}
           />
       ));
       let selectedItem = this.state.shopList.find(item=> item.id===this.state.itemSelectedId);
-       let editItem = (this.state.editItemId!==null) && this.state.shopList.find(item=> item.id===this.state.editItemId);
+      console.log(this.state.itemSelectedId, this.state.addFormShow);
     return (
         <div className="shop">
           <h1>{this.props.shopName}</h1>
@@ -107,6 +120,7 @@ class Shop extends React.Component {
                                 itemImg={selectedItem.url}
                                 itemStock={selectedItem.stockBalance}
                                 description={selectedItem.description}
+
                 />
             }
             {(this.state.addFormShow) && (this.state.editItemId===null) &&
@@ -118,6 +132,7 @@ class Shop extends React.Component {
                          itemPrice=''
                          itemURL=''
                          itemBalance=''
+                         change= {this.change}
                 />
             }
             {(this.state.addFormShow) && (this.state.editItemId!==null) &&
@@ -125,11 +140,11 @@ class Shop extends React.Component {
                          validateMode={this.state.validateMode}
                          cancel={this.cancel}
                          saveItem={this.saveItem}
-                         itemName={editItem.name}
-                         itemPrice={editItem.price}
-                         itemURL={editItem.url}
-                         itemBalance={editItem.stockBalance}
-
+                         itemName={this.state.editItem.name}
+                         itemPrice={this.state.editItem.price}
+                         itemURL={this.state.editItem.url}
+                         itemBalance={this.state.editItem.stockBalance}
+                         change= {this.change}
                 />
             }
         </div>

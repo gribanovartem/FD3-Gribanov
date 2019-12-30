@@ -9,7 +9,7 @@ class ShopItem extends React.Component{
         this.deleteItem = this.deleteItem.bind(this);
     }
     selectItem() {
-        (!this.props.disabled) && this.props.updateItem(this.props.id);
+        this.props.updateItem(this.props.id);
     }
     deleteItem(EO) {
             EO.stopPropagation();
@@ -19,6 +19,7 @@ class ShopItem extends React.Component{
             }
     }
     edit = (EO) => {
+        EO.stopPropagation();
         let itemId = this.props.id;
         this.props.edit(itemId);
     };
@@ -30,7 +31,7 @@ class ShopItem extends React.Component{
                 <img className='itemImg' src={this.props.itemImg} alt={this.props.itemName}/>
                 <p className='itemStock'>Остаток на складе: {this.props.itemStock}</p>
                 <div>
-                    <button disabled={this.props.disabled} onClick={this.edit}>Редактировать</button>
+                    <button disabled={this.props.isChange && this.props.disabled} onClick={this.edit}>Редактировать</button>
                     <button disabled={this.props.disabled} onClick={this.deleteItem}>Удалить</button>
                 </div>
 
@@ -50,4 +51,5 @@ ShopItem.propTypes = {
     deleteItem: PropTypes.func,
     edit: PropTypes.func,
     disabled: PropTypes.bool,
+    isChange: PropTypes.bool,
 };
