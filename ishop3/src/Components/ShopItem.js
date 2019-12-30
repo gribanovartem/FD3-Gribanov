@@ -31,7 +31,7 @@ class ShopItem extends React.Component{
                 <img className='itemImg' src={this.props.itemImg} alt={this.props.itemName}/>
                 <p className='itemStock'>Остаток на складе: {this.props.itemStock}</p>
                 <div>
-                    <button disabled={this.props.isChange && this.props.disabled} onClick={this.edit}>Редактировать</button>
+                    <button disabled={this.props.validateMode==='addItem'?this.props.disabled:this.props.isChange && this.props.disabled} onClick={this.edit}>Редактировать</button>
                     <button disabled={this.props.disabled} onClick={this.deleteItem}>Удалить</button>
                 </div>
 
@@ -52,4 +52,5 @@ ShopItem.propTypes = {
     edit: PropTypes.func,
     disabled: PropTypes.bool,
     isChange: PropTypes.bool,
+    validateMode: PropTypes.string,
 };

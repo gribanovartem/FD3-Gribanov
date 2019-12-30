@@ -23,7 +23,7 @@ class Shop extends React.Component {
       this.addForm = this.addForm.bind(this);
   }
   updateItem(id) {
-      if(this.state.isChange===false) {
+      if(this.state.isChange===false&&this.state.validateMode!=='addItem') {
           this.setState({addFormShow: false});
           this.setState({itemSelectedId: id});
       }
@@ -62,6 +62,8 @@ class Shop extends React.Component {
       this.setState({disabled: false});
       this.setState({itemSelectedId: null});
       this.setState({editItemId: null});
+      this.setState({isChange: false});
+      this.setState({validateMode: null});
   };
   edit = (id) => {
       this.setState({addFormShow: true});
@@ -103,10 +105,10 @@ class Shop extends React.Component {
               disabled={this.state.disabled}
               itemStyle={item.id===this.state.itemSelectedId?true:false}
               isChange={this.state.isChange}
+              validateMode={this.state.validateMode}
           />
       ));
       let selectedItem = this.state.shopList.find(item=> item.id===this.state.itemSelectedId);
-      console.log(this.state.itemSelectedId, this.state.addFormShow);
     return (
         <div className="shop">
           <h1>{this.props.shopName}</h1>
