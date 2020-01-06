@@ -21,7 +21,7 @@ export default class Shop extends React.Component{
             if(item.id!==itemId) {
                 return item;
             } else return null;
-        })
+        });
         this.setState({newArr: res})
     }
     render() {
