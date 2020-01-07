@@ -9,7 +9,7 @@ class BR2JSX extends React.Component{
     render() {
         let wordsArr = this.props.text.match(/[А-Я,а-я]+/g);
         let element = [];
-        wordsArr.forEach(item=>element.push(item, <br/>));
+        wordsArr.forEach((item,i)=>(i!==wordsArr.length-1)?element.push(item, <br/>):element.push(item));
         return (
             <div className='main'>{element}</div>
         )
