@@ -1,0 +1,27 @@
+.mobileCompany {
+  width: 60%;
+  margin-left: 10px;
+  .button {
+    font-size: 16px;
+    padding: 5px;
+    margin: 10px 0 10px 0;
+  }
+  hr {
+    border: none; /* Убираем границу */
+    background-color: gainsboro; /* Цвет линии */
+    height: 1px; /* Толщина линии */
+  }
+  table {
+    width: 100%;
+    border-color: gainsboro;
+    tr {
+      text-align: center;
+      td.active {
+        background-color: #28A745;
+      }
+      td.blocked {
+        background-color: #DC3545;
+      }
+    }
+  }
+}
