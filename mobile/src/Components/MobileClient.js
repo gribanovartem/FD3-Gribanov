@@ -1,9 +1,16 @@
 import React, {PureComponent} from 'react';
 import './MobileClient.scss';
+import {mobileEvents} from '../events'
 
 class MobileClient extends PureComponent {
     constructor(props) {
         super(props);
+    }
+    delete = () => {
+        mobileEvents.emit('delete',this.props.clientInfo.id);
+    }
+    edit = () => {
+        mobileEvents.emit('edit',this.props.clientInfo);
     }
 
     render() {
@@ -15,8 +22,8 @@ class MobileClient extends PureComponent {
                 <td>{this.props.clientInfo.otch}</td>
                 <td>{this.props.clientInfo.balance}</td>
                 <td className={this.props.active?'active':'blocked'}>{this.props.active?'active':'blocked'}</td>
-                <td><input className='button' type='button' value='Редактировать'/></td>
-                <td><input className='button' type='button' value='Удалить'/></td>
+                <td><input className='button' type='button' value='Редактировать' onClick={this.edit}/></td>
+                <td><input className='button' type='button' value='Удалить' onClick={this.delete}/></td>
             </tr>
         )
     }

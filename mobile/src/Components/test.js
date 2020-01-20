@@ -34,10 +34,29 @@ class MobileCompany extends PureComponent {
             } else return null;
         });
         this.setState({ clients: filteredClients });
+        if (this.state.status === 'all') {
+            this.setState({ clientsForShow: filteredClients });
+        }
+        if (this.state.status === 'active') {
+            filteredClients = filteredClients.filter(client => {
+                if (client.balance >= 0) {
+                    return client;
+                } else return null;
+            });
+            this.setState({ clientsForShow: filteredClients });
+        }
+        if (this.state.status === 'blocked') {
+            filteredClients = filteredClients.filter(client => {
+                if (client.balance < 0) {
+                    return client;
+                } else return null;
+            });
+            this.setState({ clientsForShow: filteredClients });
+        }
     }
     edit = (client) => {
         this.setState({inputMode: 'editItem'});
-            this.setState({editClient: client});
+        this.setState({editClient: client});
     }
     add = (newClient) => {
         let newClients = [...this.state.clients, newClient];
@@ -89,7 +108,7 @@ class MobileCompany extends PureComponent {
 
     render() {
         console.log("MobileCompany render");
-        let clientsJSX = this.state.clients.map(client => {
+        let clientsJSX = this.state.clientsForShow.map(client => {
             return <MobileClient key={client.id} clientInfo={client} active={client.balance >= 0 ? true : false} />
         });
         return (
@@ -120,7 +139,7 @@ class MobileCompany extends PureComponent {
                 </table>
                 <hr />
                 <input className='button' type='button' value='Добавить Клиента' onClick={this.addItem}/>
-                {this.state.inputMode==='addItem'&&<MobileAddOrEdit inputMode={this.state.inputMode} id={this.state.clients[this.state.clients.length-1].id+1}/>}
+                {this.state.inputMode==='addItem'&&<MobileAddOrEdit inputMode={this.state.inputMode}/>}
                 {this.state.inputMode==='editItem'&&<MobileAddOrEdit inputMode={this.state.inputMode} client={this.state.editClient}/>}
             </div>
         )
