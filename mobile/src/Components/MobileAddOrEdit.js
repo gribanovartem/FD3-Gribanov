@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import './MobileAddOrEdit.scss';
 import { mobileEvents } from '../events'
+import PropTypes from 'prop-types';
 
 class MobileAddOrEdit extends PureComponent {
     constructor(props) {
@@ -10,6 +11,15 @@ class MobileAddOrEdit extends PureComponent {
         this.otchRef = React.createRef();
         this.balanceRef = React.createRef();
     }
+    static propTypes = {
+        inputMode: PropTypes.string.isRequired,
+        client: PropTypes.shape({
+            fam: PropTypes.string.isRequired,
+            im: PropTypes.string.isRequired,
+            otch: PropTypes.string.isRequired,
+            balance: PropTypes.number.isRequired,
+            }),
+    };
     add = () => {
         mobileEvents.emit('add',{   
                                     id: this.props.id,
