@@ -7,10 +7,10 @@ class MobileClient extends PureComponent {
         super(props);
     }
     delete = () => {
-        mobileEvents.emit('delete',this.props.clientInfo.id);
+        mobileEvents.emit('deleteClient',this.props.clientInfo.id);
     }
     edit = () => {
-        mobileEvents.emit('edit',this.props.clientInfo);
+        mobileEvents.emit('editClient',this.props.clientInfo);
     }
 
     render() {

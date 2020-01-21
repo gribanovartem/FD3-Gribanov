@@ -21,7 +21,7 @@ class MobileAddOrEdit extends PureComponent {
             }),
     };
     add = () => {
-        mobileEvents.emit('add',{   
+        mobileEvents.emit('addClient',{   
                                     id: this.props.id,
                                     fam: this.famRef.current.value,
                                     im: this.imRef.current.value,
@@ -33,27 +33,26 @@ class MobileAddOrEdit extends PureComponent {
         console.log('dddddddddddddddddddd');
     }
     render() {
-        console.log(this.props.inputMode +" render");
-        console.log(this.props.inputMode+' '+this.props.client.fam);
+        console.log('MobileAddOrEdit' +" render");
         return (
             <div className='textInput'>
-                <h1>{this.props.inputMode === 'addItem' ? 'Добавление товара' : 'Редактирование товара'}</h1>
+                <h1>{this.props.inputMode === 'addClient' ? 'Добавление товара' : 'Редактирование товара'}</h1>
                 <form className='addItem'>
                     <label>Фамилия
-                        <input name='fam' type='text' defaultValue={this.props.inputMode==='editItem'?this.props.client.fam:''}  ref={this.famRef} />
+                        <input name='fam' type='text' defaultValue={this.props.inputMode==='editClient'?this.props.client.fam:''}  ref={this.famRef} />
                     </label><br/>
                     <label>Имя
-                        <input name='im' type='text' defaultValue={this.props.inputMode==='editItem'?this.props.client.im:''} ref={this.imRef} />
+                        <input name='im' type='text' defaultValue={this.props.inputMode==='editClient'?this.props.client.im:''} ref={this.imRef} />
                     </label><br/>
                     <label>Отчество
-                        <input name='otch' type='text' defaultValue={this.props.inputMode==='editItem'?this.props.client.otch:''} ref={this.otchRef} />
+                        <input name='otch' type='text' defaultValue={this.props.inputMode==='editClient'?this.props.client.otch:''} ref={this.otchRef} />
                     </label><br/>
                     <label>Баланс
-                        <input name='balance' type='text' defaultValue={this.props.inputMode==='editItem'?this.props.client.balance:''} ref={this.balanceRef} />
+                        <input name='balance' type='text' defaultValue={this.props.inputMode==='editClient'?this.props.client.balance:''} ref={this.balanceRef} />
                     </label>
                 </form>
-                {this.props.inputMode==='addItem'&&<input className='button' type="button" value='Добавить' onClick={this.add}/>}
-                {this.props.inputMode==='editItem'&&<input className='button' type="button" value='Изменить' onClick={this.edit}/>}
+                {this.props.inputMode==='addClient'&&<input className='button' type="button" value='Добавить' onClick={this.add}/>}
+                {this.props.inputMode==='editClient'&&<input className='button' type="button" value='Изменить' onClick={this.edit}/>}
                 
             </div>
         )

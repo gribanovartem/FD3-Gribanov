@@ -17,15 +17,84 @@ class MobileCompany extends PureComponent {
         }
     }
     componentDidMount = () => {
-        mobileEvents.addListener('delete', this.delete);
-        mobileEvents.addListener('edit', this.edit);
-        mobileEvents.addListener('add', this.add);
+        mobileEvents.addListener('deleteClient', this.delete);
+        mobileEvents.addListener('editClient', this.editClient);
+        mobileEvents.addListener('addClient', this.add);
     };
     componentWillUnmount = () => {
-        mobileEvents.removeListener('delete', this.delete);
-        mobileEvents.removeListener('edit', this.edit);
-        mobileEvents.removeListener('add', this.add);
+        mobileEvents.removeListener('deleteClient', this.delete);
+        mobileEvents.removeListener('editClient', this.editClient);
+        mobileEvents.removeListener('addClient', this.add);
     };
+            // Кнопки "добавить" и "изменить" у компонента MobileAddOrEdit
+    add = (newClient) => {
+        let newClients = [...this.state.clients, newClient];
+        this.setState({clients: newClients});
+    }
+    edit = () => {
+
+    }
+            /* ********************************************************** */
+            // Изменение имени
+    setNameVelcom = () => {
+        this.setState({ nameCompany: 'Velcom' });
+    };
+    setNameMTS = () => {
+        this.setState({ nameCompany: 'MTS' });
+    };
+            // Фильтрация
+    showActive = () => {
+        this.setState({ status: 'active' });
+        let filteredClients = this.state.clients.filter(client => {
+            if (client.balance >= 0) {
+                return client;
+            } else return null;
+        });
+        this.setState({ clientsForShow: filteredClients });
+    };
+    showAll = () => {
+        this.setState({ status: 'all' });
+        this.setState({ clientsForShow: this.state.clients });
+    };
+    showBlocked = () => {
+        this.setState({ status: 'blocked' });
+        let filteredClients = this.state.clients.filter(client => {
+            if (client.balance < 0) {
+                return client;
+            } else return null;
+        });
+        this.setState({ clientsForShow: filteredClients });
+    };
+    // filter = () => {
+    //     if (this.state.status === 'all') {
+    //         this.setState({ clientsForShow: this.state.clients });
+    //     }
+    //     if (this.state.status === 'active') {
+    //         let filteredClients = this.state.clients.filter(client => {
+    //             if (client.balance >= 0) {
+    //                 return client;
+    //             } else return null;
+    //         });
+    //         this.setState({ clientsForShow: filteredClients });
+    //     }
+    //     if (this.state.status === 'blocked') {
+    //         let filteredClients = this.state.clients.filter(client => {
+    //             if (client.balance < 0) {
+    //                 return client;
+    //             } else return null;
+    //         });
+    //         this.setState({ clientsForShow: filteredClients });
+    //     }
+    // }
+            /* ********************************************************** */
+            // Кнопки у клиентов
+    addClient = () => {
+        this.setState({inputMode: 'addClient'});
+    }
+    editClient = (client) => {
+        this.setState({inputMode: 'editClient'});
+            this.setState({editClient: client});
+    }
     delete = (id) => {
         let newClients = [...this.state.clients];
         let filteredClients = newClients.filter(client => {
@@ -34,62 +103,12 @@ class MobileCompany extends PureComponent {
             } else return null;
         });
         this.setState({ clients: filteredClients });
+        this.setState({ inputMode: null });
     }
-    edit = (client) => {
-        this.setState({inputMode: 'editItem'});
-            this.setState({editClient: client});
-    }
-    add = (newClient) => {
-        let newClients = [...this.state.clients, newClient];
-        this.setState({clients: newClients});
-    }
-     // Изменение имени
-    setNameVelcom = () => {
-        this.setState({ nameCompany: 'Velcom' });
-    };
-    setNameMTS = () => {
-        this.setState({ nameCompany: 'MTS' });
-    };
-    // Фильтрация
-    showActive = () => {
-        if (this.state.status !== 'active') {
-            let newClients = [...this.state.clients];
-            let filteredClients = newClients.filter(client => {
-                if (client.balance >= 0) {
-                    return client;
-                } else return null;
-            });
-            this.setState({ status: 'active' });
-            this.setState({ clientsForShow: filteredClients });
-        }
-
-    };
-    showAll = () => {
-        if (this.state.status !== 'all') {
-            this.setState({ status: 'all' });
-            this.setState({ clientsForShow: this.state.clients });
-        }
-    };
-    showBlocked = () => {
-        if (this.state.status !== 'blocked') {
-            let newClients = [...this.state.clients];
-            let filteredClients = newClients.filter(client => {
-                if (client.balance < 0) {
-                    return client;
-                } else return null;
-            });
-
-            this.setState({ status: 'blocked' });
-            this.setState({ clientsForShow: filteredClients });
-        }
-    };
-    addItem = () => {
-        this.setState({inputMode: 'addItem'});
-    }
-
+        /* ************************************************************* */
     render() {
         console.log("MobileCompany render");
-        let clientsJSX = this.state.clients.map(client => {
+        let clientsJSX = this.state.clientsForShow.map(client => {
             return <MobileClient key={client.id} clientInfo={client} active={client.balance >= 0 ? true : false} />
         });
         return (
@@ -119,9 +138,9 @@ class MobileCompany extends PureComponent {
                     </tbody>
                 </table>
                 <hr />
-                <input className='button' type='button' value='Добавить Клиента' onClick={this.addItem}/>
-                {this.state.inputMode==='addItem'&&<MobileAddOrEdit inputMode={this.state.inputMode} id={this.state.clients[this.state.clients.length-1].id+1}/>}
-                {this.state.inputMode==='editItem'&&<MobileAddOrEdit inputMode={this.state.inputMode} client={this.state.editClient}/>}
+                <input className='button' type='button' value='Добавить Клиента' onClick={this.addClient}/>
+                {this.state.inputMode==='addClient'&&<MobileAddOrEdit inputMode={this.state.inputMode} id={this.state.clients[this.state.clients.length-1].id+1}/>}
+                {this.state.inputMode==='editClient'&&<MobileAddOrEdit key={this.state.editClient.id} inputMode={this.state.inputMode} client={this.state.editClient}/>}
             </div>
         )
     }
