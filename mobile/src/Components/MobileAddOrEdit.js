@@ -12,8 +12,10 @@ class MobileAddOrEdit extends PureComponent {
         this.balanceRef = React.createRef();
     }
     static propTypes = {
+        id: PropTypes.number,
         inputMode: PropTypes.string.isRequired,
         client: PropTypes.shape({
+            id: PropTypes.number.isRequired,
             fam: PropTypes.string.isRequired,
             im: PropTypes.string.isRequired,
             otch: PropTypes.string.isRequired,
@@ -39,7 +41,7 @@ class MobileAddOrEdit extends PureComponent {
                                 });
     }
     render() {
-        console.log('MobileAddOrEdit' +" render");
+        console.log('MobileAddOrEdit render');
         return (
             <div className='textInput'>
                 <h1>{this.props.inputMode === 'addClient' ? 'Добавление товара' : 'Редактирование товара'}</h1>

@@ -1,11 +1,19 @@
 import React, {PureComponent} from 'react';
 import './MobileClient.scss';
-import {mobileEvents} from '../events'
+import {mobileEvents} from '../events';
+import PropTypes from 'prop-types';
 
 class MobileClient extends PureComponent {
-    constructor(props) {
-        super(props);
-    }
+    static propTypes = {
+        active: PropTypes.bool.isRequired,
+        clientInfo: PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            fam: PropTypes.string.isRequired,
+            im: PropTypes.string.isRequired,
+            otch: PropTypes.string.isRequired,
+            balance: PropTypes.number.isRequired,
+            }),
+    };
     delete = () => {
         mobileEvents.emit('deleteClient',this.props.clientInfo.id);
     }
