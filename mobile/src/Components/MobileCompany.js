@@ -19,81 +19,56 @@ class MobileCompany extends PureComponent {
     componentDidMount = () => {
         mobileEvents.addListener('deleteClient', this.delete);
         mobileEvents.addListener('editClient', this.editClient);
+        mobileEvents.addListener('edit', this.edit);
         mobileEvents.addListener('addClient', this.add);
     };
     componentWillUnmount = () => {
         mobileEvents.removeListener('deleteClient', this.delete);
         mobileEvents.removeListener('editClient', this.editClient);
+        mobileEvents.removeListener('edit', this.edit);
         mobileEvents.removeListener('addClient', this.add);
     };
-            // Кнопки "добавить" и "изменить" у компонента MobileAddOrEdit
+    // Кнопки "добавить" и "изменить" у компонента MobileAddOrEdit
     add = (newClient) => {
         let newClients = [...this.state.clients, newClient];
-        this.setState({clients: newClients});
+        this.setState({ clients: newClients });
+        this.setState({ inputMode: null });
     }
-    edit = () => {
-
+    edit = (editClient) => {
+        let clients = this.state.clients.map((client)=>{
+            if(client.id===editClient.id) {
+                return editClient;
+            } else return client;
+        });
+        this.setState({ clients: clients });
+        this.setState({ inputMode: null });
     }
-            /* ********************************************************** */
-            // Изменение имени
+    /* ********************************************************** */
+    // Изменение имени
     setNameVelcom = () => {
         this.setState({ nameCompany: 'Velcom' });
     };
     setNameMTS = () => {
         this.setState({ nameCompany: 'MTS' });
     };
-            // Фильтрация
+    // Фильтрация
     showActive = () => {
         this.setState({ status: 'active' });
-        let filteredClients = this.state.clients.filter(client => {
-            if (client.balance >= 0) {
-                return client;
-            } else return null;
-        });
-        this.setState({ clientsForShow: filteredClients });
     };
     showAll = () => {
         this.setState({ status: 'all' });
-        this.setState({ clientsForShow: this.state.clients });
     };
     showBlocked = () => {
         this.setState({ status: 'blocked' });
-        let filteredClients = this.state.clients.filter(client => {
-            if (client.balance < 0) {
-                return client;
-            } else return null;
-        });
-        this.setState({ clientsForShow: filteredClients });
     };
-    // filter = () => {
-    //     if (this.state.status === 'all') {
-    //         this.setState({ clientsForShow: this.state.clients });
-    //     }
-    //     if (this.state.status === 'active') {
-    //         let filteredClients = this.state.clients.filter(client => {
-    //             if (client.balance >= 0) {
-    //                 return client;
-    //             } else return null;
-    //         });
-    //         this.setState({ clientsForShow: filteredClients });
-    //     }
-    //     if (this.state.status === 'blocked') {
-    //         let filteredClients = this.state.clients.filter(client => {
-    //             if (client.balance < 0) {
-    //                 return client;
-    //             } else return null;
-    //         });
-    //         this.setState({ clientsForShow: filteredClients });
-    //     }
-    // }
-            /* ********************************************************** */
-            // Кнопки у клиентов
+    /* ********************************************************** */
+    // Кнопки у клиентов
     addClient = () => {
-        this.setState({inputMode: 'addClient'});
+        this.setState({ inputMode: 'addClient' });
     }
     editClient = (client) => {
-        this.setState({inputMode: 'editClient'});
-            this.setState({editClient: client});
+        this.setState({ inputMode: 'editClient' });
+        this.setState({ editClient: client });
     }
     delete = (id) => {
         let newClients = [...this.state.clients];
@@ -105,10 +80,29 @@ class MobileCompany extends PureComponent {
         this.setState({ clients: filteredClients });
         this.setState({ inputMode: null });
     }
-        /* ************************************************************* */
+    /* ************************************************************* */
     render() {
         console.log("MobileCompany render");
-        let clientsJSX = this.state.clientsForShow.map(client => {
+        
+        let clientsForShow;
+        if (this.state.status === 'all') {
+            clientsForShow = this.state.clients;
+        }
+        if (this.state.status === 'active') {
+            clientsForShow = this.state.clients.filter(client => {
+                if (client.balance >= 0) {
+                    return client;
+                } else return null;
+            });
+        }
+        if (this.state.status === 'blocked') {
+            clientsForShow = this.state.clients.filter(client => {
+                if (client.balance < 0) {
+                    return client;
+                } else return null;
+            });
+        }
+        let clientsJSX = clientsForShow.map(client => {
             return <MobileClient key={client.id} clientInfo={client} active={client.balance >= 0 ? true : false} />
         });
         return (
@@ -138,9 +132,9 @@ class MobileCompany extends PureComponent {
                     </tbody>
                 </table>
                 <hr />
-                <input className='button' type='button' value='Добавить Клиента' onClick={this.addClient}/>
-                {this.state.inputMode==='addClient'&&<MobileAddOrEdit inputMode={this.state.inputMode} id={this.state.clients[this.state.clients.length-1].id+1}/>}
-                {this.state.inputMode==='editClient'&&<MobileAddOrEdit key={this.state.editClient.id} inputMode={this.state.inputMode} client={this.state.editClient}/>}
+                <input className='button' type='button' value='Добавить Клиента' onClick={this.addClient} />
+                {this.state.inputMode === 'addClient' && <MobileAddOrEdit inputMode={this.state.inputMode} id={this.state.clients[this.state.clients.length - 1].id + 1} />}
+                {this.state.inputMode === 'editClient' && <MobileAddOrEdit key={this.state.editClient.id} inputMode={this.state.inputMode} client={this.state.editClient} />}
             </div>
         )
     }

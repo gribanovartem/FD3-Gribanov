@@ -22,15 +22,21 @@ class MobileAddOrEdit extends PureComponent {
     };
     add = () => {
         mobileEvents.emit('addClient',{   
-                                    id: this.props.id,
+                                        id: this.props.id,
+                                        fam: this.famRef.current.value,
+                                        im: this.imRef.current.value,
+                                        otch: this.otchRef.current.value,
+                                        balance: parseInt(this.balanceRef.current.value),
+                                    });
+    }
+    edit = () => {
+        mobileEvents.emit('edit',{   
+                                    id: this.props.client.id,
                                     fam: this.famRef.current.value,
                                     im: this.imRef.current.value,
                                     otch: this.otchRef.current.value,
-                                    balance: this.balanceRef.current.value,
+                                    balance: parseInt(this.balanceRef.current.value),
                                 });
-    }
-    edit = () => {
-        console.log('dddddddddddddddddddd');
     }
     render() {
         console.log('MobileAddOrEdit' +" render");
