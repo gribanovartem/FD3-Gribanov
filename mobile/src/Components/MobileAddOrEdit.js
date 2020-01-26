@@ -41,13 +41,13 @@ class MobileAddOrEdit extends PureComponent {
                                 });
     }
     render() {
-        console.log('MobileAddOrEdit render');
+        // console.log('MobileAddOrEdit render');
         return (
             <div className='textInput'>
                 <h1>{this.props.inputMode === 'addClient' ? 'Добавление товара' : 'Редактирование товара'}</h1>
                 <form className='addItem'>
                     <label>Фамилия
-                        <input name='fam' type='text' defaultValue={this.props.inputMode==='editClient'?this.props.client.fam:''}  ref={this.famRef} />
+                        <input name='fam' className='fam' type='text' defaultValue={this.props.inputMode==='editClient'?this.props.client.fam:''}  ref={this.famRef} />
                     </label><br/>
                     <label>Имя
                         <input name='im' type='text' defaultValue={this.props.inputMode==='editClient'?this.props.client.im:''} ref={this.imRef} />
@@ -59,7 +59,7 @@ class MobileAddOrEdit extends PureComponent {
                         <input name='balance' type='text' defaultValue={this.props.inputMode==='editClient'?this.props.client.balance:''} ref={this.balanceRef} />
                     </label>
                 </form>
-                {this.props.inputMode==='addClient'&&<input className='button' type="button" value='Добавить' onClick={this.add}/>}
+                {this.props.inputMode==='addClient'&&<input className='button finalAdd' type="button" value='Добавить' onClick={this.add}/>}
                 {this.props.inputMode==='editClient'&&<input className='button' type="button" value='Изменить' onClick={this.edit}/>}
                 
             </div>

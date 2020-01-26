@@ -11,7 +11,7 @@ class MobileCompany extends PureComponent {
             nameCompany: 'Velcom',
             clients: this.props.clients,
             status: 'all',
-            clientsForShow: this.props.clients,
+            // clientsForShow: this.props.clients,
             inputMode: null,
             editClient: null,
         }
@@ -46,7 +46,7 @@ class MobileCompany extends PureComponent {
     /* ********************************************************** */
     // Изменение имени
     setNameVelcom = () => {
-        this.setState({ nameCompany: 'Velcom' });
+        this.setState({ nameCompany: 'Velcom' });   
     };
     setNameMTS = () => {
         this.setState({ nameCompany: 'MTS' });
@@ -67,8 +67,8 @@ class MobileCompany extends PureComponent {
         this.setState({ inputMode: 'addClient' });
     }
     editClient = (client) => {
-        this.setState({ inputMode: 'editClient' });
         this.setState({ editClient: client });
+        this.setState({ inputMode: 'editClient' });
     }
     delete = (id) => {
         let newClients = [...this.state.clients];
@@ -82,8 +82,7 @@ class MobileCompany extends PureComponent {
     }
     /* ************************************************************* */
     render() {
-        console.log("MobileCompany render");
-        
+        // console.log("MobileCompany render");
         let clientsForShow;
         if (this.state.status === 'all') {
             clientsForShow = this.state.clients;
@@ -111,9 +110,9 @@ class MobileCompany extends PureComponent {
                 <input className='button' type='button' value='MTS' onClick={this.setNameMTS} />
                 <p>Компания: {this.state.nameCompany}</p>
                 <hr />
-                <input className='button' type='button' value='Все' onClick={this.showAll} />
-                <input className='button' type='button' value='Активные' onClick={this.showActive} />
-                <input className='button' type='button' value='Заблокированные' onClick={this.showBlocked} />
+                <input className='button all' type='button' value='Все' onClick={this.showAll} />
+                <input className='button active' type='button' value='Активные' onClick={this.showActive} />
+                <input className='button blocked' type='button' value='Заблокированные' onClick={this.showBlocked} />
                 <hr />
                 <table rules='rows'>
                     <thead>
@@ -132,8 +131,9 @@ class MobileCompany extends PureComponent {
                     </tbody>
                 </table>
                 <hr />
-                <input className='button' type='button' value='Добавить Клиента' onClick={this.addClient} />
+                <input className='button addButton' type='button' value='Добавить Клиента' onClick={this.addClient} />
                 {this.state.inputMode === 'addClient' && <MobileAddOrEdit inputMode={this.state.inputMode} id={this.state.clients[this.state.clients.length - 1].id + 1} />}
+                {/* {this.state.inputMode === 'editClient' && <MobileAddOrEdit key={this.state.editClient.id} inputMode={this.state.inputMode} client={this.state.editClient} />} */}
                 {this.state.inputMode === 'editClient' && <MobileAddOrEdit key={this.state.editClient.id} inputMode={this.state.inputMode} client={this.state.editClient} />}
             </div>
         )
