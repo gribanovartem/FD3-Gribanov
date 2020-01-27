@@ -30,7 +30,7 @@ class MobileClient extends PureComponent {
                 <td>{this.props.clientInfo.otch}</td>
                 <td>{this.props.clientInfo.balance}</td>
                 <td className={this.props.active?'active':'blocked'}>{this.props.active?'active':'blocked'}</td>
-                <td><input id={this.props.id} className='button' type='button' value='Редактировать' onClick={this.edit}/></td>
+                <td><input id={this.props.id} className='button editButton' type='button' value='Редактировать' onClick={this.edit}/></td>
                 <td><input className='button' type='button' value='Удалить' onClick={this.delete}/></td>
             </tr>
         )

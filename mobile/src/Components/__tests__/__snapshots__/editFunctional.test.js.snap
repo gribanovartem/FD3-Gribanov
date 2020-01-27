@@ -89,7 +89,7 @@ exports[` 1`] = `
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -124,7 +124,7 @@ exports[` 1`] = `
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -159,7 +159,7 @@ exports[` 1`] = `
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -194,7 +194,7 @@ exports[` 1`] = `
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -221,7 +221,7 @@ exports[` 1`] = `
 </div>
 `;
 
-exports[`Button Edit in MobileClient should render MobileAddOrEdit component with data in defaultValue client[0] 1`] = `
+exports[`Testing edit button in MobileClient should render MobileAddOrEdit component when clicked 1`] = `
 <div
   className="mobileCompany"
 >
@@ -310,7 +310,7 @@ exports[`Button Edit in MobileClient should render MobileAddOrEdit component wit
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -345,7 +345,7 @@ exports[`Button Edit in MobileClient should render MobileAddOrEdit component wit
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -380,7 +380,7 @@ exports[`Button Edit in MobileClient should render MobileAddOrEdit component wit
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -415,7 +415,7 @@ exports[`Button Edit in MobileClient should render MobileAddOrEdit component wit
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -495,7 +495,7 @@ exports[`Button Edit in MobileClient should render MobileAddOrEdit component wit
 </div>
 `;
 
-exports[`Button Edit in MobileClient should render MobileAddOrEdit component with data in defaultValue client[1] 1`] = `
+exports[`Testing edit button in MobileClient should render MobileAddOrEdit component when clicked 2`] = `
 <div
   className="mobileCompany"
 >
@@ -584,7 +584,7 @@ exports[`Button Edit in MobileClient should render MobileAddOrEdit component wit
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -619,7 +619,7 @@ exports[`Button Edit in MobileClient should render MobileAddOrEdit component wit
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -654,7 +654,7 @@ exports[`Button Edit in MobileClient should render MobileAddOrEdit component wit
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -689,7 +689,7 @@ exports[`Button Edit in MobileClient should render MobileAddOrEdit component wit
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -769,7 +769,7 @@ exports[`Button Edit in MobileClient should render MobileAddOrEdit component wit
 </div>
 `;
 
-exports[`Button Edit in MobileClient should render MobileAddOrEdit component with data in defaultValue client[2] 1`] = `
+exports[`Testing edit button in MobileClient should render MobileAddOrEdit component when clicked 3`] = `
 <div
   className="mobileCompany"
 >
@@ -858,7 +858,7 @@ exports[`Button Edit in MobileClient should render MobileAddOrEdit component wit
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -893,7 +893,7 @@ exports[`Button Edit in MobileClient should render MobileAddOrEdit component wit
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -928,7 +928,7 @@ exports[`Button Edit in MobileClient should render MobileAddOrEdit component wit
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -963,7 +963,7 @@ exports[`Button Edit in MobileClient should render MobileAddOrEdit component wit
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -1043,7 +1043,7 @@ exports[`Button Edit in MobileClient should render MobileAddOrEdit component wit
 </div>
 `;
 
-exports[`Button Edit in MobileClient should render MobileAddOrEdit component with data in defaultValue client[3] 1`] = `
+exports[`Testing edit button in MobileClient should render MobileAddOrEdit component when clicked 4`] = `
 <div
   className="mobileCompany"
 >
@@ -1132,7 +1132,7 @@ exports[`Button Edit in MobileClient should render MobileAddOrEdit component wit
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -1167,7 +1167,7 @@ exports[`Button Edit in MobileClient should render MobileAddOrEdit component wit
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -1202,7 +1202,7 @@ exports[`Button Edit in MobileClient should render MobileAddOrEdit component wit
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -1237,7 +1237,7 @@ exports[`Button Edit in MobileClient should render MobileAddOrEdit component wit
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"

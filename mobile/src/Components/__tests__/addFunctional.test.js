@@ -15,14 +15,5 @@ test('Testing add button in MobileClient', () => {
     button.props.onClick();
     componentTree=component.toJSON();
     expect(componentTree).toMatchSnapshot();
-    //находим инпут с фамилией, меняем значение
-    const famInput = component.root.findByProps({className: 'fam'}); 
-    famInput.value = 'жираф';
-    ReactTestUtils.Simulate.change(famInput);
-    //находим кнопку "добавить" в форме, нажимаем и делаем снимок
-    const finalButton = component.root.findByProps({className: 'button finalAdd'}); 
-    finalButton.props.onClick();
-    componentTree=component.toJSON();
-    expect(componentTree).toMatchSnapshot();
-
+    
   });

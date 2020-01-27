@@ -89,7 +89,7 @@ exports[` 1`] = `
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -124,7 +124,7 @@ exports[` 1`] = `
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -159,7 +159,7 @@ exports[` 1`] = `
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -194,7 +194,7 @@ exports[` 1`] = `
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -310,7 +310,7 @@ exports[`Button Delete should delete Client when clicked 1`] = `
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -345,7 +345,7 @@ exports[`Button Delete should delete Client when clicked 1`] = `
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -380,7 +380,7 @@ exports[`Button Delete should delete Client when clicked 1`] = `
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -496,7 +496,7 @@ exports[`Button Delete should delete Client when clicked 2`] = `
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -531,7 +531,7 @@ exports[`Button Delete should delete Client when clicked 2`] = `
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
@@ -647,7 +647,7 @@ exports[`Button Delete should delete Client when clicked 3`] = `
         </td>
         <td>
           <input
-            className="button"
+            className="button editButton"
             onClick={[Function]}
             type="button"
             value="Редактировать"
