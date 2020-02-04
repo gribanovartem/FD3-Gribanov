@@ -1,0 +1,17 @@
+.mobile {
+    width: 200px;
+}
+.itemImg {
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+}
+.itemName,
+.itemPrice,
+.itemIDescription,
+.itemStock {
+    text-align: center;
+}
+.select {
+    background-color: aquamarine;
+}

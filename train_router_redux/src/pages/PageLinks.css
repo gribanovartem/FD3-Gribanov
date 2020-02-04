@@ -1,0 +1,10 @@
+.PageLink {
+    margin:  10px;
+}
+.ActivePageLink {
+    font-weight: bold;
+}
+.nav {
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 123,
+    "name": "Samsung Galaxy A50",
+    "description" : "Android, экран 6.4\" AMOLED (1080x2340), Exynos 9610, ОЗУ 4 ГБ, флэш-память 64 ГБ, карты памяти, камера 25 Мп, аккумулятор 4000 мАч, 2 SIM",
+    "price": 490,
+    "url": "https://content2.onliner.by/catalog/device/main/c93a1df6be27222912d27530201d7d7a.jpeg",
+    "stockBalance": 50
+  },
+  {
+    "id": 124,
+    "name": "Xiaomi Redmi Note 8 Pro",
+    "description" : "Android, экран 6.53\" IPS (1080x2340), Mediatek Helio G90T, ОЗУ 6 ГБ, флэш-память 128 ГБ, карты памяти, камера 64 Мп, аккумулятор 4500 мАч, 2 SIM",
+    "price": 543,
+    "url": "https://content2.onliner.by/catalog/device/main/e16c6a794798c03985a53861f42a1da9.jpeg",
+    "stockBalance": 40
+  },
+  {
+    "id": 125,
+    "name": "Apple iPhone XR",
+    "description" : "Apple iOS, экран 6.1\" IPS (828x1792), Apple A12 Bionic, ОЗУ 3 ГБ, флэш-память 128 ГБ, камера 12 Мп, аккумулятор 2942 мАч, 1 SIM",
+    "price": 1550,
+    "url": "https://content2.onliner.by/catalog/device/main/712401a310828d6293a3761d878fb37a.jpeg",
+    "stockBalance": 20
+  },
+  {
+    "id": 126,
+    "name": "Apple iPhone 11",
+    "description" : "Apple iOS, экран 6.1\" IPS (828x1792), Apple A13 Bionic, ОЗУ 4 ГБ, флэш-память 64 ГБ, камера 12 Мп, аккумулятор 3046 мАч, 1 SIM",
+    "price": 1890,
+    "url": "https://content2.onliner.by/catalog/device/main/e2189f90f9088975c553ec33431fc186.jpeg",
+    "stockBalance": 15
+  },
+  {
+    "id": 127,
+    "name": "Samsung Galaxy S10e G970",
+    "description" : "Android, экран 5.8\" AMOLED (1080x2280), Exynos 9820, ОЗУ 6 ГБ, флэш-память 128 ГБ, карты памяти, камера 12 Мп, аккумулятор 3100 мАч, 2 SIM",
+    "price": 1195,
+    "url": "https://content2.onliner.by/catalog/device/main/b2c0f7fa25003ccad4d9c494ba4a7d46.jpeg",
+    "stockBalance": 32
+  }
+]
