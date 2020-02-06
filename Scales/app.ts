@@ -21,12 +21,9 @@ class Scales {
 
 };
 
-class Product extends Scales {
+class Product {
     scale:number;
     name:string;
-    constructor() {
-        super();
-    };
     getScale():number {
         return this.scale;
     };
