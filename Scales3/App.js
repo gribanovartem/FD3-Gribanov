@@ -1,23 +1,29 @@
 ;
-;
 var Scales = /** @class */ (function () {
     function Scales(storage) {
         this.storage = storage;
-        this.productArray = storage.items;
     }
     ;
     Scales.prototype.getSumScale = function () {
-        var num = this.productArray.reduce(function (sum, item) {
-            return sum + item.getScale();
-        }, 0);
-        return num;
+        var scale = 0;
+        var productsLength = this.storage.getCount();
+        for (var i = 0; i < productsLength; i++) {
+            var item = this.storage.getItem(i);
+            scale += item.getScale();
+        }
+        ;
+        return scale;
     };
     ;
     Scales.prototype.getNameList = function () {
-        var list = this.productArray.map(function (item) {
-            return item.getName();
-        });
-        return list;
+        var nameList = [];
+        var productsLength = this.storage.getCount();
+        for (var i = 0; i < productsLength; i++) {
+            var item = this.storage.getItem(i);
+            nameList.push(item.getName());
+        }
+        ;
+        return nameList;
     };
     ;
     Scales.prototype.addItem = function (item) {
@@ -78,8 +84,8 @@ var ScalesStorageEngineLocalStorage = /** @class */ (function () {
         }
         else {
             this.items = [];
+            localStorage.setItem('products', JSON.stringify(this.items));
         }
-        localStorage.setItem('products', JSON.stringify(this.items));
     }
     ;
     ScalesStorageEngineLocalStorage.prototype.addItem = function (item) {
@@ -96,7 +102,8 @@ var ScalesStorageEngineLocalStorage = /** @class */ (function () {
     ;
     ScalesStorageEngineLocalStorage.prototype.getItem = function (index) {
         var locArray = JSON.parse(localStorage.getItem('products'));
-        return locArray[index];
+        var product = new Product(locArray[index].name, locArray[index].scale);
+        return product;
     };
     ;
     ScalesStorageEngineLocalStorage.prototype.getCount = function () {

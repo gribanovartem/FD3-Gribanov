@@ -1,33 +1,32 @@
 interface IStorageEngine {
-    items:Array<Product>;
     addItem(item:Product):void;
     getItem(index:number):Product;
     getCount():number;
 };
-interface IScalable {
-    getScale():number;
-    getName():string;
-};
 
 class Scales <StorageEngine extends IStorageEngine> {
-    private productArray:Product[];
     private storage:StorageEngine;
     constructor(storage:StorageEngine) {
         this.storage = storage;
-        this.productArray=storage.items;
-        
     };
     public getSumScale():number {
-        let num = this.productArray.reduce((sum:number, item:IScalable)=>{
-            return sum + item.getScale();
-        }, 0);
-        return num;
+        let scale:number = 0;
+        let productsLength:number = this.storage.getCount();
+        for(let i:number=0; i<productsLength; i++) {
+            let item:Product = this.storage.getItem(i);
+            scale+=item.getScale();
+        };
+        return scale;
     };
     public getNameList():string[] {
-        let list = this.productArray.map((item:IScalable)=>{
-            return item.getName();
-        })
-        return list;
+        let nameList:string[] = [];
+        let productsLength:number = this.storage.getCount();
+        
+        for(let i:number=0; i<productsLength; i++) {
+            let item:Product = this.storage.getItem(i);
+            nameList.push(item.getName());
+        };
+        return nameList;
     };
     public addItem(item:Product):void {
         this.storage.addItem(item);
@@ -39,7 +38,7 @@ class Scales <StorageEngine extends IStorageEngine> {
         return this.storage.getCount();
     };
 }
-class Product implements IScalable {
+class Product {
     private scale:number;
     private name:string;
     constructor(_name:string, _scale:number) {
@@ -78,9 +77,9 @@ class ScalesStorageEngineLocalStorage  implements IStorageEngine {
             });
         } else {
             this.items = [];
+            localStorage.setItem('products', JSON.stringify(this.items));
         }
         
-        localStorage.setItem('products', JSON.stringify(this.items));
     };
     public addItem(item:Product) {
         let locArray = JSON.parse(localStorage.getItem('products'));
@@ -94,8 +93,9 @@ class ScalesStorageEngineLocalStorage  implements IStorageEngine {
         localStorage.setItem('products', JSON.stringify(locArray));
     };
     public getItem(index:number) {
-        let locArray:Product[] = JSON.parse(localStorage.getItem('products'));
-        return locArray[index];
+        let locArray = JSON.parse(localStorage.getItem('products'));
+        let product:Product = new Product(locArray[index].name, locArray[index].scale);
+        return product;
     };
     public getCount() {
         let locArray:Product[] = JSON.parse(localStorage.getItem('products'));
