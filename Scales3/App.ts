@@ -31,10 +31,10 @@ class Scales <StorageEngine extends IStorageEngine> {
     public addItem(item:Product):void {
         this.storage.addItem(item);
     };
-    public getItem(index:number) {
+    public getItem(index:number):Product {
         return this.storage.getItem(index);
     };
-    public getCount() {
+    public getCount():number {
         return this.storage.getCount();
     };
 }
@@ -58,13 +58,13 @@ class ScalesStorageEngineArray implements IStorageEngine {
     constructor() {
         this.items=[];
     };
-    public addItem(item:Product) {
+    public addItem(item:Product):void {
         this.items.push(item);
     };
-    public getItem(index:number) {
+    public getItem(index:number):Product {
         return this.items[index];
     };
-    public getCount() {
+    public getCount():number {
         return this.items.length;
     };
 }
@@ -81,7 +81,7 @@ class ScalesStorageEngineLocalStorage  implements IStorageEngine {
         }
         
     };
-    public addItem(item:Product) {
+    public addItem(item:Product):void {
         let locArray = JSON.parse(localStorage.getItem('products'));
         for(let i:number=0; i<locArray.length; i++) {
             if(locArray[i].name === item.getName()) {
@@ -92,12 +92,12 @@ class ScalesStorageEngineLocalStorage  implements IStorageEngine {
         this.items.push(item);
         localStorage.setItem('products', JSON.stringify(locArray));
     };
-    public getItem(index:number) {
+    public getItem(index:number):Product {
         let locArray = JSON.parse(localStorage.getItem('products'));
         let product:Product = new Product(locArray[index].name, locArray[index].scale);
         return product;
     };
-    public getCount() {
+    public getCount():number {
         let locArray:Product[] = JSON.parse(localStorage.getItem('products'));
         return locArray.length;
     };
