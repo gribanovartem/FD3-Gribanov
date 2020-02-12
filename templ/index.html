@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes" >
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Холст</title>
+	<link rel="stylesheet" href="full-fontawesome/css/all.css" >
+	<link rel="stylesheet" href="bootstrap4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/media.css">
+</head>
+<body>
+<style>
+
+</style>
+	<div class="container-fluid">
+		<div class="top">
+			<div class="content">
+				<div class="row header-adress">
+					<div class="col-4">
+						<b>Адрес:</b> г. Алматы ул. Сатпаева 22б, офис 218
+					</div>
+					<div class="col-3 top-graphic">
+						<b>График работы:</b> с 10:00 до 19:00
+					</div>
+					<div class="col-3 top-email">
+						<b>Email:</b> <a href="#">zakaz@holst.kz</a>
+					</div>
+					<div class="col-2 text-right header-social">
+						<a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+						<a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+						<a href="#" class="vk"><i class="fab fa-vk"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<header>
+			<div class="content">
+				<div class="row header-main">
+					<div class="col-5 header-logo">
+						<div><a href="#"><img src="img/logo.jpg" alt="Логотип"></a></div>
+						<div class="header-logo_text">Продажа картин в Алматы с доставкой по всему Казахстану</div>
+					</div>
+					<div class="col-4 header-search">
+						<div class="header-search_body">
+							<div><input type="text" class="form-control" placeholder="Поиск по сайту"></div>
+							<div><button class="form-control"><i class="fas fa-search"></i></button></div>
+						</div>
+					</div>
+					<div class="col-3 text-right header-phone">
+						<div class="header-phone_number"><a href="">+7 705 555 999 6</a></div>
+						<div class="header-phone_button"><a href="#">Заказать звонок</a></div>
+					</div>
+				</div>
+				<nav class="navbar-expand-lg">
+					<div class="nav-back">
+						<a onclick="javascript:history.back();return false;">
+							<i class="fas fa-arrow-right"></i>
+						</a>
+					</div>
+					<!-- Кнопка выпадающео меню -->
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+						<i class="fas fa-bars"></i>
+					</button>
+					<ul class="collapse navbar-collapse navbar nav" id="collapsibleNavbar">
+						<li class="active"><a href="#">Модульные картинки</a></li>
+						<li><a href="#">Репродукции</a></li>
+						<li><a href="#">Дизайнерские решения</a></li>
+						<li><a href="#">Багетная мастерская</a></li>
+						<li><a href="#">Другая фотопродукция</a></li>
+						<li><a href="#">Услуги</a></li>
+						<li><a href="#">Спецпредложения</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<div class="hot">
+			<div class="content row">
+				<div class="col-7 hot-cup">
+					<div class="hot-title">Акция!</div>
+					<p>При покупке любой картины<br>
+					мы дарим кружку с изображением картины <strong>в подарок!</strong></p>
+				</div>
+				<div class="col-5 hot-timer">
+					<div>
+						<div class="hot-timer_title">
+							До конца акции осталось:
+						</div>
+						<div class="hot-timer_time timer">
+						  <span id="hours"></span>
+						  <span>:</span>
+						  <span id="minutes"></span>
+						  <span>:</span>
+						  <span id="seconds"></span>
+						</div>
+					</div>
+					<div class="hot-timer_action">
+						<img src="img/hot.jpg" alt="Акция дня">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="service">
+			<div class="content">
+				<div class="service-body">
+					<div class="service-body_item">
+						<div><i class="fas fa-truck"></i></div>
+						<div>
+							<strong>Доставка</strong>
+							<p>Доставка от 1 до 3 дней по всему Казахстану</p>
+						</div>
+					</div>
+					<div class="service-body_item">
+						<div><i class="fas fa-th-large"></i></div>
+						<div>
+							<strong>Любой размер</strong>
+							<p>Изготовление картины за 1 день</p>
+						</div>
+					</div>
+					<div class="service-body_item">
+						<div><i class="fas fa-paint-brush"></i></div>
+						<div>
+							<strong>Идеальный монтаж</strong>
+							<p>Аккуратная натяжка холста на подрамник</p>
+						</div>
+					</div>
+					<div class="service-body_item">
+						<div><i class="fas fa-money-bill-alt"></i></div>
+						<div>
+							<strong>Оплата</strong>
+							<p>Вы платите за картину только после осмотра</p>
+						</div>
+					</div>
+					<div class="service-body_item">
+						<div><i class="fas fa-luggage-cart"></i></div>
+						<div>
+							<strong>Гарантия 10 лет</strong>
+							<p>Не выгорают краски, не провисает холст.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="main">
+			<div class="main-graf_right"></div>
+			<div class="main-graf_left"></div>
+			<div class="content row">
+				<div class="col-9">
+					<h1>Интернет-магазин модульных картин и постеров</h1>
+					<div class="row main-mashit">
+						<div class="col-6">
+							<a href="#"><img src="img/main-mashit1.jpg" alt="Абстракция"></a>
+							<h4>Абстракция</h4>
+						</div>
+						<div class="col-6">
+							<a href="#"><img src="img/main-mashit2.jpg" alt="Абстракция"></a>
+							<h4>Пейзаж</h4>
+						</div>
+						<div class="col-6">
+							<a href="#"><img src="img/main-mashit3.jpg" alt="Абстракция"></a>
+							<h4>Города</h4>
+						</div>
+						<div class="col-6">
+							<a href="#"><img src="img/main-mashit4.jpg" alt="Абстракция"></a>
+							<h4>Животный мир</h4>
+						</div>
+						<div class="col-6">
+							<a href="#"><img src="img/main-mashit5.jpg" alt="Абстракция"></a>
+							<h4>Цветы, растения</h4>
+						</div>
+						<div class="col-6">
+							<a href="#"><img src="img/main-mashit6.jpg" alt="Абстракция"></a>
+							<h4>Космос</h4>
+						</div>
+						<div class="col-6">
+							<a href="#"><img src="img/main-mashit7.jpg" alt="Абстракция"></a>
+							<h4>На кухню</h4>
+						</div>
+						<div class="col-6">
+							<a href="#"><img src="img/main-mashit8.jpg" alt="Абстракция"></a>
+							<h4>Картины маслом (репродукции)</h4>
+						</div>
+					</div>
+					<h2>Популярные картины</h2>
+					<div class="main-popular">
+						<div class="main-popular_item">
+							<img src="img/main-popular.jpg" alt="Белые взрывы">
+							<div class="main-popular_price">
+								<div><h5>Белые взрывы</h5></div>
+								<div class="main-popular_gray">18 500 тг.</div>
+								<div class="main-popular_current">12 000 тг.</div>
+							</div>
+							<div class="main-buttons">
+								<div class="main-buttons_orange"><a href="#">Подробнее</a></div>
+								<div class="main-buttons_pink"><a href="#">Заказать</a></div>
+							</div>
+						</div>
+						<div class="main-popular_item">
+							<img src="img/main-popular.jpg" alt="Белые взрывы">
+							<div class="main-popular_price">
+								<div><h5>Белые взрывы</h5></div>
+								<div class="main-popular_gray">18 500 тг.</div>
+								<div class="main-popular_current">12 000 тг.</div>
+							</div>
+							<div class="main-buttons">
+								<div class="main-buttons_orange"><a href="#">Подробнее</a></div>
+								<div class="main-buttons_pink"><a href="#">Заказать</a></div>
+							</div>
+						</div>
+						<div class="main-popular_item">
+							<img src="img/main-popular.jpg" alt="Белые взрывы">
+							<div class="main-popular_price">
+								<div><h5>Белые взрывы</h5></div>
+								<div class="main-popular_gray">18 500 тг.</div>
+								<div class="main-popular_current">12 000 тг.</div>
+							</div>
+							<div class="main-buttons">
+								<div class="main-buttons_orange"><a href="#">Подробнее</a></div>
+								<div class="main-buttons_pink"><a href="#">Заказать</a></div>
+							</div>
+						</div>
+						<div class="main-popular_item">
+							<img src="img/main-popular.jpg" alt="Белые взрывы">
+							<div class="main-popular_price">
+								<div><h5>Белые взрывы</h5></div>
+								<div class="main-popular_gray">18 500 тг.</div>
+								<div class="main-popular_current">12 000 тг.</div>
+							</div>
+							<div class="main-buttons">
+								<div class="main-buttons_orange"><a href="#">Подробнее</a></div>
+								<div class="main-buttons_pink"><a href="#">Заказать</a></div>
+							</div>
+						</div>
+						<div class="main-popular_item">
+							<img src="img/main-popular.jpg" alt="Белые взрывы">
+							<div class="main-popular_price">
+								<div><h5>Белые взрывы</h5></div>
+								<div class="main-popular_gray">18 500 тг.</div>
+								<div class="main-popular_current">12 000 тг.</div>
+							</div>
+							<div class="main-buttons">
+								<div class="main-buttons_orange"><a href="#">Подробнее</a></div>
+								<div class="main-buttons_pink"><a href="#">Заказать</a></div>
+							</div>
+						</div>
+						<div class="main-popular_item">
+							<img src="img/main-popular.jpg" alt="Белые взрывы">
+							<div class="main-popular_price">
+								<div><h5>Белые взрывы</h5></div>
+								<div class="main-popular_gray">18 500 тг.</div>
+								<div class="main-popular_current">12 000 тг.</div>
+							</div>
+							<div class="main-buttons">
+								<div class="main-buttons_orange"><a href="#">Подробнее</a></div>
+								<div class="main-buttons_pink"><a href="#">Заказать</a></div>
+							</div>
+						</div>
+					</div>
+					<div class="main-pagination_body">
+						<ul class="pagination">
+						  <li class="page-item"><a class="page-link active" href="#">1</a></li>
+						  <li class="page-item"><a class="page-link" href="#">2</a></li>
+						  <li class="page-item"><a class="page-link" href="#">3</a></li>
+						  <li class="page-item"><a class="page-link" href="#">4</a></li>
+						  <li class="page-item"><a class="page-link" href="#">5</a></li>
+						  <li class="page-item"><a class="page-link" href="#">...</a></li>
+						  <li class="page-item"><a class="page-link" href="#">22</a></li>
+						</ul>
+					</div>
+				</div><!-- Конец основного контента -->
+				<div class="col-3">
+					<h5 class="main-orange">Модульные картины</h5>
+					<ul class="main-list">
+						<li><a href="#">Абстракция</a></li>
+						<li><a href="#">Пейзаж</a></li>
+						<li><a href="#">Города</a></li>
+						<li><a href="#">Животный мир</a></li>
+						<li><a href="#">Цветы, растения</a></li>
+						<li><a href="#">Космос</a></li>
+						<li><a href="#">На кухню</a></li>
+						<li><a href="#">Картины маслом (репродукции)</a></li>
+					</ul>
+					<h5 class="main-pink">Выбор по цвету</h5>
+					<ul class="main-list">
+						<li><a href="#">Белый</a></li>
+						<li><a href="#">Ч/Б</a></li>
+						<li><a href="#">Красный</a></li>
+						<li><a href="#">Бежевый</a></li>
+						<li><a href="#">Зеленый</a></li>
+						<li><a href="#">Фиолетовый</a></li>
+						<li><a href="#">Желтый</a></li>
+						<li><a href="#">Розовый</a></li>
+					</ul>
+					<div class="main-instagram">
+						<a href="#"><img src="img/main-instagram.jpg" alt="Мы в инстаграм"></a>
+						<div class="main-instagram_photos">
+							<a href="#"><img src="img/main-instagram_photos.jpg" alt="Мы в инстаграм"></a>
+						</div>
+					</div>
+					<h5 class="main-orange2">Отзывы о наших картинах</h5>
+					<div class="main-story">
+						<div class="main-story_title">Ксения, г. Алматы</div>
+						<p>Получили картину в срок, качестенная работа, отдельное спасибо за доставку.
+						 Все как обещали! В будущем буду так же заказывать у вас! Спасибо большое!</p>
+						 <div class="main-story_photos">
+							<div><img src="img/main-story.jpg" alt="Портрет"></div>
+							<div><img src="img/main-story.jpg" alt="Портрет"></div>
+						 </div>
+					</div>
+					<div class="main-story">
+						<div class="main-story_title">Ксения, г. Алматы</div>
+						<p>Получили картину в срок, качестенная работа, отдельное спасибо за доставку.
+						 Все как обещали! В будущем буду так же заказывать у вас! Спасибо большое!</p>
+						 <div class="main-story_photos">
+							<div class="main-story_bg"><img src="img/main-story.jpg" alt="Портрет"></div>
+							<div><img src="img/main-story.jpg" alt="Портрет"></div>
+						 </div>
+					</div>
+					<div class="main-story">
+						<div class="main-story_title">Ксения, г. Алматы</div>
+						<p>Получили картину в срок, качестенная работа, отдельное спасибо за доставку.
+						 Все как обещали! В будущем буду так же заказывать у вас! Спасибо большое!</p>
+						 <div class="main-story_photos">
+							<div class="main-story_bg"><img src="img/main-story.jpg" alt="Портрет"></div>
+							<div><img src="img/main-story.jpg" alt="Портрет"></div>
+						 </div>
+					</div>
+					<div class="main-more">
+						<div class="main-more_button"><a href="#">Все отзывы</a></div>
+						<div class="main-more_add">
+							<img src="img/main-more.jpg" alt="Добавить отзыв"> 
+							<a href="#">Добавить отзыв</a>
+						</div>
+					</div>
+					<div class="main-aulike">
+						<div class="main-aulike_title">
+							Понравились картины?
+						</div>
+						<p>Отставьте заявку и мы Вам перезвоним</p>
+						<div class="main-aulike_button"><a href="#">Оставить заявку</a></div>
+					</div>
+				</div><!-- Конец навигации -->
+			</div>
+		</div>
+		<div class="why">
+			<div class="row content">
+				<div class="col-4">
+					<img src="img/why1.jpg" alt="У нас более 2000 картин">
+					<p><strong>У нас более 2000 картин</strong> в самых разных 
+					стилях. И мы можем помочь вам подобрать картину именно в Ваш интерьер, 
+					благодаря нашим креативным дизайнерам и опыту более 5 лет.</p>
+				</div>
+				<div class="col-4">
+					<img src="img/why2.jpg" alt="Мы работаем без посредников.">
+					<p><strong>Мы работаем без посредников.</strong><br>
+					У нас в команде 3 талантливых дизайнеров, 3 художников и свой цех. 
+					Поэтому изготовление картины занимает всего 1 день.</p>
+				</div>
+				<div class="col-4">
+					<img src="img/why3.jpg" alt="Не знаете как вешать модульную картину?">
+					<p><strong>Не знаете как вешать модульную картину?</strong><br>
+					Модули скрепляются между собой прозрачными пластинами, поэтому картину 
+					можно вешать на один гвоздь и при этом не надо ловить уровень.</p>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div class="row content">
+				<div class="col-3 footer-logo">
+					<div><a href="#"><img src="img/logo.jpg" alt="Логотип"></a></div>
+					<p>Наша творческая команда сделает<br> Ваш 
+					интерьер красивее и уютнее</p>
+				</div>
+				<div class="col-7 footer-cat">
+					<div class="footer-cat_item">
+						<h5>Каталог</h5>
+						<ul class="footer-cat_list">
+							<li><a href="#">Модульные картины</a></li>
+							<li><a href="#">Репродукции</a></li>
+							<li><a href="#">Дизайнерские решения</a></li>
+							<li><a href="#">Багетная мастерская</a></li>
+							<li><a href="#">Другая фотопродукция</a></li>
+							<li><a href="#">Дополнительные услуги</a></li>
+						</ul>
+					</div>
+					<div class="footer-cat_item2">
+						<h5>Покупателю</h5>
+						<ul class="footer-cat_list">
+							<li><a href="#">О компании</a></li>
+							<li><a href="#">Доставка</a></li>
+							<li><a href="#">Гарантия</a></li>
+							<li><a href="#">Спецпредложения</a></li>
+							<li><a href="#">Контакты</a></li>
+							<li><a href="#">Отзывы</a></li>
+						</ul>
+					</div>
+					<div class="footer-cat_item footer-cat_sub">
+						<h5>Присоединяйтесь к нам!</h5>
+						<p class="footer-cat_small">Вдохновляйтеcь нашими новыми идеями и предложениями!</p>
+						<div class="footer-cat_subscribe">
+							<div><input type="text" class="form-control" placeholder="Введите свой e-mail"></div>
+							<div><button class="form-control">Ок!</button></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-2 footer-adress">
+					<div class="footer-phone_number"><a href="">+7 705 555 999 6</a></div>
+					<p class="footer-phone_mail"><b>Email:</b> <a href="mailto:zakaz@holst.kz">zakaz@holst.kz</a><br>
+					<b>Адрес:</b> г. Алматы ул. Сатпаева 22б, офис 218</p>
+					<div class="footer-social">
+						<a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+						<a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+						<a href="#" class="vk"><i class="fab fa-vk"></i></a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="bootstrap4/js/bootstrap.min.js"></script>
+	<script src="js/timer.js"></script>
+</body>
+</html>
