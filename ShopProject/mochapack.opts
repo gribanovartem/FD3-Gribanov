@@ -1,0 +1,5 @@
+--include core-js/stable regenerator-runtime/runtime tools/testSetup.js tools/jsdomSetup.js
+--reporter progress
+--webpack-config config/webpack/webpack.config-test.js
+
+src/**/*.test.js
