@@ -1,0 +1,28 @@
+module.exports = {
+  extends: 'stylelint-config-standard',
+  rules: {
+    'property-no-unknown': [true, {
+      ignoreProperties: [
+        'composes',
+        'lost-align',
+        'lost-center',
+        'lost-column',
+        'lost-column-cycle',
+        'lost-column-rounder',
+        'lost-flex-container',
+        'lost-masonry-column',
+        'lost-masonry-wrap',
+        'lost-move',
+        'lost-offset',
+        'lost-row',
+        'lost-unit',
+        'lost-utility',
+        'lost-waffle',
+      ],
+    }],
+    'comment-empty-line-before': null,
+    'comment-whitespace-inside': null,
+    indentation: null,
+    'selector-list-comma-newline-after': 'always-multi-line',
+  },
+}
