@@ -1,23 +1,19 @@
-import React from 'react'
-import { hot } from 'react-hot-loader/root'
-
-import ErrorBoundary from 'ui/components/ErrorBoundary'
-import AppHeader from 'ui/components/AppHeader'
-import AppFooter from 'ui/components/AppFooter'
-import Routes from 'ui/routes'
-
-import 'ui/styles/appStyles.css'
+import React from 'react';
+import { hot } from 'react-hot-loader/root';
+import PageHeader from 'ui/pages/PageHeader';
+// import PageFooter from 'ui/pages/PageFooter';
+// import PagesRouter from 'ui/pages/PagesRouter';
 
 
-const App = () => (
-  <ErrorBoundary>
-    <AppHeader />
-    <div className="pageContent">
-      <Routes />
-    </div>
-    <AppFooter />
-  </ErrorBoundary>
-)
-
-/* https://github.com/gaearon/react-hot-loader#getting-started */
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <PageHeader/>
+        {/* <PagesRouter/>
+        <PageFooter/> */}
+      </div>
+    );
+  }
+}
 export default hot(App)
