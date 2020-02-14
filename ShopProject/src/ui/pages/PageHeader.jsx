@@ -4,6 +4,7 @@ import '../styles/PageHeader.css'
 
 class PageHeader extends React.Component {
   render() {
+      console.log('asdgasgasddddddddddddddddddfg');
     return (
       <div className="top">
 			<div className="content">
