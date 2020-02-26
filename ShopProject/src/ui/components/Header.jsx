@@ -35,13 +35,11 @@ class Header extends React.Component {
                         <i className="fas fa-bars"></i>
                     </button>
                     <ul className="collapse navbar-collapse navbar nav" id="collapsibleNavbar">
-                        <li className="active"><a href="#">Модульные картинки</a></li>
-                        <li><NavLink to="/drills" >Электродрели и дрели-шуруповерты</NavLink></li>
-                        <li><a href="#">Дизайнерские решения</a></li>
-                        <li><a href="#">Багетная мастерская</a></li>
-                        <li><a href="#">Другая фотопродукция</a></li>
-                        <li><a href="#">Услуги</a></li>
-                        <li><a href="#">Спецпредложения</a></li>
+                        <NavLink to="/drills" activeClassName="active">Электродрели и дрели-шуруповерты</NavLink>
+                        <NavLink to="/rotaryhammers" activeClassName="active">Перфораторы</NavLink>
+                        <NavLink to="/electric_saw" activeClassName="active">Дисковые пилы</NavLink>
+                        <NavLink to="/fretsaw" activeClassName="active">Электролобзики</NavLink>
+                        <NavLink to="/plane" activeClassName="active">Рубанки</NavLink>
                     </ul>
                 </nav>
             </div>

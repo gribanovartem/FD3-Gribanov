@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import PageHeader from './PageHeader';
+import Main from '../components/Main'
 
 class PagesRouter extends React.Component {
           
@@ -8,8 +9,8 @@ class PagesRouter extends React.Component {
   
       return (
         <div>
-          <Route path="/" exact component={PageHeader} />
-          <Route path="/drills" component={PageTools} />
+          <Route path="/" exact component={Main} />
+          {/* <Route path="/drills" component={PageTools} /> */}
         </div>
       );
       

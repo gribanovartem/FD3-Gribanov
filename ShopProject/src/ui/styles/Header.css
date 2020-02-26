@@ -78,3 +78,8 @@ header {
 	text-decoration: none;
 	border: 2px dotted #34333b;
 }
+.navbar .active {
+	color: #be1d46;
+	text-decoration: none;
+	border: 2px dotted #34333b;
+}
