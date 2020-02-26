@@ -1,0 +1,26 @@
+[   {
+        "name":"Электродрели и дрели-шуруповерты",
+        "img":"//content2.onliner.by/catalog/device/header/4a7ed6112eec000196cef35cc0c90a13.jpeg",
+        "url":"drills"
+    },
+    {
+        "name":"Перфораторы",
+        "img":"//content2.onliner.by/catalog/device/header/4a7ed6112eec000196cef35cc0c90a13.jpeg",
+        "url":"rotaryhammers"
+    },
+    {
+        "name":"Дисковые пилы",
+        "img":"//content2.onliner.by/catalog/device/header/4a7ed6112eec000196cef35cc0c90a13.jpeg",
+        "url":"electric_saw"
+    },
+    {
+        "name":"Электролобзики",
+        "img":"//content2.onliner.by/catalog/device/header/4a7ed6112eec000196cef35cc0c90a13.jpeg",
+        "url":"fretsaw"
+    },
+    {
+        "name":"Рубанки",
+        "img":"//content2.onliner.by/catalog/device/header/4a7ed6112eec000196cef35cc0c90a13.jpeg",
+        "url":"plane"
+    }
+]

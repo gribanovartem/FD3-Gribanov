@@ -14,7 +14,7 @@ class Main extends React.Component {
          <div className="main">
             <div className='content row'>
                 {/* <MainContent/> */}
-                <DataMainContent/>
+                {DataMainContent}
                 <LeftContent/>
             </div>
          </div>
