@@ -10,7 +10,7 @@ class PagesRouter extends React.Component {
       return (
         <div>
           <Route path="/" exact component={Main} />
-          {/* <Route path="/drills" component={PageTools} /> */}
+          <Route path="/drills" component={Main } />
         </div>
       );
       

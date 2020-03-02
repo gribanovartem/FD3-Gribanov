@@ -1,26 +1,26 @@
 [   {
         "name":"Электродрели и дрели-шуруповерты",
-        "img":"//content2.onliner.by/catalog/device/header/4a7ed6112eec000196cef35cc0c90a13.jpeg",
+        "img":"https://content2.onliner.by/catalog/device/header/4a7ed6112eec000196cef35cc0c90a13.jpeg",
         "url":"drills"
     },
     {
         "name":"Перфораторы",
-        "img":"//content2.onliner.by/catalog/device/header/4a7ed6112eec000196cef35cc0c90a13.jpeg",
+        "img":"https://content2.onliner.by/catalog/device/header/ad4d5e96752eec391afba75e6f01df9d.jpeg",
         "url":"rotaryhammers"
     },
     {
         "name":"Дисковые пилы",
-        "img":"//content2.onliner.by/catalog/device/header/4a7ed6112eec000196cef35cc0c90a13.jpeg",
+        "img":"https://content2.onliner.by/catalog/device/header/fbb44ff3866196282a53360750cc42d0.jpg",
         "url":"electric_saw"
     },
     {
         "name":"Электролобзики",
-        "img":"//content2.onliner.by/catalog/device/header/4a7ed6112eec000196cef35cc0c90a13.jpeg",
+        "img":"https://content2.onliner.by/catalog/device/header/d22abe4813a4c88dcd2955fbb16fb7c9.jpg",
         "url":"fretsaw"
     },
     {
         "name":"Рубанки",
-        "img":"//content2.onliner.by/catalog/device/header/4a7ed6112eec000196cef35cc0c90a13.jpeg",
+        "img":"https://content2.onliner.by/catalog/device/header/fda609c45cd79464f71b9ecb8c5467f8.jpg",
         "url":"plane"
     }
 ]

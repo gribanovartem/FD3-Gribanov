@@ -2,47 +2,73 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 import '../styles/MainContent.css';
+import  {dataLoad}  from '../../functions/dataLoad';
+import store from '../../redux/store';
+import { catalog_drills, catalog_all} from '../../redux/catalogAC';
+import {connect} from 'react-redux';
+import isoFetch from 'isomorphic-fetch';
 
-class MainContent extends React.Component {
-    
+class MainContent extends React.PureComponent {
+	constructor(props) {
+        super(props);
+        this.state = store.getState();
+    }
+    componentDidMount() {
+		isoFetch('https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/catalog.json?alt=media&token=4a8c44da-6936-4463-aa57-85193027c1cb', {
+			method: 'get',
+			headers: {
+			  "Accept": "application/json",
+			},
+		  })
+		  .then( response => { // response - HTTP-ответ
+			  if (!response.ok)
+				  throw new Error("fetch error " + response.status); // дальше по цепочке пойдёт отвергнутый промис
+			  else
+				  return response.json(); // дальше по цепочке пойдёт промис с пришедшими по сети данными
+		  })
+		  .then( data => {
+			this.fetchSuccess(data);
+		  }) 
+		  .catch( error => {
+			console.log(error);
+		  })
+
+  
+	}
+	fetchSuccess=(data,name)=> {
+		this.props.dispatch(catalog_all(data));
+	}
     render() {
-        console.log(this.props.data);
-      return (
-         
+		let catalog;
+		if(this.props.catalog.ready) {
 			
+			catalog = this.props.catalog.data.map((item,i)=> (
+				<div className="col-6" key={i}>
+						<NavLink to={item.url}>
+							<h4>{item.name}</h4>
+							<img src={item.img}/>
+						</NavLink>
+				</div>
+			))
+		}
+		
+      return (
 				<div className="col-9">
-					<h1>Интернет-магазин модульных картин и постеров</h1>
+					<h1>{this.props.catalog.name}</h1>
 					<div className="row main-mashit">
-						<div className="col-6">
-                            <a><img src='//content2.onliner.by/catalog/device/header/4a7ed6112eec000196cef35cc0c90a13.jpeg'/></a>
-							<h4>Электродрели и дрели-шуруповерты</h4>
-						</div>
-						<div className="col-6">
-							<h4>Пейзаж</h4>
-						</div>
-						<div className="col-6">
-							<h4>Города</h4>
-						</div>
-						<div className="col-6">
-							<h4>Животный мир</h4>
-						</div>
-						<div className="col-6">
-							<h4>Цветы, растения</h4>
-						</div>
-						<div className="col-6">
-							<h4>Космос</h4>
-						</div>
-						<div className="col-6">
-							<h4>На кухню</h4>
-						</div>
-						<div className="col-6">
-							<h4>Картины маслом (репродукции)</h4>
-						</div>
+						{catalog}
 					</div>
                 </div>
-            
-         
       );
     }
   }
-  export default MainContent;
+
+  const mapStateToProps = function (state) {
+    return {
+      // весь раздел Redux state под именем counters будет доступен
+      // данному компоненту как this.props.counters
+      catalog: state.catalog,
+    };
+  };
+export default connect(mapStateToProps)(MainContent);
+//   export default MainContent;
