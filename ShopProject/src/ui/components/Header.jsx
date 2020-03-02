@@ -10,7 +10,10 @@ class Header extends React.Component {
                 <div className="row header-main">
                     <div className="col-5 header-logo">
                         <div>
-                            <a href="#"><img src="../../assets/img/logo.png" alt="Логотип"/></a>
+                        <NavLink to="/" >
+                            <img src="../../assets/img/logo.png" alt="Логотип"/>
+                        </NavLink>
+                            {/* <a href="#"><img src="../../assets/img/logo.png" alt="Логотип"/></a> */}
                         </div>
                         <div className="header-logo_text">Продажа строительного инструмента в Минске с доставкой по всей Беларуси</div>
                     </div>

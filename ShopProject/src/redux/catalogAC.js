@@ -1,6 +1,13 @@
 ﻿const CATALOG_DRILLS='CATALOG_DRILLS';
 const CATALOG_ALL='CATALOG_ALL';
-const SELECT_CREATE='SELECT_CREATE';
+const CATALOG_ROTARYHAMMERS='CATALOG_ROTARYHAMMERS';
+const READY_FALSE='READY_FALSE';
+
+const ready_false = function() {
+  return {
+      type: READY_FALSE,
+    };
+}
 
 const catalog_all = function(data) {
     return {
@@ -16,16 +23,16 @@ const catalog_drills=function(data) {
     data: data,
   };
 }
-const catalog_rotaryhammers=function(mobileId) {
+const catalog_rotaryhammers=function(data) {
     return {
-      type: UNSELECT_MOBILE,
-      mobileId: mobileId,
-      select:false,
+      type: CATALOG_ROTARYHAMMERS,
+      name: "Перфораторы",
+      data: data,
     };
 }
 const catalog_electric_saw=function(mobileId) {
   return {
-    type: UNSELECT_MOBILE,
+    type: CATALOG_ROTARYHAMMER,
     mobileId: mobileId,
     select:false,
   };
@@ -47,6 +54,7 @@ const catalog_plane=function(mobileId) {
 
 export {
     catalog_drills, CATALOG_DRILLS,
-    catalog_all,CATALOG_ALL,
-   
+    catalog_all, CATALOG_ALL,
+    catalog_rotaryhammers, CATALOG_ROTARYHAMMERS,
+    ready_false, READY_FALSE
 }

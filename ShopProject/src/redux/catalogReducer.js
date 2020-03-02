@@ -1,4 +1,4 @@
-﻿import { CATALOG_DRILLS, CATALOG_ALL, SELECT_CREATE } from './catalogAC';
+﻿import { CATALOG_DRILLS, CATALOG_ALL, CATALOG_ROTARYHAMMERS, READY_FALSE } from './catalogAC';
 
 const initState={
   data:null, 
@@ -7,10 +7,18 @@ const initState={
 
 function catalogReducer(state=initState,action) {
   switch (action.type) {
+    case READY_FALSE: {
+      let newState={...state,
+        ready: false,
+      };
+      return newState;
+    }
+
     case CATALOG_ALL: {
       let newState={...state,
-        data:action.data,
+        data: action.data,
         name: 'Все категории',
+        status: 0,
         ready: true,
       };
       return newState;
@@ -18,8 +26,22 @@ function catalogReducer(state=initState,action) {
 
     case CATALOG_DRILLS: {
       let newState={...state,
-            data:action.data,
-            name: 'Электродрели и дрели-шуруповерты'
+        data: action.data,
+        name: 'Электродрели и дрели-шуруповерты',
+        status: 1,
+        nav: '/drills',
+        ready: true,
+      }
+      return newState;
+    };
+
+    case CATALOG_ROTARYHAMMERS: {
+      let newState={...state,
+        data: action.data,
+        name: 'Перфораторы',
+        status: 1,
+        nav: '/rotaryhammers',
+        ready: true,
       }
       return newState;
     };

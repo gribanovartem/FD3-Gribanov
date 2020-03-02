@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import LeftContent from './LeftContent';
 import MainContent from './MainContent';
 import '../styles/MainContent.css';
-import  {dataLoad}  from '../../functions/dataLoad';
 
 class Main extends React.Component {
   
@@ -12,7 +11,6 @@ class Main extends React.Component {
       return (
         <div className="main">
            <div className='content row'>
-               {/* <MainContent/> */}
                <MainContent/>
                <LeftContent/>
            </div>

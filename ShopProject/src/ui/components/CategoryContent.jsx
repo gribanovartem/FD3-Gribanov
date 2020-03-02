@@ -8,13 +8,13 @@ import { catalog_drills, catalog_all, ready_false} from '../../redux/catalogAC';
 import {connect} from 'react-redux';
 import isoFetch from 'isomorphic-fetch';
 
-class MainContent extends React.PureComponent {
+class CategoryContent extends React.Component {
 	constructor(props) {
         super(props);
         this.state = store.getState();
     }
     componentDidMount() {
-		isoFetch('https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/catalog.json?alt=media&token=4a8c44da-6936-4463-aa57-85193027c1cb', {
+		isoFetch(this.props.url, {
 			method: 'get',
 			headers: {
 			  "Accept": "application/json",
@@ -32,23 +32,22 @@ class MainContent extends React.PureComponent {
 		  .catch( error => {
 			console.log(error);
 		  })
-
-  
-	}
-	componentWillUnmount() {
+    }
+    componentWillUnmount() {
         this.props.dispatch(ready_false());
     }
 	fetchSuccess=(data,name)=> {
-		this.props.dispatch(catalog_all(data));
+        this.props.dispatch(this.props.catalogAC(data));
 	}
     render() {
 		let catalog;
-		if(this.props.catalog.status===0) {
-			catalog = this.props.catalog.data.map((item,i)=> (
-				<div className="col-6" key={i}>
-						<NavLink to={item.url}>
-							<h4>{item.name}</h4>
-							<img src={item.img}/>
+		if(this.props.catalog.status===1&&this.props.catalog.ready) {
+			catalog = this.props.catalog.data.products.map((item,i)=> (
+				<div className="col-6" key={item.key}>
+						<NavLink to={this.props.catalog.nav + '/' +item.id}>
+							<h4>{item.extended_name}</h4>
+							<img src={item.images.header}/>
+                            <p>Цена: {item.prices.price_min.amount}</p>
 						</NavLink>
 				</div>
 			))
@@ -67,10 +66,9 @@ class MainContent extends React.PureComponent {
 
   const mapStateToProps = function (state) {
     return {
-      // весь раздел Redux state под именем counters будет доступен
-      // данному компоненту как this.props.counters
+      // весь раздел Redux state под именем catalog будет доступен
+      // данному компоненту как this.props.catalog
       catalog: state.catalog,
     };
   };
-export default connect(mapStateToProps)(MainContent);
-//   export default MainContent;
+export default connect(mapStateToProps)(CategoryContent);
