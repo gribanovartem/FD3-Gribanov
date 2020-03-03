@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import '../styles/MainContent.css';;
+import '../styles/MainContent.css';
+import '../styles/Media.css';
 import store from '../../redux/store';
 import { catalog_all, ready_false} from '../../redux/catalogAC';
 import {connect} from 'react-redux';
@@ -41,12 +42,12 @@ class MainContent extends React.PureComponent {
 		let catalog;
 		if(this.props.catalog.status===0) {
 			catalog = this.props.catalog.data.map((item,i)=> (
-				<div className="col-6" key={i}>
-						<NavLink to={item.url}>
+				
+						<NavLink to={item.url}  key={i} className="col-6">
 							<h4>{item.name}</h4>
-							<img src={item.img}/>
+								<img src={item.img}/>
 						</NavLink>
-				</div>
+				
 			))
 		}
       return (

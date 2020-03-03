@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 import '../styles/MainContent.css';
+import '../styles/Media.css';
 import store from '../../redux/store';
 import { ready_false, ready_true} from '../../redux/catalogAC';
 import {connect} from 'react-redux';
@@ -47,13 +48,11 @@ class CategoryContent extends React.Component {
 		let catalog;
 		if(this.props.catalog.status===1&&this.props.catalog.ready) {
 			catalog = this.props.catalog.data.products.map((item,i)=> (
-				<div className="col-6" key={item.key}>
-						<NavLink to={this.props.catalog.nav + '/' +item.id}>
-							<h4>{item.extended_name}</h4>
+						<NavLink to={this.props.catalog.nav + '/' +item.id} className="col-6" key={item.key}>
+							<h4>{item.full_name}</h4>
 							<img src={item.images.header}/>
                             <p>Цена: {item.prices.price_min.amount}</p>
 						</NavLink>
-				</div>
 			))
 		}
 		

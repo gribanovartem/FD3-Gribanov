@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/MainContent.css';
+import '../styles/Media.css';
 import LeftContent from './LeftContent';
 import CategoryContent from './CategoryContent';
 

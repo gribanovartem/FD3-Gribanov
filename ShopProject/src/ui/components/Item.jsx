@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/MainContent.css";
+import '../styles/Media.css';
 import store from "../../redux/store";
 import {ready_false} from "../../redux/catalogAC";
 import { connect } from "react-redux";
@@ -51,7 +52,8 @@ class Item extends React.Component {
       product = (
         <div>
           <h5>{item.extended_name}</h5>
-          <img src={item.images.header} />
+          <img src={item.images.header}/>
+          
         </div>
       );
     }
