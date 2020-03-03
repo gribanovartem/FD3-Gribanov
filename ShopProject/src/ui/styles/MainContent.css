@@ -25,6 +25,9 @@
 .main-mashit .col-6 img {
 	width: 130px;
 }
+.col-6 .price {
+	font-weight: bold;
+}
 .main-mashit .col-6 h4 {
 	color: #333;
 	font-size: 1.2rem;
@@ -36,6 +39,13 @@
 .main-mashit .col-4 h4 {
 	font-size: 20px;
 	padding-top: 10px;
+}
+.col-9 {
+	text-align: center;
+	margin-top: 20px;
+}
+.col-9 .price {
+	font-weight: bold;
 }
 .main-popular {
 	display: flex;

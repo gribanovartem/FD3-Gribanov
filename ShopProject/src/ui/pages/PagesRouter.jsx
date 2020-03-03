@@ -38,13 +38,25 @@ class PagesRouter extends React.Component {
           />
         </Route>
         <Route
-          path="/rotaryhammers/:id"
+          path="/rotaryhammers/:id"  exact
           render={props => (
             <SelItem
               {...props}
               url="https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/rotaryhammers.json?alt=media&token=5a8879d3-49aa-4e30-8724-84f9a1712d57"
               catalogAC={catalog_rotaryhammers}
               name='rotaryhammers'
+            />
+          )}
+        />
+        <Route
+          path="/rotaryhammers/page/:page"  exact
+          render={props => (
+            <SelCategory
+              {...props}
+              url="https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/rotaryhammers.json?alt=media&token=5a8879d3-49aa-4e30-8724-84f9a1712d57"
+              catalogAC={catalog_rotaryhammers}
+              name='rotaryhammers'
+
             />
           )}
         />
@@ -68,7 +80,7 @@ class PagesRouter extends React.Component {
         />
         <Route path="/fretsaw" exact>
           <SelCategory
-            url="https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/fretsaw.json?alt=media&token=c1ecdd4a-3926-4fc1-96b0-a04622cc52c1"
+            url="https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/fretsaw.json?alt=media&token=0fdbd176-e67a-42f7-a6c8-01b58c2b8675"
             catalogAC={catalog_fretsaw}
             name='fretsaw'
           />
@@ -78,7 +90,7 @@ class PagesRouter extends React.Component {
           render={props => (
             <SelItem
               {...props}
-              url="https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/fretsaw.json?alt=media&token=c1ecdd4a-3926-4fc1-96b0-a04622cc52c1"
+              url="https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/fretsaw.json?alt=media&token=0fdbd176-e67a-42f7-a6c8-01b58c2b8675"
               catalogAC={catalog_fretsaw}
               name='fretsaw'
             />
@@ -86,7 +98,7 @@ class PagesRouter extends React.Component {
         />
         <Route path="/plane" exact>
           <SelCategory
-            url="https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/plane.json?alt=media&token=7581b5f7-3537-4419-8f63-6a95b5ddb429"
+            url="https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/plane.json?alt=media&token=f5349766-e30c-4522-85e7-11a95969f032"
             catalogAC={catalog_plane}
             name='plane'
           />
@@ -96,7 +108,7 @@ class PagesRouter extends React.Component {
           render={props => (
             <SelItem
               {...props}
-              url="https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/plane.json?alt=media&token=7581b5f7-3537-4419-8f63-6a95b5ddb429"
+              url="https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/plane.json?alt=media&token=f5349766-e30c-4522-85e7-11a95969f032"
               catalogAC={catalog_plane}
               name='plane'
             />

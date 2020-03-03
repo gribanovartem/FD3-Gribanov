@@ -9,7 +9,7 @@ class SelCategory extends React.Component {
       return (
           <div className="main">
            <div className='content row'>
-               <CategoryContent url={this.props.url} catalogAC={this.props.catalogAC} name={this.props.name}/>
+               <CategoryContent url={this.props.url} page={parseInt(this.props.match.params.page)||null} catalogAC={this.props.catalogAC} name={this.props.name}/>
                <LeftContent/>
            </div>
         </div>

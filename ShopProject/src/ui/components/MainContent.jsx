@@ -6,6 +6,7 @@ import store from '../../redux/store';
 import { catalog_all, ready_false} from '../../redux/catalogAC';
 import {connect} from 'react-redux';
 import isoFetch from 'isomorphic-fetch';
+import Loading from './Loading';
 
 class MainContent extends React.PureComponent {
 	constructor(props) {
@@ -41,20 +42,27 @@ class MainContent extends React.PureComponent {
     render() {
 		let catalog;
 		if(this.props.catalog.status===0) {
-			catalog = this.props.catalog.data.map((item,i)=> (
-				
-						<NavLink to={item.url}  key={i} className="col-6">
-							<h4>{item.name}</h4>
+			catalog = this.props.catalog.data.map((item,i)=> {
+				if(item.count<31) {
+					return  <NavLink to={item.url}  key={i} className="col-6">
+								<h4>{item.name}</h4>
 								<img src={item.img}/>
-						</NavLink>
+							</NavLink>
+				} else {
+					return  <NavLink to={item.url+'/'+'page'+'/'+1}  key={i} className="col-6">
+								<h4>{item.name}</h4>
+								<img src={item.img}/>
+							</NavLink>
+				}
+						
 				
-			))
+			})
 		}
       return (
 				<div className="col-9">
 					<h1>{this.props.catalog.name}</h1>
 					<div className="row main-mashit">
-						{catalog||'loaddddddddddddddddddddddddddddddddddd'}
+						{catalog||<Loading/>}
 					</div>
                 </div>
       );

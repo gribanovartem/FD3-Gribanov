@@ -7,6 +7,7 @@ import { ready_false, ready_true} from '../../redux/catalogAC';
 import {connect} from 'react-redux';
 import isoFetch from 'isomorphic-fetch';
 import Loading from './Loading';
+import PagesNav from './PagesNav';
 
 class CategoryContent extends React.Component {
 	constructor(props) {
@@ -14,7 +15,7 @@ class CategoryContent extends React.Component {
         this.state = store.getState();
     }
     componentDidMount() {
-		if(this.props.catalog.nameEng!==this.props.name) {
+		if(this.props.catalog.nameEng!==this.props.name||this.props.catalog.data===null) {
 			isoFetch(this.props.url, {
 				method: 'get',
 				headers: {
@@ -45,23 +46,30 @@ class CategoryContent extends React.Component {
         this.props.dispatch(this.props.catalogAC(data));
 	}
     render() {
+		console.log(this.props);
 		let catalog;
-		if(this.props.catalog.status===1&&this.props.catalog.ready) {
-			catalog = this.props.catalog.data.products.map((item,i)=> (
-						<NavLink to={this.props.catalog.nav + '/' +item.id} className="col-6" key={item.key}>
-							<h4>{item.full_name}</h4>
-							<img src={item.images.header}/>
-                            <p>Цена: {item.prices.price_min.amount}</p>
-						</NavLink>
-			))
+		if(this.props.catalog.data !==null && this.props.catalog.nameEng===this.props.name) {
+			catalog = this.props.catalog.data.products.map((item,i)=> {
+				if(i<=this.props.page*10-1 && i>=this.props.page*10-10) {
+					return <NavLink to={this.props.catalog.nav + '/' +item.id} className="col-6" key={item.key}>
+								<h4>{item.full_name}</h4>
+								<img src={item.images.header}/>
+								<p>Цена: {item.prices.price_min.amount}</p>
+							</NavLink>
+				}
+						
+			})
 		}
+		
 		
       return (
 				<div className="col-9">
+					{this.props.page && this.props.catalog.data !==null && <PagesNav name={this.props.name} pagesCount={this.props.catalog.data.products.length/10} page={this.props.page}/>}
 					<h1>{this.props.catalog.name}</h1>
 					<div className="row main-mashit">
 						{catalog||<Loading/>}
 					</div>
+					{this.props.page && this.props.catalog.data !==null && <PagesNav name={this.props.name} pagesCount={this.props.catalog.data.products.length/10} page={this.props.page}/>}
                 </div>
       );
     }

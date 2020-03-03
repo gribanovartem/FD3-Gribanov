@@ -53,12 +53,14 @@ class Item extends React.Component {
         <div>
           <h5>{item.extended_name}</h5>
           <img src={item.images.header}/>
-          
+          <p>{item.description}</p>
+          <p className='price'>{item.prices.price_min.amount} руб.</p>
+          <button type="button" className="btn btn-warning">В корзину</button>
         </div>
       );
     }
     return (
-        <div>{product || "loaddddddddddddddddddddddddddddd"}</div>
+        <div className="col-9">{product || "loaddddddddddddddddddddddddddddd"}</div>
     )
   }
 }
