@@ -1,10 +1,8 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
 import { NavLink } from "react-router-dom";
-import '../styles/MainContent.css';
-import  {dataLoad}  from '../../functions/dataLoad';
+import '../styles/MainContent.css';;
 import store from '../../redux/store';
-import { catalog_drills, catalog_all, ready_false} from '../../redux/catalogAC';
+import { catalog_all, ready_false} from '../../redux/catalogAC';
 import {connect} from 'react-redux';
 import isoFetch from 'isomorphic-fetch';
 
@@ -32,8 +30,6 @@ class MainContent extends React.PureComponent {
 		  .catch( error => {
 			console.log(error);
 		  })
-
-  
 	}
 	componentWillUnmount() {
         this.props.dispatch(ready_false());
@@ -53,7 +49,6 @@ class MainContent extends React.PureComponent {
 				</div>
 			))
 		}
-		
       return (
 				<div className="col-9">
 					<h1>{this.props.catalog.name}</h1>
@@ -67,10 +62,7 @@ class MainContent extends React.PureComponent {
 
   const mapStateToProps = function (state) {
     return {
-      // весь раздел Redux state под именем counters будет доступен
-      // данному компоненту как this.props.counters
       catalog: state.catalog,
     };
   };
 export default connect(mapStateToProps)(MainContent);
-//   export default MainContent;

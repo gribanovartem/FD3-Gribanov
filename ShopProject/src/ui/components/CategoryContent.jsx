@@ -1,12 +1,11 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 import '../styles/MainContent.css';
-import  {dataLoad}  from '../../functions/dataLoad';
 import store from '../../redux/store';
-import { catalog_drills, catalog_all, ready_false} from '../../redux/catalogAC';
+import { ready_false, ready_true} from '../../redux/catalogAC';
 import {connect} from 'react-redux';
 import isoFetch from 'isomorphic-fetch';
+import Loading from './Loading';
 
 class CategoryContent extends React.Component {
 	constructor(props) {
@@ -14,29 +13,34 @@ class CategoryContent extends React.Component {
         this.state = store.getState();
     }
     componentDidMount() {
-		isoFetch(this.props.url, {
-			method: 'get',
-			headers: {
-			  "Accept": "application/json",
-			},
-		  })
-		  .then( response => { // response - HTTP-ответ
-			  if (!response.ok)
-				  throw new Error("fetch error " + response.status); // дальше по цепочке пойдёт отвергнутый промис
-			  else
-				  return response.json(); // дальше по цепочке пойдёт промис с пришедшими по сети данными
-		  })
-		  .then( data => {
-			this.fetchSuccess(data);
-		  }) 
-		  .catch( error => {
-			console.log(error);
-		  })
+		if(this.props.catalog.nameEng!==this.props.name) {
+			isoFetch(this.props.url, {
+				method: 'get',
+				headers: {
+				  "Accept": "application/json",
+				},
+			  })
+			  .then( response => { // response - HTTP-ответ
+				  if (!response.ok)
+					  throw new Error("fetch error " + response.status); // дальше по цепочке пойдёт отвергнутый промис
+				  else
+					  return response.json(); // дальше по цепочке пойдёт промис с пришедшими по сети данными
+			  })
+			  .then( data => {
+				this.fetchSuccess(data);
+			  }) 
+			  .catch( error => {
+				console.log(error);
+			  })	
+		} else {
+			this.props.dispatch(ready_true());
+		}
+		
     }
     componentWillUnmount() {
         this.props.dispatch(ready_false());
     }
-	fetchSuccess=(data,name)=> {
+	fetchSuccess=(data)=> {
         this.props.dispatch(this.props.catalogAC(data));
 	}
     render() {
@@ -57,7 +61,7 @@ class CategoryContent extends React.Component {
 				<div className="col-9">
 					<h1>{this.props.catalog.name}</h1>
 					<div className="row main-mashit">
-						{catalog||'loaddddddddddddddddddddddddddddddddddd'}
+						{catalog||<Loading/>}
 					</div>
                 </div>
       );
@@ -66,8 +70,6 @@ class CategoryContent extends React.Component {
 
   const mapStateToProps = function (state) {
     return {
-      // весь раздел Redux state под именем catalog будет доступен
-      // данному компоненту как this.props.catalog
       catalog: state.catalog,
     };
   };

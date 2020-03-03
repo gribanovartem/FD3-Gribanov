@@ -1,12 +1,21 @@
-﻿const CATALOG_DRILLS='CATALOG_DRILLS';
+﻿const READY_FALSE='READY_FALSE';
+const READY_TRUE='READY_TRUE';
 const CATALOG_ALL='CATALOG_ALL';
+const CATALOG_DRILLS='CATALOG_DRILLS';
 const CATALOG_ROTARYHAMMERS='CATALOG_ROTARYHAMMERS';
-const READY_FALSE='READY_FALSE';
 const CATALOG_ELECTRIC_SAW='CATALOG_ELECTRIC_SAW';
+const CATALOG_FRETSAW='CATALOG_FRETSAW';
+const CATALOG_PLANE='CATALOG_PLANE';
 
 const ready_false = function() {
   return {
       type: READY_FALSE,
+    };
+}
+
+const ready_true = function() {
+  return {
+      type: READY_TRUE,
     };
 }
 
@@ -38,25 +47,28 @@ const catalog_electric_saw=function(data) {
     data: data,
   };
 }
-const catalog_fretsaw=function(mobileId) {
+const catalog_fretsaw=function(data) {
   return {
-    type: UNSELECT_MOBILE,
-    mobileId: mobileId,
-    select:false,
+    type: CATALOG_FRETSAW,
+    name: "Электролобзики",
+    data: data,
   };
 }
-const catalog_plane=function(mobileId) {
+const catalog_plane=function(data) {
   return {
-    type: UNSELECT_MOBILE,
-    mobileId: mobileId,
-    select:false,
+    type: CATALOG_PLANE,
+    name: "Рубанки",
+    data: data,
   };
 }
 
 export {
-    catalog_drills, CATALOG_DRILLS,
-    catalog_all, CATALOG_ALL,
-    catalog_rotaryhammers, CATALOG_ROTARYHAMMERS,
     ready_false, READY_FALSE,
+    ready_true, READY_TRUE,
+    catalog_all, CATALOG_ALL,
+    catalog_drills, CATALOG_DRILLS,
+    catalog_rotaryhammers, CATALOG_ROTARYHAMMERS,
     catalog_electric_saw, CATALOG_ELECTRIC_SAW,
+    catalog_fretsaw, CATALOG_FRETSAW,
+    catalog_plane, CATALOG_PLANE,
 }
