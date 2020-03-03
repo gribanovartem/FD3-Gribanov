@@ -42,18 +42,19 @@ class MainContent extends React.PureComponent {
     render() {
 		let catalog;
 		if(this.props.catalog.status===0) {
+			
 			catalog = this.props.catalog.data.map((item,i)=> {
-				if(item.count<31) {
-					return  <NavLink to={item.url}  key={i} className="col-6">
-								<h4>{item.name}</h4>
-								<img src={item.img}/>
-							</NavLink>
-				} else {
+				// if(item.count<31) {
+				// 	return  <NavLink to={item.url}  key={i} className="col-6">
+				// 				<h4>{item.name}</h4>
+				// 				<img src={item.img}/>
+				// 			</NavLink>
+				// } else {
 					return  <NavLink to={item.url+'/'+'page'+'/'+1}  key={i} className="col-6">
 								<h4>{item.name}</h4>
 								<img src={item.img}/>
 							</NavLink>
-				}
+				// }
 						
 				
 			})

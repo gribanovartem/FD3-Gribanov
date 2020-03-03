@@ -46,7 +46,6 @@ class CategoryContent extends React.Component {
         this.props.dispatch(this.props.catalogAC(data));
 	}
     render() {
-		console.log(this.props);
 		let catalog;
 		if(this.props.catalog.data !==null && this.props.catalog.nameEng===this.props.name) {
 			catalog = this.props.catalog.data.products.map((item,i)=> {
@@ -63,13 +62,14 @@ class CategoryContent extends React.Component {
 		
 		
       return (
+		
 				<div className="col-9">
-					{this.props.page && this.props.catalog.data !==null && <PagesNav name={this.props.name} pagesCount={this.props.catalog.data.products.length/10} page={this.props.page}/>}
+					{this.props.page && this.props.catalog.nameEng===this.props.name && this.props.catalog.data !==null && <PagesNav name={this.props.name} pagesCount={this.props.catalog.data.products.length/10} page={this.props.page}/>}
 					<h1>{this.props.catalog.name}</h1>
 					<div className="row main-mashit">
 						{catalog||<Loading/>}
 					</div>
-					{this.props.page && this.props.catalog.data !==null && <PagesNav name={this.props.name} pagesCount={this.props.catalog.data.products.length/10} page={this.props.page}/>}
+					{this.props.page && this.props.catalog.nameEng===this.props.name && this.props.catalog.data !==null && <PagesNav name={this.props.name} pagesCount={this.props.catalog.data.products.length/10} page={this.props.page}/>}
                 </div>
       );
     }
