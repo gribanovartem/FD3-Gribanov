@@ -56,10 +56,8 @@ class CategoryContent extends React.Component {
 								<p>Цена: {item.prices.price_min.amount}</p>
 							</NavLink>
 				}
-						
 			})
 		}
-		
 		
       return (
 		

@@ -19,7 +19,6 @@ class PagesNav extends React.Component {
                                 </li>
                             );
             }
-            
             pages.push(num);
         }
       return (
