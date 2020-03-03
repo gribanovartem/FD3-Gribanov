@@ -2,6 +2,7 @@
 const CATALOG_ALL='CATALOG_ALL';
 const CATALOG_ROTARYHAMMERS='CATALOG_ROTARYHAMMERS';
 const READY_FALSE='READY_FALSE';
+const CATALOG_ELECTRIC_SAW='CATALOG_ELECTRIC_SAW';
 
 const ready_false = function() {
   return {
@@ -30,11 +31,11 @@ const catalog_rotaryhammers=function(data) {
       data: data,
     };
 }
-const catalog_electric_saw=function(mobileId) {
+const catalog_electric_saw=function(data) {
   return {
-    type: CATALOG_ROTARYHAMMER,
-    mobileId: mobileId,
-    select:false,
+    type: CATALOG_ELECTRIC_SAW,
+    name: "Дисковые пилы",
+    data: data,
   };
 }
 const catalog_fretsaw=function(mobileId) {
@@ -56,5 +57,6 @@ export {
     catalog_drills, CATALOG_DRILLS,
     catalog_all, CATALOG_ALL,
     catalog_rotaryhammers, CATALOG_ROTARYHAMMERS,
-    ready_false, READY_FALSE
+    ready_false, READY_FALSE,
+    catalog_electric_saw, CATALOG_ELECTRIC_SAW,
 }

@@ -1,4 +1,4 @@
-﻿import { CATALOG_DRILLS, CATALOG_ALL, CATALOG_ROTARYHAMMERS, READY_FALSE } from './catalogAC';
+﻿import { CATALOG_DRILLS, CATALOG_ALL, CATALOG_ROTARYHAMMERS, READY_FALSE, CATALOG_ELECTRIC_SAW } from './catalogAC';
 
 const initState={
   data:null, 
@@ -46,6 +46,16 @@ function catalogReducer(state=initState,action) {
       return newState;
     };
         
+    case CATALOG_ELECTRIC_SAW: {
+      let newState={...state,
+        data: action.data,
+        name: 'Дисковые пилы',
+        status: 1,
+        nav: '/electric_saw',
+        ready: true,
+      }
+      return newState;
+    };
       
     default:
       return state;
