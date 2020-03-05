@@ -1,18 +1,12 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import { NavLink } from "react-router-dom";
 import '../styles/LeftContent.css';
+import Filter from './Filter';
 
 class LeftContent extends React.Component {
     render() {
       return (
          <div className="col-3">
-					<div className="main-list">
-						<h5 className="main-story_title">Фильтр</h5>
-                        <span>Цена</span>
-                        <input type='text'/>
-                        <input type='button' value='Применить'/>
-					</div>
+					<Filter/>
 					<h5 className="main-orange2">Отзывы о Магазине</h5>
 					<div className="main-story">
 						<div className="main-story_title">Ксения, г. Минск</div>
