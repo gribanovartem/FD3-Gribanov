@@ -39,7 +39,7 @@ class Item extends React.Component {
     this.props.dispatch(ready_false());
   }
 
-  fetchSuccess = (data, name) => {
+  fetchSuccess = (data) => {
     this.props.dispatch(this.props.catalogAC(data));
   };
 
@@ -66,7 +66,8 @@ class Item extends React.Component {
 }
 const mapStateToProps = function(state) {
   return {
-    catalog: state.catalog
+    catalog: state.catalog,
+    filter: state.filter,
   };
 };
 export default connect(mapStateToProps)(Item);
