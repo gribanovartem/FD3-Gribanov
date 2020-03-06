@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/LeftContent.css'
+import PropTypes from "prop-types"
 import { connect } from "react-redux"
 import { filter_on, filter_off, set_priceMin, set_priceMax, set_isOnSaleTrue, set_isOnSaleFalse, set_newCatalog } from "../../redux/filterAC"
 
@@ -54,7 +55,7 @@ class Filter extends React.Component {
       } else {
         this.props.dispatch(set_isOnSaleFalse())
       }
-      this.setState({ checked: !this.state.checked })
+      this.setState((prevState) => ({ checked: !prevState.checked }))
     }
 
     render() {
@@ -66,9 +67,9 @@ class Filter extends React.Component {
           <input className="price" type="text" ref={this.priceMin} /><br />
           <span>до</span>
           <input className="price" type="text" ref={this.priceMax} /><br />
-          <label>
+          <label htmlFor="check">
             На скидке 
-            <input type="checkbox" className="checkbox" ref={this.isOnSale} onChange={this.check} checked={this.state.checked} />
+            <input id="check" type="checkbox" className="checkbox" ref={this.isOnSale} onChange={this.check} checked={this.state.checked} />
           </label><br />
           <button type="button" className="btn btn-success" onClick={this.filterApply}>Применить фильтр</button>
           <button type="button" className="btn btn-danger" onClick={this.filterReset}>Сбросить фильтр</button>
@@ -81,5 +82,20 @@ const mapStateToProps = function (state) {
     catalog: state.catalog,
     filter: state.filter,
   }
+}
+Filter.propTypes = {
+  catalog: PropTypes.shape({
+    data: PropTypes.shape({
+      products: PropTypes.array,
+    }),
+  }),
+  filter: PropTypes.shape({
+    isOnSale: PropTypes.bool,
+  }),
+  dispatch: PropTypes.func.isRequired,
+}
+Filter.defaultProps = {
+  catalog: PropTypes.object,
+  filter: PropTypes.object,
 }
 export default connect(mapStateToProps)(Filter)

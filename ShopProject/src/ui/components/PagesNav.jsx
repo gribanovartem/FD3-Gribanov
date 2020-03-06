@@ -1,5 +1,6 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
+import PropTypes from "prop-types"
 
 class PagesNav extends React.Component {
   render() {
@@ -29,5 +30,9 @@ class PagesNav extends React.Component {
       </nav>
     )
   }
+}
+PagesNav.propTypes = {
+  page: PropTypes.number.isRequired,
+  pagesCount: PropTypes.number.isRequired,
 }
 export default PagesNav

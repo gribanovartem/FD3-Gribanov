@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/AddReview.css'
 import { connect } from 'react-redux'
+import PropTypes from "prop-types"
 import * as firebase from "firebase/app"
 import { set_reviews, set_mode_0, set_mode_1 } from '../../redux/reviewsAC'
 import 'firebase/storage' 
@@ -77,7 +78,21 @@ class AddReview extends React.Component {
 }
 const mapStateToProps = function (state) {
   return {
-	  reviews: state.reviews,
+    reviews: state.reviews,
   }
+}
+AddReview.propTypes = {
+  reviews: PropTypes.shape({
+    reviews: PropTypes.array,
+    mode: PropTypes.number.isRequired,
+  }),
+  mode: PropTypes.func,
+  dispatch: PropTypes.func.isRequired,
+}
+AddReview.defaultProps = {
+  reviews: PropTypes.shape({
+    reviews: PropTypes.number,
+  }),
+  mode: PropTypes.func,
 }
 export default connect(mapStateToProps)(AddReview)

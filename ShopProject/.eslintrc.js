@@ -40,16 +40,17 @@ module.exports = {
     "prefer-destructuring": ["error", {
       "VariableDeclarator": {
         "array": false,
-        "object": false
+        "object": false,
       },
       "AssignmentExpression": {
         "array": false,
-        "object": false
-      }
+        "object": false,
+      },
     }, {
-      "enforceForRenamedProperties": false
+      "enforceForRenamedProperties": false,
     }],
-    "react/destructuring-assignment": [true, { "extensions": [".jsx"] }],
+    "react/destructuring-assignment": 0,
+    "jsx-a11y/label-has-associated-control": 0,
     // //////// Possible Errors //////////
  
     "no-comma-dangle": 0,         // disallow trailing commas in object literals

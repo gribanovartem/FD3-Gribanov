@@ -1,6 +1,7 @@
 import React from "react"
 import "../styles/MainContent.css"
 import '../styles/Media.css'
+import PropTypes from "prop-types"
 import { connect } from "react-redux"
 import isoFetch from "isomorphic-fetch"
 import store from "../../redux/store"
@@ -53,7 +54,7 @@ class Item extends React.Component {
       product = (
         <div>
           <h5>{item.extended_name}</h5>
-          <img src={item.images.header} />
+          <img src={item.images.header} alt="img" />
           <p>{item.description}</p>
           <p className="price">{item.prices.price_min.amount} руб.</p>
           <button type="button" className="btn btn-warning">В корзину</button>
@@ -70,5 +71,28 @@ const mapStateToProps = function (state) {
     catalog: state.catalog,
     filter: state.filter,
   }
+}
+Item.propTypes = {
+  catalog: PropTypes.shape({
+    data: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.object,
+    ]),
+    ready: PropTypes.bool.isRequired,
+    name: PropTypes.string,
+    status: PropTypes.number,
+    nav: PropTypes.string,
+    nameEng: PropTypes.string,
+  }),
+  dispatch: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  catalogAC: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
+}
+Item.defaultProps = {
+  catalog: PropTypes.shape({
+    data: PropTypes.object,
+  }),
 }
 export default connect(mapStateToProps)(Item)

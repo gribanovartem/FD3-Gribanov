@@ -1,10 +1,9 @@
 import React from 'react'
 import { hot } from 'react-hot-loader/root'
+import PropTypes from "prop-types"
 import PageHeader from 'ui/pages/PageHeader'
-// import PageFooter from 'ui/pages/PageFooter';
 import PagesRouter from 'ui/pages/PagesRouter'
 import { connect } from 'react-redux'
-import LeftContent from './components/LeftContent'
 import AddReview from './components/AddReview'
 import "./styles/MainContent.css"
 
@@ -14,7 +13,6 @@ class App extends React.Component {
     return (
       <div className="mainDiv">
         <PageHeader />
-        {/* <LeftContent/> */}
         <PagesRouter />
         <div className={this.props.reviews.mode===0?"fadeModal fadeClose":"fadeModal fadeShow"} />
         <AddReview />
@@ -28,5 +26,10 @@ const mapStateToProps = function (state) {
   return {
     reviews: state.reviews,
   }
+}
+App.propTypes = {
+  reviews: PropTypes.shape({
+    mode: PropTypes.number.isRequired,
+  }).isRequired,
 }
 export default connect(mapStateToProps)(hot(App))

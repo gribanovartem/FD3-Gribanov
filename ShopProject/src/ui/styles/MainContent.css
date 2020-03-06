@@ -1,9 +1,12 @@
 /* Основной контент */
 .main { position: relative; }
 .main-mashit .col-6, .main-list, .main-instagram, .main-story, .main-more, .main-aulike { background: #fff; }
-.main .col-3 { order: -1;
-	 padding: 0 30px 0 0; }
-	 
+
+.main .col-3 {
+ order: -1;
+	 padding: 0 30px 0 0;
+ }
+
 .main .col-9 { padding: 0; }
 
 .main-mashit {
