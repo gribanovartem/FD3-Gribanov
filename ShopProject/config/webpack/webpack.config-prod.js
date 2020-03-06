@@ -88,7 +88,7 @@ export default {
     }),
     new StyleLintPlugin({
       configFile: '.stylelintrc.js',
-      files: ['**/*.css'],
+      files: ["ui/styles/Media.css"],
       emitErrors: false,
     }),
   ],

@@ -2,68 +2,80 @@ header {
 	background: #ffa101;
 	color: #34333b;
 }
+
 .header-main {
 	padding: 20px 0 20px 0;
 	align-items: center;
 }
+
 .header-logo {
 	display: flex;
 	font-size: 18px;
 	line-height: 1.4;
 }
+
 .header-logo img {
     margin-right: 20px;
     width: 100px;
 }
+
 .header-search .form-control {
 	border-radius: 30px;
 }
-.header-search {position: relative;}
-.header-search_body input {font-style: italic; padding-left: 15px;}
-.header-search  button {
+.header-search { position: relative; }
+.header-search_body input { font-style: italic; padding-left: 15px; }
+
+.header-search button {
 	position: absolute;
 	right: 15px;
 	top: -4px;
-	border: 0!important;
-	background: none!important;
+	border: 0 !important;
+	background: none !important;
 	width: auto;
 	font-size: 22px;
 	cursor: pointer;
-	color: #c41c3d!important;
+	color: #c41c3d !important;
 }
-.header-phone_number {margin: -20px 20px 0 0;}
+.header-phone_number { margin: -20px 20px 0 0; }
+
 .header-phone_number a {
 	font-weight: bold;
 	color: #000;
 	text-decoration: none;
 	font-size: 21px;
 }
+
 .header-phone_number a:hover {
 	text-decoration: underline;
 }
+
 .header-phone_button {
 	margin-top: 12px;
 }
+
 .header-phone_button a {
 	background: #c32548;
 	color: #fff;
 	padding: 10px 45px;
 	border-radius: 30px;
 	text-decoration: none;
-	box-shadow: 0px 0px 15px 1px #d7a34d;
+	box-shadow: 0 0 15px 1px #d7a34d;
 }
+
 .header-phone_button a:hover {
 	background: #d72e54;
 	color: #fff;
 }
-.nav-back {display: none;}
+.nav-back { display: none; }
+
 .navbar {
 	text-transform: uppercase;
 	padding: 20px 0;
 	margin: 0;
 	border-top: 1px solid white;
 }
-.navbar li {margin: 0 -5px;}
+.navbar li { margin: 0 -5px; }
+
 .navbar a {
 	text-decoration: underline;
 	color: #34333b;
@@ -73,11 +85,13 @@ header {
 	padding: 10px;
 	border-radius: 30px;
 }
+
 .navbar a:hover, .navbar .active a {
 	color: #be1d46;
 	text-decoration: none;
 	border: 2px dotted #34333b;
 }
+
 .navbar .active {
 	color: #be1d46;
 	text-decoration: none;

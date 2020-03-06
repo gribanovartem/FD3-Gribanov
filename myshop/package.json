@@ -16,7 +16,7 @@
     "lint": "eslint . --ext .js --ext .jsx",
     "lint:fix": "eslint . --ext .js --ext .jsx --fix ",
     "slint": "stylelint **/*.css",
-    "slint:fix": "stylelint **/*.css --fix",
+    "slint:fix": "stylelint **/**/*.css --fix",
     "test": "cross-env TEST=true mochapack",
     "test:watch": "cross-env TEST=true mochapack --watch",
     "cover": "cross-env COVER=true nyc --reporter=lcov --reporter=text npm run test"
@@ -113,6 +113,8 @@
     "eslint-loader": "3.0.3",
     "eslint-plugin-import": "2.20.1",
     "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-plugin-flowtype": "^2.50.1",
     "eslint-plugin-react": "7.18.3",
     "eslint-plugin-react-hooks": "2.3.0",
     "file-loader": "5.0.2",
