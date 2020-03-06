@@ -18,6 +18,7 @@ module.exports = {
         'lost-unit',
         'lost-utility',
         'lost-waffle',
+        "block-closing-brace-newline-before",
       ],
     }],
     'comment-empty-line-before': null,

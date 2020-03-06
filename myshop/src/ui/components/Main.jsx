@@ -1,24 +1,27 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import { NavLink } from "react-router-dom";
 import LeftContent from './LeftContent';
 import MainContent from './MainContent';
 import '../styles/MainContent.css';
-import  {dataLoad}  from '../../functions/dataLoad';
+import isoFetch from 'isomorphic-fetch';
+import { set_reviews, set_mode_0, set_mode_1 } from '../../redux/reviewsAC';
+
 
 class Main extends React.Component {
-    render() {
-        let DataMainContent = 
-        dataLoad('https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/catalog.json?alt=media&token=fb290126-a51b-4667-8e28-239cbf983c71')(MainContent);
+    render(){
+      
       return (
-         <div className="main">
+        <>
+          <div className="main">
             <div className='content row'>
-                {/* <MainContent/> */}
-                {DataMainContent}
+                <MainContent/>
                 <LeftContent/>
+                
             </div>
-         </div>
-      );
+          </div>
+         
+        </>
+     );
     }
+      
   }
-  export default Main;
+export default Main;

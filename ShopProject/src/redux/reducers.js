@@ -2,6 +2,7 @@
 
 import catalogReducer from "./catalogReducer";
 import filterReducer from "./filterReducer";
+import reviewsReducer from "./reviewsReducer";
 
 let combinedReducer=combineReducers({
     // редьюсер countersReducer отвечает за раздел state под именем counters
@@ -9,6 +10,7 @@ let combinedReducer=combineReducers({
     // + другие редьюсеры
     catalog: catalogReducer,
     filter: filterReducer,
+    reviews: reviewsReducer,
 
 });
 

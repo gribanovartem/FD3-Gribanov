@@ -1,8 +1,10 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 import '../styles/Header.css';
+import {connect} from 'react-redux';
 
 class Header extends React.Component {
+    
     render() {
       return (
         <header>
@@ -10,7 +12,9 @@ class Header extends React.Component {
                 <div className="row header-main">
                     <div className="col-5 header-logo">
                         <div>
-                            <a href="#"><img src="../../assets/img/logo.png" alt="Логотип"/></a>
+                        <NavLink to="/" >
+                            <img src="../../assets/img/logo.png" alt="Логотип"/>
+                        </NavLink>
                         </div>
                         <div className="header-logo_text">Продажа строительного инструмента в Минске с доставкой по всей Беларуси</div>
                     </div>
@@ -35,11 +39,11 @@ class Header extends React.Component {
                         <i className="fas fa-bars"></i>
                     </button>
                     <ul className="collapse navbar-collapse navbar nav" id="collapsibleNavbar">
-                        <NavLink to="/drills" activeClassName="active">Электродрели и дрели-шуруповерты</NavLink>
-                        <NavLink to="/rotaryhammers" activeClassName="active">Перфораторы</NavLink>
-                        <NavLink to="/electric_saw" activeClassName="active">Дисковые пилы</NavLink>
-                        <NavLink to="/fretsaw" activeClassName="active">Электролобзики</NavLink>
-                        <NavLink to="/plane" activeClassName="active">Рубанки</NavLink>
+                        <NavLink to={"/drills"+'/'+'page'+'/'+1} className={this.props.catalog.nameEng==='drills'?'active':null}>Электродрели и дрели-шуруповерты</NavLink>
+                        <NavLink to={"/rotaryhammers"+'/'+'page'+'/'+1} className={this.props.catalog.nameEng==='rotaryhammers'?'active':null}>Перфораторы</NavLink>
+                        <NavLink to={"/electric_saw"+'/'+'page'+'/'+1} className={this.props.catalog.nameEng==='electric_saw'?'active':null}>Дисковые пилы</NavLink>
+                        <NavLink to={"/fretsaw"+'/'+'page'+'/'+1} className={this.props.catalog.nameEng==='fretsaw'?'active':null}>Электролобзики</NavLink>
+                        <NavLink to={"/plane"+'/'+'page'+'/'+1} className={this.props.catalog.nameEng==='plane'?'active':null}>Рубанки</NavLink>
                     </ul>
                 </nav>
             </div>
@@ -47,5 +51,10 @@ class Header extends React.Component {
       );
     }
   }
-  export default Header;
+  const mapStateToProps = function (state) {
+    return {
+      catalog: state.catalog,
+    };
+  };
+export default connect(mapStateToProps)(Header);
 

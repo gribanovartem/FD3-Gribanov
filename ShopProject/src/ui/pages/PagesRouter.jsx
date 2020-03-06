@@ -3,7 +3,11 @@ import { Route } from "react-router-dom";
 import Main from "../components/Main";
 import SelCategory from "../components/SelCategory";
 import SelItem from "../components/SelItem";
+import SelReviews from "../components/SelReviews";
 import { catalog_drills, catalog_rotaryhammers, catalog_electric_saw, catalog_fretsaw, catalog_plane } from "../../redux/catalogAC";
+import { set_reviews, set_mode_0, set_mode_1 } from '../../redux/reviewsAC';
+import { NavLink } from 'react-router-dom';
+import {connect} from 'react-redux';
 
 class PagesRouter extends React.Component {
   render() {
@@ -157,9 +161,22 @@ class PagesRouter extends React.Component {
             />
           )}
         />
+        <Route
+          path="/reviews"  exact
+          render={props => {
+          return (
+            <SelReviews
+              {...props}
+            />
+          )}}
+        />
       </div>
     );
   }
 }
-
-export default PagesRouter;
+const mapStateToProps = function (state) {
+  return {
+  reviews: state.reviews,
+  };
+};
+export default connect(mapStateToProps)(PagesRouter);

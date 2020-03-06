@@ -10,11 +10,42 @@
 	box-shadow: 0 16px 10px -15px #333;
 	padding-bottom: 40px;
 }
-.main-mashit .col-6 {text-align: center; margin: 15px 0 0 0; padding: 0 10px;}
-/* .main-mashit .col-6 img {width: 100%;} */
+.main-mashit .col-6 {
+	text-align: center;
+	margin: 15px 0 0 0;
+	padding: 0 10px;
+	color: darkgray;
+	text-decoration: none!important;
+}
+.main-mashit .col-6:hover {
+	border: 1px solid #333;
+	cursor: pointer;
+	text-decoration: none!important;
+}
+.main-mashit .col-6 img {
+	width: 130px;
+}
+.col-6 .price {
+	font-weight: bold;
+}
 .main-mashit .col-6 h4 {
+	color: #333;
+	font-size: 1.2rem;
+	text-decoration: none;
+}
+.main-mashit .col-6 h4:hover {
+	text-decoration: none!important;
+}
+.main-mashit .col-4 h4 {
 	font-size: 20px;
 	padding-top: 10px;
+}
+.col-9 {
+	text-align: center;
+	margin-top: 20px;
+}
+.col-9 .price {
+	font-weight: bold;
 }
 .main-popular {
 	display: flex;
@@ -89,4 +120,21 @@
 	background: #ff8c00;
 	color: #fff;
 	border: 1px solid #ff8c00;
+}
+.fadeModal {
+	background-color: black;
+    width: 100%;
+    position: absolute;
+    opacity: 0.5;
+    height: 100%;
+}
+.fadeShow {
+	top: 0;
+}
+.fadeClose {
+	top: -9999px;
+}
+.mainDiv {
+	position: relative;
+	height: 100%;
 }
