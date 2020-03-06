@@ -8,6 +8,9 @@ import {connect} from 'react-redux';
 import isoFetch from 'isomorphic-fetch';
 import Loading from './Loading';
 import PagesNav from './PagesNav';
+import * as firebase from "firebase/app";
+import 'firebase/storage'; 
+import {storage, spaceRef, storageRef} from '../../functions/firestore';
 
 class CategoryContent extends React.Component {
 	constructor(props) {
@@ -37,6 +40,42 @@ class CategoryContent extends React.Component {
 		} else {
 			this.props.dispatch(ready_true());
 		}
+		const storage = firebase.storage();
+		var storageRef = storage.ref();
+		var mountainsRef = storageRef.child('mountains.json');
+		var metadata = {
+			contentType: 'application/json',
+		  };
+		var bytes = [{
+			"name":"Андрей",
+			"city": "г. Минск",
+			"review":"Быстро обработали и привезли заказ, с курьером можно рассчитаться картой, что для меня огромный плюс. Благодаря этому, скорее всего буду заказывать здесь и дальше."
+		},
+		{
+			"name":"Сергей",
+			"city": "г. Минск",
+			"review":"Заказывал порядка 10 раз, один раз сдавал технику по гарантии, в целом работа магазина пока радует, спасибо за хороший подход к клиентам."
+		},
+		{
+			"name":"Влад",
+			"city": "г. Гродно",
+			"review":"Широкий ассортимент товара. По качеству товаров нареканий не было ни разу."
+		},
+		{
+			"name":"Михаил",
+			"city": "г. Солигорск",
+			"review":"Хороший магазин, продавец консультант предложил забрать товар из пункта выдачи"
+		},
+		{
+			"name":"Василий",
+			"city": "г. Минск",
+			"review":"Курьер добрый и приятный, с товаром все Отлично. Все доставлено вовремя"
+		}];
+		
+		const blob = new Blob([JSON.stringify(bytes, null, 2)], {type : 'application/json'});
+		mountainsRef.put(blob).then(function(snapshot) {
+		console.log('Uploaded an array!');
+		});
 		
     }
     componentWillUnmount() {
@@ -46,7 +85,7 @@ class CategoryContent extends React.Component {
         this.props.dispatch(this.props.catalogAC(data));
 	}
     render() {
-		console.log(this.props);
+		console.log(storage);
 		let catalog;
 		if(!this.props.filter.isFilter) {
 			if(this.props.catalog.data !==null && this.props.catalog.nameEng===this.props.name) {

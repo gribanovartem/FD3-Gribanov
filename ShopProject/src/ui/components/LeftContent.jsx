@@ -1,12 +1,13 @@
 import React from 'react';
 import '../styles/LeftContent.css';
 import Filter from './Filter';
+import {connect} from 'react-redux';
 
 class LeftContent extends React.Component {
     render() {
       return (
          <div className="col-3">
-					<Filter/>
+					{this.props.catalog.status===1?<Filter/>:null}
 					<h5 className="main-orange2">Отзывы о Магазине</h5>
 					<div className="main-story">
 						<div className="main-story_title">Ксения, г. Минск</div>
@@ -28,4 +29,10 @@ class LeftContent extends React.Component {
       );
     }
   }
-  export default LeftContent;
+const mapStateToProps = function (state) {
+    return {
+	  catalog: state.catalog,
+	  filter: state.filter,
+    };
+};
+export default connect(mapStateToProps)(LeftContent);
