@@ -5,7 +5,15 @@ import PropTypes from "prop-types"
 import { connect } from 'react-redux'
 
 class Header extends React.Component {
-    
+  constructor(props) {
+    super(props)
+    this.state = {
+      show: false,
+    }
+  }
+  showMenu=()=> {
+    this.setState((prevState) => ({ show: !prevState.show }))
+  }  
   render() {
     return (
       <header>
@@ -31,10 +39,10 @@ class Header extends React.Component {
             </div>
           </div>
           <nav className="navbar-expand-lg">
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" onClick={this.showMenu}>
               <i className="fas fa-bars" />
             </button>
-            <ul className="collapse navbar-collapse navbar nav" id="collapsibleNavbar">
+            <ul className={this.state.show?"collapse navbar-collapse navbar nav show":"collapse navbar-collapse navbar nav"} id="collapsibleNavbar">
               <NavLink to={`${"/drills/page/"}${1}`} className={this.props.catalog.nameEng==='drills'?'active':null}>Электродрели и дрели-шуруповерты</NavLink>
               <NavLink to={`${"/rotaryhammers/page/"}${1}`} className={this.props.catalog.nameEng==='rotaryhammers'?'active':null}>Перфораторы</NavLink>
               <NavLink to={`${"/electric_saw/page/"}${1}`} className={this.props.catalog.nameEng==='electric_saw'?'active':null}>Дисковые пилы</NavLink>

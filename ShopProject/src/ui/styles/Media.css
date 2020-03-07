@@ -7,7 +7,25 @@
 	.service-body { display: block; }
 	.service-body_item { justify-content: flex-start; }
 	.service-body_item i { width: 40px; }
-	.main .col-3 { display: none; }
+
+	.main .col-3 {
+		max-width: 100%;
+		flex: 100 0;
+		padding: 0;
+	}
+
+	.main .col-3 h5 {
+		padding: 0;
+		text-align: center;
+	}
+
+	.main .col-3 .main-story {
+		display: none;
+	}
+
+	.main .col-3 .main-more {
+		padding: 0;
+	}
 
 	.main .col-9 {
 		-ms-flex: 0 0 100%;

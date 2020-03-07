@@ -46,13 +46,13 @@ class LeftContent extends React.Component {
       <div className="col-3">
         {this.props.catalog.status === 1 ? <Filter /> : null}
         <h5 className="main-orange2">Отзывы о Магазине</h5>
-        <Reviews mode={0} />
+        <Reviews mode={0}/>
         <div className="main-more">
-          <div className="main-more_button">
-            <NavLink to="/reviews">Все отзывы</NavLink>
+          <div>
+            <NavLink to="/reviews" className="btn btn-info">Все отзывы</NavLink>
           </div>
           <div className="main-more_add">
-            <button type="button" className="btn btn-secondary" onClick={this.showModal}>Добавить отзыв</button>
+            <button type="button" className="btn btn-link" onClick={this.showModal}>Добавить отзыв</button>
           </div>
         </div>
       </div>

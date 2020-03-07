@@ -4,9 +4,6 @@ import "../styles/LeftContent.css"
 import { connect } from "react-redux"
 
 class Reviews extends React.Component {
-  componentDidMount() {
-    scroll(0,0)
-  }
   render() {
     let reviews
 

@@ -14,7 +14,6 @@ class Item extends React.Component {
   }
 
   componentDidMount() {
-    scroll(0,0)
     if (this.props.catalog.data===null || this.props.catalog.nameEng!==this.props.name) {
       isoFetch(this.props.url, {
         method: "get",

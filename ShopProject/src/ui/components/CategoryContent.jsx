@@ -62,7 +62,6 @@ class CategoryContent extends React.Component {
   };
 
   render() {
-    console.log(this.props)
     let catalog
     if (!this.props.filter.isFilter) {
       if (
