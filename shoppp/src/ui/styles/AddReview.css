@@ -1,0 +1,21 @@
+.mainDiv .addReview {
+    position: fixed;
+    top: 0;
+    transition-duration: 0.5s;
+}
+
+.addReview form {
+    margin: 5%;
+}
+
+.addReview .button {
+    margin-right: 1%;
+}
+
+.modal {
+    display: block;
+    /* position: absolute; */
+    height: auto;
+    top: -2000px;
+    transition-duration: 2.5s;
+}

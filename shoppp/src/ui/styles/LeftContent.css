@@ -1,0 +1,184 @@
+/* Сайдбар */
+.main-orange {
+	background: #ff9501;
+	text-transform: uppercase;
+	color: #fff;
+	padding: 20px 15px;
+	font-size: 18px;
+	text-align: left;
+	margin: 0;
+}
+
+.main-orange2 {
+	background: #ff9501;
+	text-transform: uppercase;
+	color: #fff;
+	padding: 20px 15px;
+	font-size: 18px;
+	text-align: left;
+	margin: 0;
+}
+
+.main-pink {
+	background: #bd1c3e;
+	text-transform: uppercase;
+	color: #fff;
+	padding: 20px 15px;
+	font-size: 18px;
+	text-align: left;
+	margin: 0;
+}
+
+.main-list {
+	border: 2px dotted #b5b5b5;
+	border-radius: 5px;
+	padding: 10px 0;
+	color: #47403a;
+	font-size: 12px;
+	list-style: none;
+	margin: 0 0 40px 0;
+}
+
+.main-list span,
+.main-list label {
+	font-size: 15px;
+	font-weight: bold;
+	position: absolute;
+	left: 2%;
+}
+
+.main-list .btn {
+	display: block;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+.main-list .price {
+	margin-left: 19%;
+	width: 30%;
+	margin-bottom: 5%;
+}
+
+.main-list .checkbox {
+	margin-left: 5px;
+}
+.main-list li { position: relative; }
+
+.main-list li::before {
+    /* content: url(../img/filled-circle5.png); */
+	position: absolute;
+	top: 8px;
+	left: 25px;
+   }
+
+.main-list li a {
+    padding: 5px 20px 5px 40px;
+    width: 100%;
+    display: block;
+	justify-content: space-between;
+	color: #47403a;
+	text-decoration: none;
+	font-size: 16px;
+}
+.main-list li:hover { background: #ebe5e5; }
+.main-instagram img { width: 100%; }
+
+.main-instagram_photos {
+	border: 2px dotted #b5b5b5;
+	padding: 10px;
+	text-align: center;
+	border-radius: 5px;
+	margin: 5px 0 40px 0;
+}
+
+.main-story_title {
+	background: #bd1c3e;
+	/* padding: 25px 30px 30px 10px; */
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+	font-size: bold;
+}
+
+.main-story {
+	color: #6f6b62;
+	border: 2px dotted #b5b5b5;
+	border-radius: 5px;
+	padding-bottom: 10px;
+	margin-bottom: 5px;
+}
+
+.main-story p {
+	padding: 0 3px;
+	font-size: 13px;
+}
+
+.main-story_photos {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 10px;
+	margin: 10px 0;
+}
+
+.main-more {
+	text-align: center;
+	padding: 30px 20px 20px 20px;
+	border: 2px dotted #b5b5b5;
+	border-radius: 5px;
+}
+.main-more_button { margin: 0 0 30px 0; }
+
+.main-more_button a {
+	background: #ff9501;
+	padding: 8px 45px 13px 45px;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 30px;
+	font-size: 20px;
+	box-shadow: 0 3px 8px 1px #cccdcf;
+}
+.main-more_button a:hover { background: #ffbb5c; }
+
+.main-more_add a {
+	color: #5f6065;
+	font-size: 16px;
+	font-weight: bold;
+	padding-left: 5px;
+	cursor: pointer;
+}
+
+.main-aulike {
+	text-align: center;
+	border: 2px dotted #b5b5b5;
+	border-radius: 5px;
+	padding: 20px;
+	margin: 50px 0 20px 0;
+}
+
+.main-aulike_title {
+	font-size: 30px;
+	color: #bd1c3e;
+	font-weight: bold;
+	line-height: 1;
+	padding-top: 10px;
+}
+
+.main-aulike p {
+	font-size: 18px;
+	color: #8f867d;
+	padding: 10px 0 30px 0;
+}
+.main-aulike_button { margin: 0 0 20px 0; }
+
+.main-aulike_button a {
+	background: #c92e50;
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 10px 25px 13px 25px;
+	text-decoration: none;
+	border-radius: 30px;
+	box-shadow: 0 3px 8px 1px #cccdcf;
+}
+.main-aulike_button a:hover { background: #eb476b; }

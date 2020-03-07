@@ -11,7 +11,8 @@ chai.use(chaiEnzyme())
 Enzyme.configure({ adapter: new Adapter() })
 chai.use(chaiAsPromised)
 
-global.expect = chai.expect
+global.chaiExpect  = chai.expect
+
 global.sinon = sinon
 global.shallow = Enzyme.shallow
 global.mount = Enzyme.mount

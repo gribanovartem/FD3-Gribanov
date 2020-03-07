@@ -1,0 +1,227 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<div
+  aria-hidden="true"
+  aria-labelledby="exampleModalCenterTitle"
+  className="modal"
+  id="exampleModalCenter"
+  role="dialog"
+  tabIndex="-1"
+>
+  <div
+    className="modal-dialog modal-dialog-centered"
+    role="document"
+  >
+    <div
+      className="modal-content"
+    >
+      <div
+        className="modal-header"
+      >
+        <h5
+          className="modal-title"
+          id="exampleModalLongTitle"
+        >
+          Добавить отзыв
+        </h5>
+        <button
+          aria-label="Close"
+          className="close"
+          data-dismiss="modal"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            ×
+          </span>
+        </button>
+      </div>
+      <div
+        className="modal-body"
+      >
+        <form
+          className="form"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="UserName"
+            >
+              Имя
+            </label>
+            <input
+              className="form-control"
+              id="UserName"
+              type="text"
+            />
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="City"
+            >
+              Город
+            </label>
+            <input
+              className="form-control"
+              id="City"
+              type="text"
+            />
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="exampleFormControlTextarea1"
+            >
+              Ваш отзыв
+            </label>
+            <textarea
+              className="form-control"
+              id="exampleFormControlTextarea1"
+              rows="3"
+            />
+          </div>
+        </form>
+      </div>
+      <div
+        className="modal-footer"
+      >
+        <button
+          className="btn btn-secondary"
+          data-dismiss="modal"
+          onClick={[Function]}
+          type="button"
+        >
+          Отмена
+        </button>
+        <button
+          className="btn btn-primary"
+          onClick={[Function]}
+          type="button"
+        >
+          Отправить отзыв
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AddReview renders correctly should render MobileAddOrEdit component when clicked 1`] = `
+<div
+  aria-hidden="true"
+  aria-labelledby="exampleModalCenterTitle"
+  className="modal"
+  id="exampleModalCenter"
+  role="dialog"
+  tabIndex="-1"
+>
+  <div
+    className="modal-dialog modal-dialog-centered"
+    role="document"
+  >
+    <div
+      className="modal-content"
+    >
+      <div
+        className="modal-header"
+      >
+        <h5
+          className="modal-title"
+          id="exampleModalLongTitle"
+        >
+          Добавить отзыв
+        </h5>
+        <button
+          aria-label="Close"
+          className="close"
+          data-dismiss="modal"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            ×
+          </span>
+        </button>
+      </div>
+      <div
+        className="modal-body"
+      >
+        <form
+          className="form"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="UserName"
+            >
+              Имя
+            </label>
+            <input
+              className="form-control"
+              id="UserName"
+              type="text"
+            />
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="City"
+            >
+              Город
+            </label>
+            <input
+              className="form-control"
+              id="City"
+              type="text"
+            />
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="exampleFormControlTextarea1"
+            >
+              Ваш отзыв
+            </label>
+            <textarea
+              className="form-control"
+              id="exampleFormControlTextarea1"
+              rows="3"
+            />
+          </div>
+        </form>
+      </div>
+      <div
+        className="modal-footer"
+      >
+        <button
+          className="btn btn-secondary"
+          data-dismiss="modal"
+          onClick={[Function]}
+          type="button"
+        >
+          Отмена
+        </button>
+        <button
+          className="btn btn-primary"
+          onClick={[Function]}
+          type="button"
+        >
+          Отправить отзыв
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
