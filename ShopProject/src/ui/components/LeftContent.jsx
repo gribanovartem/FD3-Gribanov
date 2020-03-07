@@ -6,7 +6,7 @@ import isoFetch from "isomorphic-fetch"
 import { NavLink } from "react-router-dom"
 import Filter from "./Filter"
 import Reviews from "./Reviews"
-import { set_reviews, set_mode_0, set_mode_1 } from "../../redux/reviewsAC"
+import { set_reviews, set_mode_1 } from "../../redux/reviewsAC"
 
 class LeftContent extends React.Component {
   componentDidMount() {

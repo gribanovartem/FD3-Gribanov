@@ -1,100 +1,111 @@
-import { CATALOG_DRILLS, CATALOG_ALL, CATALOG_ROTARYHAMMERS, READY_FALSE, READY_TRUE, CATALOG_ELECTRIC_SAW, CATALOG_FRETSAW, CATALOG_PLANE } from './catalogAC'
+import {
+  CATALOG_DRILLS,
+  CATALOG_ALL,
+  CATALOG_ROTARYHAMMERS,
+  READY_FALSE,
+  READY_TRUE,
+  CATALOG_ELECTRIC_SAW,
+  CATALOG_FRETSAW,
+  CATALOG_PLANE
+} from "./catalogAC";
 
-const initState={
-  data:null, 
-  ready:false,
-}
+const initState = {
+  data: null,
+  ready: false
+};
 
-function catalogReducer(state=initState,action) {
+function catalogReducer(state = initState, action) {
   switch (action.type) {
     case READY_FALSE: {
-      const newState={ ...state,
-        ready: false,
-      }
-      return newState
+      const newState = { ...state, ready: false };
+      return newState;
     }
     case READY_TRUE: {
-      const newState={ ...state,
-        ready: true,
-      }
-      return newState
+      const newState = { ...state, ready: true };
+      return newState;
     }
 
     case CATALOG_ALL: {
-      const newState={ ...state,
+      const newState = {
+        ...state,
         data: action.data,
-        name: 'Все категории',
+        name: "Все категории",
         status: 0,
-        nav: '/',
-        nameEng: 'all',
-        ready: true,
-      }
-      return newState
+        nav: "/",
+        nameEng: "all",
+        ready: true
+      };
+      return newState;
     }
 
     case CATALOG_DRILLS: {
-      const newState={ ...state,
+      const newState = {
+        ...state,
         data: action.data,
-        name: 'Электродрели и дрели-шуруповерты',
+        name: "Электродрели и дрели-шуруповерты",
         status: 1,
-        nav: '/drills',
-        nameEng: 'drills',
-        ready: true,
-      }
-      return newState
-    };
+        nav: "/drills",
+        nameEng: "drills",
+        ready: true
+      };
+      return newState;
+    }
 
     case CATALOG_ROTARYHAMMERS: {
-      const newState={ ...state,
+      const newState = {
+        ...state,
         data: action.data,
-        name: 'Перфораторы',
+        name: "Перфораторы",
         status: 1,
-        nav: '/rotaryhammers',
-        nameEng: 'rotaryhammers',
-        ready: true,
-      }
-      return newState
-    };
-        
+        nav: "/rotaryhammers",
+        nameEng: "rotaryhammers",
+        ready: true
+      };
+      return newState;
+    }
+
     case CATALOG_ELECTRIC_SAW: {
-      const newState={ ...state,
+      const newState = {
+        ...state,
         data: action.data,
-        name: 'Дисковые пилы',
+        name: "Дисковые пилы",
         status: 1,
-        nav: '/electric_saw',
-        nameEng: 'electric_saw',
-        ready: true,
-      }
-      return newState
-    };
-      
+        nav: "/electric_saw",
+        nameEng: "electric_saw",
+        ready: true
+      };
+      return newState;
+    }
+
     case CATALOG_FRETSAW: {
-      const newState={ ...state,
+      const newState = {
+        ...state,
         data: action.data,
-        name: 'Электролобзики',
+        name: "Электролобзики",
         status: 1,
-        nav: '/fretsaw',
-        nameEng: 'fretsaw',
-        ready: true,
-      }
-      return newState
-    };
+        nav: "/fretsaw",
+        nameEng: "fretsaw",
+        ready: true
+      };
+      return newState;
+    }
 
     case CATALOG_PLANE: {
-      const newState={ ...state,
+      const newState = {
+        ...state,
         data: action.data,
-        name: 'Рубанки',
+        name: "Рубанки",
         status: 1,
-        nav: '/plane',
-        nameEng: 'plane',
-        ready: true,
-      }
-      return newState
-    };
+        nav: "/plane",
+        nameEng: "plane",
+        ready: true
+      };
+      return newState;
+    }
 
     default:
-      return state
+      return state;
   }
 }
 
-export default catalogReducer
+export default catalogReducer;

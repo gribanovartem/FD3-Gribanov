@@ -3,7 +3,7 @@ import '../styles/AddReview.css'
 import { connect } from 'react-redux'
 import PropTypes from "prop-types"
 import * as firebase from "firebase/app"
-import { set_reviews, set_mode_0, set_mode_1 } from '../../redux/reviewsAC'
+import { set_reviews, set_mode_0, } from '../../redux/reviewsAC'
 import 'firebase/storage' 
 
 class AddReview extends React.Component {

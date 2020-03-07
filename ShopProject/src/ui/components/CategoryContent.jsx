@@ -5,10 +5,9 @@ import "../styles/Media.css"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
 import isoFetch from "isomorphic-fetch"
-import * as firebase from "firebase/app"
 import store from "../../redux/store"
 import { ready_false, ready_true } from "../../redux/catalogAC"
-import { filter_on, filter_off, set_priceMin, set_priceMax, set_isOnSaleTrue, set_isOnSaleFalse, set_newCatalog } from "../../redux/filterAC"
+import { filter_off, set_priceMin, set_priceMax } from "../../redux/filterAC"
 import Loading from "./Loading"
 import PagesNav from "./PagesNav"
 import "firebase/storage"
@@ -63,6 +62,7 @@ class CategoryContent extends React.Component {
   };
 
   render() {
+    console.log(this.props)
     let catalog
     if (!this.props.filter.isFilter) {
       if (
@@ -70,7 +70,7 @@ class CategoryContent extends React.Component {
         && this.props.catalog.nameEng === this.props.name
       ) {
         catalog = this.props.catalog.data.products.map((item, i) => {
-          if (i <= this.props.page * 10 - 1 && i >= this.props.page * 10 - 10) return (
+          if (i <= this.props.page * (this.props.name==='plane'?50:10) - 1 && i >= (this.props.name==='plane'?this.props.page * 50 - 50:this.props.page * 10 - 10)) return (
             <NavLink
               to={`${this.props.catalog.nav}/${item.id}`}
               className="col-6"
@@ -85,7 +85,7 @@ class CategoryContent extends React.Component {
       }
     } else {
       catalog = this.props.filter.newCatalog.map((item, i) => {
-        if (i <= this.props.page * 10 - 1 && i >= this.props.page * 10 - 10) return (
+        if (i <= this.props.page * (this.props.name==='plane'?50:10) - 1 && i >= (this.props.name==='plane'?this.props.page * 50 - 50:this.props.page * 10 - 10)) return (
           <NavLink
             to={`${this.props.catalog.nav}/${item.id}`}
             className="col-6"
@@ -108,8 +108,8 @@ class CategoryContent extends React.Component {
               name={this.props.name}
               pagesCount={Math.ceil(
                 this.props.filter.isFilter
-                  ? this.props.filter.newCatalog.length / 10
-                  : this.props.catalog.data.products.length / 10,
+                  ? this.props.filter.newCatalog.length / (this.props.name==='plane'?50:10)
+                  : this.props.catalog.data.products.length / (this.props.name==='plane'?50:10),
               )}
               page={this.props.page}
             />
@@ -123,8 +123,8 @@ class CategoryContent extends React.Component {
               name={this.props.name}
               pagesCount={Math.ceil(
                 this.props.filter.isFilter
-                  ? this.props.filter.newCatalog.length / 10
-                  : this.props.catalog.data.products.length / 10,
+                  ? this.props.filter.newCatalog.length / (this.props.name==='plane'?50:10)
+                  : this.props.catalog.data.products.length / (this.props.name==='plane'?50:10),
               )}
               page={this.props.page}
             />

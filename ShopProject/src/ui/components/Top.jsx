@@ -1,6 +1,5 @@
 import React from 'react'
 import '../styles/Top.css'
-import { NavLink } from "react-router-dom"
 
 class Top extends React.Component {
   render() {

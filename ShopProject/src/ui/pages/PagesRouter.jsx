@@ -1,5 +1,5 @@
 import React from "react"
-import { Route , NavLink } from "react-router-dom"
+import { Route } from "react-router-dom"
 import { connect } from "react-redux"
 import Main from "../components/Main"
 import SelCategory from "../components/SelCategory"
@@ -12,7 +12,6 @@ import {
   catalog_fretsaw,
   catalog_plane,
 } from "../../redux/catalogAC"
-import { set_reviews, set_mode_0, set_mode_1 } from "../../redux/reviewsAC"
 
 
 class PagesRouter extends React.Component {
@@ -148,7 +147,7 @@ class PagesRouter extends React.Component {
         />
         <Route path="/plane" exact>
           <SelCategory
-            url="https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/plane.json?alt=media&token=f5349766-e30c-4522-85e7-11a95969f032"
+            url="https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/plane.json?alt=media&token=7206cfa2-1de4-4883-bf45-c7694e9cddf1"
             catalogAC={catalog_plane}
             name="plane"
           />
@@ -159,7 +158,7 @@ class PagesRouter extends React.Component {
           render={(props) => (
             <SelItem
               {...props}
-              url="https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/plane.json?alt=media&token=f5349766-e30c-4522-85e7-11a95969f032"
+              url="https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/plane.json?alt=media&token=7206cfa2-1de4-4883-bf45-c7694e9cddf1"
               catalogAC={catalog_plane}
               name="plane"
             />
@@ -171,7 +170,7 @@ class PagesRouter extends React.Component {
           render={(props) => (
             <SelCategory
               {...props}
-              url="https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/plane.json?alt=media&token=f5349766-e30c-4522-85e7-11a95969f032"
+              url="https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/plane.json?alt=media&token=7206cfa2-1de4-4883-bf45-c7694e9cddf1"
               catalogAC={catalog_plane}
               name="plane"
             />

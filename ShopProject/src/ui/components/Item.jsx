@@ -14,6 +14,7 @@ class Item extends React.Component {
   }
 
   componentDidMount() {
+    scroll(0,0)
     if (this.props.catalog.data===null || this.props.catalog.nameEng!==this.props.name) {
       isoFetch(this.props.url, {
         method: "get",
@@ -49,7 +50,7 @@ class Item extends React.Component {
       product
     if (this.props.catalog.data !==null && this.props.catalog.nameEng===this.props.name) {
       item = this.props.catalog.data.products.find(
-        (item, i) => item.id === this.props.id,
+        (item) => item.id === this.props.id,
       )
       product = (
         <div>

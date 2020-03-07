@@ -4,6 +4,9 @@ import "../styles/LeftContent.css"
 import { connect } from "react-redux"
 
 class Reviews extends React.Component {
+  componentDidMount() {
+    scroll(0,0)
+  }
   render() {
     let reviews
 
@@ -14,7 +17,7 @@ class Reviews extends React.Component {
           rev.push(this.props.reviews.reviews[i])
         }
 
-        reviews = rev.map((item, i) => {
+        reviews = rev.map((item) => {
           return (
             <div className="main-story" key={item.name}>
               <div className="main-story_title">{`${item.name} , ${item.city}`}</div>
@@ -24,7 +27,7 @@ class Reviews extends React.Component {
         })
       }
       if (this.props.mode === 1) {
-        reviews = this.props.reviews.reviews.map((item, i) => {
+        reviews = this.props.reviews.reviews.map((item) => {
           return (
             <div className="main-story" key={item.name}>
               <div className="main-story_title">{`${item.name} , ${item.city}`}</div>

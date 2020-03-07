@@ -43,14 +43,14 @@ class MainContent extends React.PureComponent {
     this.props.dispatch(ready_false())
   }
 
-  fetchSuccess = (data, name) => {
+  fetchSuccess = (data) => {
     this.props.dispatch(catalog_all(data))
   };
 
   render() {
     let catalog
     if (this.props.catalog.status === 0) {
-      catalog = this.props.catalog.data.map((item, i) => {
+      catalog = this.props.catalog.data.map((item) => {
         return (
           <NavLink
             to={`${item.url}/page/${1}`}

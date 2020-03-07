@@ -2,6 +2,7 @@ import React from 'react'
 import { hot } from 'react-hot-loader/root'
 import PropTypes from "prop-types"
 import PageHeader from 'ui/pages/PageHeader'
+import PageFooter from 'ui/pages/PageFooter'
 import PagesRouter from 'ui/pages/PagesRouter'
 import { connect } from 'react-redux'
 import AddReview from './components/AddReview'
@@ -16,7 +17,7 @@ class App extends React.Component {
         <PagesRouter />
         <div className={this.props.reviews.mode===0?"fadeModal fadeClose":"fadeModal fadeShow"} />
         <AddReview />
-        {/* <PageFooter/> */}
+        <PageFooter/>
       </div>
     )
   }
