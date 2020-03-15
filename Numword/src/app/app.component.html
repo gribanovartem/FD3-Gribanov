@@ -1,0 +1,4 @@
+<div>
+    <input ngModel  type="number" min="0" #apples (change)='false'>
+    <span>У вас {{apples.value|numword:'яблоко':'яблока':'яблок'}}</span>
+</div>
