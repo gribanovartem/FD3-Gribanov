@@ -5,6 +5,7 @@ import { connect } from "react-redux"
 
 class Reviews extends React.Component {
   render() {
+    
     let reviews
 
     if (this.props.reviews.reviews !== null) {
