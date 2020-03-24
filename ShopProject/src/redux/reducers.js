@@ -3,15 +3,13 @@ import { combineReducers } from 'redux'
 import catalogReducer from "./catalogReducer"
 import filterReducer from "./filterReducer"
 import reviewsReducer from "./reviewsReducer"
+import basketReducer from "./basketReducer"
 
 const combinedReducer=combineReducers({
-  // редьюсер countersReducer отвечает за раздел state под именем counters
-  // selecting: selectReducer, 
-  // + другие редьюсеры
   catalog: catalogReducer,
   filter: filterReducer,
   reviews: reviewsReducer,
-
+  basket: basketReducer,
 })
 
 export default combinedReducer

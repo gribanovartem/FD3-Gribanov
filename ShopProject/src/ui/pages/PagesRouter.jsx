@@ -5,6 +5,7 @@ import Main from "../components/Main"
 import SelCategory from "../components/SelCategory"
 import SelItem from "../components/SelItem"
 import SelReviews from "../components/SelReviews"
+import Basket from "../components/Basket";
 import {
   catalog_drills,
   catalog_rotaryhammers,
@@ -14,12 +15,16 @@ import {
 } from "../../redux/catalogAC"
 
 
+
 class PagesRouter extends React.Component {
   render() {
     return (
       <div>
         <Route path="/" exact>
           <Main />
+        </Route>
+        <Route path="/basket" exact>
+          <Basket />
         </Route>
         <Route path="/drills" exact>
           <SelCategory
@@ -191,6 +196,6 @@ const mapStateToProps = function (state) {
   return {
     reviews: state.reviews,
   }
-  
-}
+
+};
 export default connect(mapStateToProps)(PagesRouter)

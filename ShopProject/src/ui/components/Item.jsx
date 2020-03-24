@@ -6,6 +6,7 @@ import { connect } from "react-redux"
 import isoFetch from "isomorphic-fetch"
 import store from "../../redux/store"
 import { ready_false } from "../../redux/catalogAC"
+import {add_to_basket} from "../../redux/basketAC";
 
 class Item extends React.Component {
   constructor(props) {
@@ -44,20 +45,25 @@ class Item extends React.Component {
     this.props.dispatch(this.props.catalogAC(data))
   };
 
+  addToBasket = (item) => {
+    this.props.dispatch(add_to_basket(item))
+  }
+
   render() {
-    let item, 
+    let item,
       product
     if (this.props.catalog.data !==null && this.props.catalog.nameEng===this.props.name) {
       item = this.props.catalog.data.products.find(
         (item) => item.id === this.props.id,
       )
+      console.log(this.props)
       product = (
         <div>
           <h5>{item.extended_name}</h5>
           <img src={item.images.header} alt="img" />
           <p>{item.description}</p>
           <p className="price">{item.prices.price_min.amount} руб.</p>
-          <button type="button" className="btn btn-warning">В корзину</button>
+          <button type="button" className="btn btn-warning" onClick={()=>this.addToBasket(item)}>В корзину</button>
         </div>
       )
     }
@@ -70,6 +76,7 @@ const mapStateToProps = function (state) {
   return {
     catalog: state.catalog,
     filter: state.filter,
+    basket: state.basket,
   }
 }
 Item.propTypes = {

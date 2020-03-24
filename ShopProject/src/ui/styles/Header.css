@@ -24,7 +24,10 @@ header {
 }
 .header-search { position: relative; }
 .header-search_body input { font-style: italic; padding-left: 15px; }
-
+.basketImg:hover {
+   transform: rotate(360deg);
+   transition-duration: 1s ;
+ }
 .header-search button {
 	position: absolute;
 	right: 15px;

@@ -22,7 +22,11 @@ header {
 .header-search .form-control {
 	border-radius: 30px;
 }
-.header-search { position: relative; }
+/*.header-basket { position: relative; }*/
+.header-basket_body a:hover {
+	background: #0f6674;
+}
+
 .header-search_body input { font-style: italic; padding-left: 15px; }
 
 .header-search button {
