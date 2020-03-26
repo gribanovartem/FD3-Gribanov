@@ -49,7 +49,7 @@ class LeftContent extends React.Component {
         <Reviews mode={0}/>
         <div className="main-more">
           <div>
-            <NavLink to="/reviews" className="btn btn-info">Все отзывы</NavLink>
+            <NavLink to="/reviews" className="btn checkout">Все отзывы</NavLink>
           </div>
           <div className="main-more_add">
             <button type="button" className="btn btn-link" onClick={this.showModal}>Добавить отзыв</button>
