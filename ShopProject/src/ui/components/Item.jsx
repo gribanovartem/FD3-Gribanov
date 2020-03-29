@@ -46,6 +46,7 @@ class Item extends React.Component {
   };
 
   addToBasket = (item) => {
+    item.count = 1;
     this.props.dispatch(add_to_basket(item))
   }
 
@@ -56,7 +57,6 @@ class Item extends React.Component {
       item = this.props.catalog.data.products.find(
         (item) => item.id === this.props.id,
       )
-      console.log(this.props)
       product = (
         <div>
           <h5>{item.extended_name}</h5>

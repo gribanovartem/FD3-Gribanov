@@ -6,7 +6,7 @@ import PropTypes from "prop-types"
 import { connect } from "react-redux"
 import isoFetch from "isomorphic-fetch"
 import store from "../../redux/store"
-import { ready_false, ready_true } from "../../redux/catalogAC"
+import {catalog_off, ready_false, ready_true} from "../../redux/catalogAC"
 import { filter_off, set_priceMin, set_priceMax } from "../../redux/filterAC"
 import Loading from "./Loading"
 import PagesNav from "./PagesNav"
@@ -55,6 +55,7 @@ class CategoryContent extends React.Component {
 
   componentWillUnmount() {
     this.props.dispatch(ready_false())
+    this.props.dispatch(catalog_off())
   }
 
   fetchSuccess = (data) => {

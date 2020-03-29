@@ -61,13 +61,9 @@
 /* Apply dollar signs */
 .product .product-price:before,
 .product .product-line-price:before,
-.totals-value:before {
-  content: "$";
-}
 
 /* Body/Header stuff */
 body {
-  padding: 0px 30px 30px 20px;
   /*font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   font-weight: 100;
 }
@@ -204,6 +200,13 @@ label {
   .product-line-price {
     float: right;
     width: 70px;
+  }
+  .col-4 {
+    flex: none;
+    max-width: 100%;
+  }
+  .text-right {
+    text-align: center!important;
   }
 }
 /* Make more adjustments for phone */

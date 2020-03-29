@@ -44,7 +44,7 @@ class LeftContent extends React.Component {
   render() {
     return (
       <div className="col-3">
-        {this.props.catalog.status === 1 ? <Filter /> : null}
+        {(this.props.catalog.status === 1) ? <Filter /> : null}
         <h5 className="main-orange2">Отзывы о Магазине</h5>
         <Reviews mode={0}/>
         <div className="main-more">

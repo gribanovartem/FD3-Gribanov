@@ -49,7 +49,7 @@ class MainContent extends React.PureComponent {
 
   render() {
     let catalog
-    if (this.props.catalog.status === 0) {
+    if (this.props.catalog.nameEng === "all") {
       catalog = this.props.catalog.data.map((item) => {
         return (
           <NavLink
