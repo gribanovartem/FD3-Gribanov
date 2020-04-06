@@ -7,6 +7,9 @@ import isoFetch from "isomorphic-fetch"
 import store from "../../redux/store"
 import { ready_false } from "../../redux/catalogAC"
 import {add_to_basket} from "../../redux/basketAC";
+import Popup from "./Popup";
+import {set_popup_hide, set_popup_show} from "../../redux/popupAC";
+import Loading from "./Loading";
 
 class Item extends React.Component {
   constructor(props) {
@@ -48,7 +51,12 @@ class Item extends React.Component {
   addToBasket = (item) => {
     item.count = 1;
     this.props.dispatch(add_to_basket(item))
+    this.props.dispatch(set_popup_show())
+    setTimeout(()=>{
+      this.props.dispatch(set_popup_hide())
+    }, 2000)
   }
+
 
   render() {
     let item,
@@ -64,11 +72,12 @@ class Item extends React.Component {
           <p>{item.description}</p>
           <p className="price">{item.prices.price_min.amount} руб.</p>
           <button type="button" className="btn btn-warning" onClick={()=>this.addToBasket(item)}>В корзину</button>
+          <Popup text="Товар добавлен в корзину"/>
         </div>
       )
     }
     return (
-      <div className="col-9">{product || "loaddddddddddddddddddddddddddddd"}</div>
+      <div className="col-9">{product || <Loading />}</div>
     )
   }
 }
@@ -77,6 +86,7 @@ const mapStateToProps = function (state) {
     catalog: state.catalog,
     filter: state.filter,
     basket: state.basket,
+    popup: state.popup,
   }
 }
 Item.propTypes = {
