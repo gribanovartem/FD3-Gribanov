@@ -14,6 +14,12 @@ class Header extends React.Component {
   showMenu=()=> {
     this.setState((prevState) => ({ show: !prevState.show }))
   }
+  toCountProductLength=()=> {
+    let basketLength = this.props.basket.basket.reduce((acc, item, i)=>{
+     return acc + item.count
+    },0)
+    return basketLength
+  }
   render() {
     return (
       <header>
@@ -44,7 +50,7 @@ class Header extends React.Component {
                        src="https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/shopping-cart_icon-icons.com_69303.png?alt=media&token=0f8d2629-ecd6-4210-93e4-d23c1199f52f"
                        alt="basket"/>
                 </NavLink>
-                <p>Товаров в корзине {this.props.basket.basket.length}</p>
+                <p>Товаров в корзине {this.toCountProductLength()}</p>
               </div>
             </div>
           </div>

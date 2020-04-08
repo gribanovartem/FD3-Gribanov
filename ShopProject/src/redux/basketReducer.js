@@ -6,14 +6,30 @@ const initState={
 function basketReducer(state=initState,action) {
   switch (action.type) {
     case ADD_TO_BASKET: {
+      let newState
+      let match = false
+      let newBasket
+      state.basket.forEach((prod, i)=>{
+        if(prod.key===action.item.key) {
+          newBasket = state.basket.slice()
+          match = true
+          let newItem = {...newBasket[i], count: newBasket[i].count + 1}
+          newBasket.splice(i, 1, newItem)
+        }
+      })
+      if(!match) {
+        newBasket = state.basket.slice()
+        newBasket.push(action.item)
+        newBasket[newBasket.length-1].count = 1
+      }
       return {
-        ...state,
-        basket: [...state.basket, action.item]
+          ...state,
+          basket: newBasket
       }
     }
     case CHANGE_COUNT: {
       let newBasket = state.basket.slice()
-      let newItem = {...newBasket[action.i], 'count': action.count}
+      let newItem = {...newBasket[action.i], count: action.count}
       newBasket.splice(action.i, 1, newItem)
       return {
         ...state,
