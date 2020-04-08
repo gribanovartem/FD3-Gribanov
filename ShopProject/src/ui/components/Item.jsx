@@ -54,7 +54,7 @@ class Item extends React.Component {
     this.props.dispatch(set_popup_show())
     setTimeout(()=>{
       this.props.dispatch(set_popup_hide())
-    }, 2000)
+    }, 1000)
   }
 
 

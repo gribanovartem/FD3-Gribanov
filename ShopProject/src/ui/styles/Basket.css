@@ -95,6 +95,12 @@ label {
   padding-bottom: 10px;
   border-bottom: 1px solid #eee;
 }
+.product a {
+  color: #000;
+}
+.product a:hover {
+  color: #6c757d;
+}
 .product .product-image {
   text-align: center;
 }

@@ -6,7 +6,6 @@ const initState={
 function basketReducer(state=initState,action) {
   switch (action.type) {
     case ADD_TO_BASKET: {
-      let newState
       let match = false
       let newBasket
       state.basket.forEach((prod, i)=>{

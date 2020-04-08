@@ -3,6 +3,7 @@ import LeftContent from "./LeftContent";
 import '../styles/Basket.css';
 import {connect} from "react-redux";
 import {change_count, delete_item, basket_filter_off} from "../../redux/basketAC";
+import {NavLink} from "react-router-dom";
 
 class Basket extends React.Component {
 
@@ -15,13 +16,21 @@ class Basket extends React.Component {
   render() {
     let basketItems = this.props.basket.basket.map((item, i) => {
       return (
+
         <div className="product" key={item.key}>
-          <div className="product-image">
-            <img src={item.images.header}/>
-          </div>
-          <div className="product-details">
-            <div className="product-title">{item["extended_name"]}</div>
-          </div>
+          <NavLink
+            to={`${this.props.catalog.nav}/${item.id}`}
+            key={item.key}
+          >
+            <div className="product-image">
+              <img src={item.images.header}/>
+            </div>
+            <div className="product-details">
+              <div className="product-title">{item["extended_name"]}</div>
+            </div>
+          </NavLink>
+
+
           <div className="product-quantity">
             <input type="number" value={item.count} onChange={(event)=>this.changeCount(event.target.value, i)} min="1"/>
           </div>
@@ -75,6 +84,7 @@ class Basket extends React.Component {
 const mapStateToProps = function (state) {
   return {
     basket: state.basket,
+    catalog: state.catalog,
   }
 }
 export default connect(mapStateToProps)(Basket)
