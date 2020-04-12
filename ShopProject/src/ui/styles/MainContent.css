@@ -21,18 +21,20 @@
 	text-align: center;
 	margin: 15px 0 0 0;
 	padding: 0 10px;
-	color: darkgray;
+	color: #1b1e21;
 	text-decoration: none !important;
+  height: 200px;
 }
 
 .main-mashit .col-6:hover {
-	border: 1px solid #333;
+  transform: scale(1.1);
 	cursor: pointer;
 	text-decoration: none !important;
+  color: #949391;
 }
 
 .main-mashit .col-6 img {
-	width: 130px;
+	height: 105px;
 }
 
 .col-6 .price {
@@ -40,7 +42,7 @@
 }
 
 .main-mashit .col-6 h4 {
-	color: #333;
+	/*color: #333;*/
 	font-size: 1.2rem;
 	text-decoration: none;
 }
