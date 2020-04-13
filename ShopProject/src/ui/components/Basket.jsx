@@ -2,8 +2,9 @@ import React from 'react';
 import LeftContent from "./LeftContent";
 import '../styles/Basket.css';
 import {connect} from "react-redux";
-import {change_count, delete_item, basket_filter_off} from "../../redux/basketAC";
+import {change_count, delete_item} from "../../redux/basketAC";
 import {NavLink} from "react-router-dom";
+import PropTypes from "prop-types"
 
 class Basket extends React.Component {
 
@@ -87,4 +88,28 @@ const mapStateToProps = function (state) {
     catalog: state.catalog,
   }
 }
+
+Basket.propTypes = {
+  catalog: PropTypes.shape({
+    data: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.object,
+    ]),
+    ready: PropTypes.bool.isRequired,
+    name: PropTypes.string,
+    status: PropTypes.number,
+    nav: PropTypes.string,
+    nameEng: PropTypes.string,
+  }),
+  dispatch: PropTypes.func.isRequired,
+  basket: PropTypes.shape({
+    basket: PropTypes.array.isRequired
+  })
+}
+Basket.defaultProps = {
+  catalog: PropTypes.shape({
+    data: PropTypes.object,
+  })
+}
+
 export default connect(mapStateToProps)(Basket)

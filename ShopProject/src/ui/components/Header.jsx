@@ -3,6 +3,7 @@ import {NavLink} from "react-router-dom"
 import '../styles/Header.css'
 import PropTypes from "prop-types"
 import {connect} from 'react-redux'
+import {call_request_show} from "../../redux/callRequestAC";
 
 class Header extends React.Component {
   constructor(props) {
@@ -15,10 +16,13 @@ class Header extends React.Component {
     this.setState((prevState) => ({ show: !prevState.show }))
   }
   toCountProductLength=()=> {
-    let basketLength = this.props.basket.basket.reduce((acc, item, i)=>{
-     return acc + item.count
+    let basketLength = this.props.basket.basket.reduce((acc, item)=>{
+     return acc + Number(item.count)
     },0)
     return basketLength
+  }
+  callRequest = () => {
+    this.props.dispatch(call_request_show())
   }
   render() {
     return (
@@ -40,7 +44,7 @@ class Header extends React.Component {
             <div className="col-3 text-right header-phone">
               <div className="header-phone_number"><p>+375 29 555 55 55</p></div>
               <div className="header-phone_button">
-                <button type="button">Заказать звонок</button>
+                <button type="button" onClick={this.callRequest}>Заказать звонок</button>
               </div>
             </div>
             <div className="col-4 header-basket text-right">
@@ -85,6 +89,7 @@ const mapStateToProps = function (state) {
   return {
     catalog: state.catalog,
     basket: state.basket,
+    callRequest: state.callRequest,
   }
 }
 Header.propTypes = {
@@ -99,6 +104,10 @@ Header.propTypes = {
     nav: PropTypes.string,
     nameEng: PropTypes.string,
   }),
+  basket: PropTypes.shape({
+    basket: PropTypes.array.isRequired
+  }),
+  dispatch: PropTypes.func.isRequired,
 }
 Header.defaultProps = {
   catalog: PropTypes.shape({

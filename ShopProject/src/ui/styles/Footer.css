@@ -2,6 +2,7 @@ footer {
   background: #ff950b;
   padding: 40px 0 60px 0;
 }
+
 footer .col-8, footer .col-7, footer .col-3, footer .col-2 {
   padding-left: 0;
   padding-right: 0;
@@ -11,29 +12,34 @@ footer .col-8, footer .col-7, footer .col-3, footer .col-2 {
   padding-top: 10px;
   font-size: 14px;
 }
+
 .footer-logo img {
   width: 100px;
 }
+
 .footer-cat {
   display: flex;
 }
-.footer-cat_item {width: 33%; padding-top: 10px;}
-.footer-cat_item2 {width: 28%; padding-top: 10px;}
-.footer-cat_sub {width: 38%; padding: 10px 30px 0 0;}
+.footer-cat_item { width: 33%; padding-top: 10px; }
+.footer-cat_item2 { width: 28%; padding-top: 10px; }
+.footer-cat_sub { width: 38%; padding: 10px 30px 0 0; }
+
 .footer-cat_item h5, .footer-cat_item2 h5 {
   text-transform: uppercase;
   color: #bb193e;
   font-weight: bold;
   font-size: 18px;
 }
+
 .footer-cat_list {
   padding: 0;
   margin: 0;
   list-style: none;
 }
-.footer-cat_list a {color: #000;}
-.footer-cat_subscribe {position: relative;}
-.footer-cat_subscribe input {font-size: 14px; padding: 8px 10px;}
+.footer-cat_list a { color: #000; }
+.footer-cat_subscribe { position: relative; }
+.footer-cat_subscribe input { font-size: 14px; padding: 8px 10px; }
+
 .footer-cat_subscribe button {
   position: absolute;
   top: 0;
@@ -47,26 +53,30 @@ footer .col-8, footer .col-7, footer .col-3, footer .col-2 {
   border-radius: 30px;
   box-shadow: 0 0 15px 1px #cfa657;
 }
+
 .footer-cat_subscribe button:hover, .footer-cat_subscribe button:active, .footer-cat_subscribe button:focus {
   background: #e64568;
   color: #fff;
   box-shadow: 0 0 15px 1px #cfa657;
 }
-.footer-cat_subscribe .form-control {border-radius: 30px;}
+.footer-cat_subscribe .form-control { border-radius: 30px; }
+
 .footer-cat_small {
   padding: 10px 0;
   font-size: 14px;
 }
-.footer-phone_number {margin-bottom: 10px;}
+.footer-phone_number { margin-bottom: 10px; }
+
 .footer-phone_number a {
   font-size: 22px;
   color: #000;
   text-decoration: none;
   font-weight: bold;
 }
-.footer-phone_number a:hover {text-decoration: underline;}
-.footer-phone_mail a {color: #000;}
-.footer-social {margin-top: 24px;}
+.footer-phone_number a:hover { text-decoration: underline; }
+.footer-phone_mail a { color: #000; }
+.footer-social { margin-top: 24px; }
+
 .footer-social a {
   background: #bd193c;
   font-size: 24px;
@@ -75,11 +85,12 @@ footer .col-8, footer .col-7, footer .col-3, footer .col-2 {
   color: #fff;
   margin-right: 5px;
 }
+
 .footer-social a:hover {
   background: none;
   border: 1px solid #bd193c;
   color: #bd193c;
 }
-.footer-social .facebook {padding: 5px 15px;}
-.footer-social .instagram {padding: 5px 11px;}
-.footer-social .vk {padding: 5px 8px;}
+.footer-social .facebook { padding: 5px 15px; }
+.footer-social .instagram { padding: 5px 11px; }
+.footer-social .vk { padding: 5px 8px; }

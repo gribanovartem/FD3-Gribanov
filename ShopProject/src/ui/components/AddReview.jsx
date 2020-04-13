@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import PropTypes from "prop-types"
 import * as firebase from "firebase/app"
 import { set_reviews, set_mode_0, } from '../../redux/reviewsAC'
-import 'firebase/storage' 
+import 'firebase/storage'
 
 class AddReview extends React.Component {
   constructor(props) {
@@ -36,11 +36,10 @@ class AddReview extends React.Component {
         messagingSenderId: "161416264169",
         appId: "1:161416264169:web:a05312c302f35c59f1f378",
       }
-      
+
       firebase.initializeApp(config)
       const newReviews = [newReview,...this.props.reviews.reviews]
       const storage = firebase.storage()
-      console.log(storage)
       var storageRef = storage.ref()
       var reviewsRef = storageRef.child('reviews.json')
       const blob = new Blob([JSON.stringify(newReviews, null, 2)], { type : 'application/json' })
@@ -84,7 +83,7 @@ class AddReview extends React.Component {
             </div>
           </div>
         </div>
-         
+
       )
     }
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/Top.css'
+import '../styles/all.css'
 
 class Top extends React.Component {
   render() {

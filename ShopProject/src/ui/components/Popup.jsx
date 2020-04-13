@@ -1,6 +1,7 @@
 import React from 'react'
 import  '../styles/Popup.css'
 import {connect} from "react-redux";
+import PropTypes from "prop-types";
 
 class Popup extends React.Component {
 
@@ -20,4 +21,10 @@ const mapStateToProps = function (state) {
     popup: state.popup.popup
   }
 }
+
+Popup.propTypes = {
+  popup: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+}
+
 export default connect(mapStateToProps)(Popup)

@@ -203,16 +203,27 @@
 	.main-popular_item {
 			width: 100%;
 		}
+
   .header-logo {
     flex-wrap: nowrap;
   }
+
   .header-logo img {
     width: 70px;
   }
 }
 
 @media (max-width: 480px) {
-	.top .col-2, .top .col-4 b, .header-phone { display: none; }
+	.top .col-2, .top .col-4 b { display: none; }
+
+  .header-phone_number {
+    display: none;
+  }
+
+  .header-phone {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 
 	.top .col-4 {
 		-ms-flex: 0 0 100%;
@@ -237,11 +248,12 @@
 		margin: 10px auto;
     font-size: 14px;
 	}
+
   .header-basket .header-basket_body {
     display: flex;
     flex-direction: row-reverse;
-
   }
+
   .header-basket p {
     padding-right: 20px;
     line-height: 45px;
