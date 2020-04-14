@@ -8,6 +8,9 @@ import isoFetch from "isomorphic-fetch"
 import store from "../../redux/store"
 import { catalog_all, ready_false } from "../../redux/catalogAC"
 import Loading from "./Loading"
+import {Card} from "antd";
+
+const { Meta } = Card
 
 class MainContent extends React.PureComponent {
   constructor(props) {
@@ -57,8 +60,13 @@ class MainContent extends React.PureComponent {
             key={item.name}
             className="col-6"
           >
-            <h4>{item.name}</h4>
-            <img src={item.img} alt="img" />
+            <Card
+              hoverable
+              style={{ width: 400 }}
+              cover={<img alt="img" src={item.img} />}
+            >
+              <Meta title={item.name}  />
+            </Card>
           </NavLink>
         )
       })

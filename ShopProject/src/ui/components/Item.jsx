@@ -42,6 +42,7 @@ class Item extends React.Component {
 
   componentWillUnmount() {
     this.props.dispatch(ready_false())
+
   }
 
   fetchSuccess = (data) => {

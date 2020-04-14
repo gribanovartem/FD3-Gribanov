@@ -11,6 +11,10 @@ import { filter_off, set_priceMin, set_priceMax } from "../../redux/filterAC"
 import Loading from "./Loading"
 import PagesNav from "./PagesNav"
 import "firebase/storage"
+import { Card } from 'antd'
+
+const { Meta } = Card
+
 
 class CategoryContent extends React.Component {
   constructor(props) {
@@ -19,7 +23,9 @@ class CategoryContent extends React.Component {
   }
 
   componentDidMount() {
-    this.filterReset()
+    if(this.props.name!==this.props.catalog.nameEng) {
+      this.filterReset()
+    }
     if (
       this.props.catalog.nameEng !== this.props.name
       || this.props.catalog.data === null
@@ -70,32 +76,49 @@ class CategoryContent extends React.Component {
         && this.props.catalog.nameEng === this.props.name
       ) {
         catalog = this.props.catalog.data.products.map((item, i) => {
-          if (i <= this.props.page * (this.props.name==='plane'?50:10) - 1 && i >= (this.props.name==='plane'?this.props.page * 50 - 50:this.props.page * 10 - 10)) return (
+          if (i <= this.props.page * (this.props.name==='plane'?50:10) - 1 && i >= (this.props.name==='plane'?this.props.page * 50 - 50:this.props.page * 10 - 10)) {
+            let priceSale = <p>Цена: <span className='beforeSale'>{item.prices.price_max.amount}</span> <span className='afterSale'>{item.prices.price_min.amount}</span></p>
+            let priceNoSale = <p>Цена: {item.prices.price_min.amount}</p>
+            return (
+              <NavLink
+                to={`${this.props.catalog.nav}/${item.id}`}
+                className="col-6"
+                key={item.key}
+              >
+                <Card
+                  hoverable
+                  style={{ width: 400 }}
+                  cover={<img alt="img" src={item.images.header} />}
+                >
+                  <Meta title={item.full_name} description={item.sale.is_on_sale?priceSale:priceNoSale} />
+                </Card>
+              </NavLink>
+
+            );
+          }  else return null
+        })
+      }
+    } else {
+      catalog = this.props.filter.newCatalog.map((item, i) => {
+        if (i <= this.props.page * (this.props.name==='plane'?50:10) - 1 && i >= (this.props.name==='plane'?this.props.page * 50 - 50:this.props.page * 10 - 10)) {
+          let priceSale = <p>Цена: <span className='beforeSale'>{item.prices.price_max.amount}</span> <span className='afterSale'>{item.prices.price_min.amount}</span></p>
+          let priceNoSale = <p>Цена: {item.prices.price_min.amount}</p>
+          return (
             <NavLink
               to={`${this.props.catalog.nav}/${item.id}`}
               className="col-6"
               key={item.key}
             >
-              <h4>{item.full_name}</h4>
-              <img src={item.images.header} alt="img" />
-              <p>Цена: {item.prices.price_min.amount}</p>
+              <Card
+                hoverable
+                style={{ width: 400 }}
+                cover={<img alt="img" src={item.images.header} />}
+              >
+                <Meta title={item.full_name} description={item.sale.is_on_sale?priceSale:priceNoSale} />
+              </Card>
             </NavLink>
-          ); else return null
-        })
-      }
-    } else {
-      catalog = this.props.filter.newCatalog.map((item, i) => {
-        if (i <= this.props.page * (this.props.name==='plane'?50:10) - 1 && i >= (this.props.name==='plane'?this.props.page * 50 - 50:this.props.page * 10 - 10)) return (
-          <NavLink
-            to={`${this.props.catalog.nav}/${item.id}`}
-            className="col-6"
-            key={item.key}
-          >
-            <h4>{item.full_name}</h4>
-            <img src={item.images.header} alt="img" />
-            <p>Цена: {item.prices.price_min.amount}</p>
-          </NavLink>
-        ); else return null
+          );
+        }  else return null
       })
     }
 

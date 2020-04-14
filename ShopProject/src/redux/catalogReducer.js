@@ -7,7 +7,8 @@ import {
   CATALOG_ELECTRIC_SAW,
   CATALOG_FRETSAW,
   CATALOG_PLANE,
-  CATALOG_OFF
+  CATALOG_OFF,
+  CATALOG_ON
 } from "./catalogAC";
 
 const initState = {
@@ -107,6 +108,13 @@ function catalogReducer(state = initState, action) {
       const newState = {
         ...state,
         status: 0,
+      };
+      return newState;
+    }
+    case CATALOG_ON: {
+      const newState = {
+        ...state,
+        status: 1,
       };
       return newState;
     }

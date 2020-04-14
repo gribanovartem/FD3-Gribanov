@@ -7,6 +7,7 @@ const CATALOG_ELECTRIC_SAW='CATALOG_ELECTRIC_SAW'
 const CATALOG_FRETSAW='CATALOG_FRETSAW'
 const CATALOG_PLANE='CATALOG_PLANE'
 const CATALOG_OFF='CATALOG_OFF'
+const CATALOG_ON='CATALOG_ON'
 
 const ready_false = function () {
   return {
@@ -67,6 +68,11 @@ const catalog_off=function () {
     type: CATALOG_OFF,
   }
 }
+const catalog_on=function () {
+  return {
+    type: CATALOG_ON,
+  }
+}
 
 export {
   ready_false, READY_FALSE,
@@ -78,4 +84,5 @@ export {
   catalog_fretsaw, CATALOG_FRETSAW,
   catalog_plane, CATALOG_PLANE,
   catalog_off, CATALOG_OFF,
+  catalog_on, CATALOG_ON,
 }

@@ -68,7 +68,7 @@ class Filter extends React.Component {
           <span>до</span>
           <input className="price" type="text" ref={this.priceMax} /><br />
           <label htmlFor="check">
-            На скидке 
+            На скидке
             <input id="check" type="checkbox" className="checkbox" ref={this.isOnSale} onChange={this.check} checked={this.state.checked} />
           </label><br />
           <button type="button" className="btn btn-success" onClick={this.filterApply}>Применить фильтр</button>
@@ -85,9 +85,10 @@ const mapStateToProps = function (state) {
 }
 Filter.propTypes = {
   catalog: PropTypes.shape({
-    data: PropTypes.shape({
-      products: PropTypes.array,
-    }),
+    data: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.object,
+    ]),
   }),
   filter: PropTypes.shape({
     isOnSale: PropTypes.bool,
