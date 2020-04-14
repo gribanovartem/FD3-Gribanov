@@ -274,4 +274,8 @@
 		max-width: 100%;
 		text-align: center;
 	}
+  .ant-card {
+    width: 300px!important;
+    margin: 0 auto;
+  }
 }

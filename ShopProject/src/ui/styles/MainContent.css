@@ -21,34 +21,37 @@
 
 .main-mashit .col-6 {
 	text-align: center;
-	margin: 20px 0 0 0;
-	padding: 0 10px;
+	margin: 10px 0 0 0;
+	padding: 0 5px;
 	color: #1b1e21;
 	text-decoration: none !important;
   height: 250px;
 }
 
+.col-6 {
+  flex: 0 0 48%;
+}
+
 .ant-card {
   height: inherit;
 }
-.main-mashit .col-6:hover {
-  transform: scale(1.1);
-	cursor: pointer;
-	text-decoration: none !important;
-  color: #949391;
-}
+
 .ant-card-cover {
   margin-top: 15px;
 }
+
 .ant-card-cover > * {
   display: inline;
   width: auto;
 }
+
 .ant-card-meta-title {
+  overflow: visible;
   color: rgba(0, 0, 0, 0.85);
   font-weight: 500;
   font-size: 16px;
   text-overflow: ellipsis;
+  white-space: normal;
 }
 
 .main-mashit .col-6 img {
@@ -73,12 +76,15 @@
 	font-size: 20px;
 	padding-top: 10px;
 }
+
 .main-mashit .col-6 p .beforeSale {
   text-decoration: line-through;
 }
+
 .main-mashit .col-6 p .afterSale {
   color: red;
 }
+
 .col-9 {
 	text-align: center;
 	margin-top: 20px;
