@@ -1,7 +1,8 @@
-import {ADD_TO_BASKET, CHANGE_COUNT, DELETE_ITEM} from "./basketAC";
+import {ADD_TO_BASKET, CHANGE_COUNT, DELETE_ITEM, MODAL_SHOW, MODAL_HIDE} from "./basketAC";
 
 const initState={
   basket: [],
+  modalShow: 'hide',
 };
 function basketReducer(state=initState,action) {
   switch (action.type) {
@@ -41,6 +42,18 @@ function basketReducer(state=initState,action) {
       return {
         ...state,
         basket: newBasket
+      }
+    }
+    case MODAL_SHOW: {
+      return {
+        ...state,
+        modalShow: 'show'
+      }
+    }
+    case MODAL_HIDE: {
+      return {
+        ...state,
+        modalShow: 'hide'
       }
     }
     default:

@@ -17,7 +17,7 @@ class App extends React.Component {
       <div className="mainDiv">
         <PageHeader />
         <PagesRouter />
-        <div className={this.props.reviews.mode===1 || this.props.callRequest.callRequest==='show'?"fadeModal  fadeShow":"fadeModal fadeClose"} />
+        <div className={this.props.reviews.mode===1 || this.props.callRequest.callRequest==='show' || this.props.basket.modalShow==='show' ?"fadeModal  fadeShow":"fadeModal fadeClose"} />
         <AddReview />
         {this.props.callRequest.callRequest==='show'?<CallRequest/>:null}
         <PageFooter/>
@@ -30,6 +30,7 @@ const mapStateToProps = function (state) {
   return {
     reviews: state.reviews,
     callRequest: state.callRequest,
+    basket: state.basket,
   }
 }
 App.propTypes = {

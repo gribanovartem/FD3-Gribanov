@@ -2,9 +2,10 @@ import React from 'react';
 import LeftContent from "./LeftContent";
 import '../styles/Basket.css';
 import {connect} from "react-redux";
-import {change_count, delete_item} from "../../redux/basketAC";
+import {change_count, delete_item, modal_show} from "../../redux/basketAC";
 import {NavLink} from "react-router-dom";
 import PropTypes from "prop-types"
+import Checkout from "./Checkout";
 
 class Basket extends React.Component {
 
@@ -14,7 +15,11 @@ class Basket extends React.Component {
   deleteItem = (i) => {
     this.props.dispatch(delete_item(i))
   }
+  checkout = () => {
+    this.props.dispatch(modal_show())
+  }
   render() {
+    console.log(this.props.basket.modalShow)
     let basketItems = this.props.basket.basket.map((item, i) => {
       return (
 
@@ -70,8 +75,11 @@ class Basket extends React.Component {
                     <div className="totals-value" id="cart-total">{fullPrice.toFixed(2)} руб.</div>
                   </div>
                 </div>
-                <button className="btn checkout right">Оформить заказ</button>
+                <button className="btn checkout right" onClick={this.checkout}>Оформить заказ</button>
               </div>
+              {this.props.basket.modalShow==='show'&&<Checkout correct={this.props.basket.basket.length!==0}/>}
+
+
             </div>
             <LeftContent/>
           </div>
