@@ -3,6 +3,7 @@ const CHANGE_COUNT='CHANGE_COUNT'
 const DELETE_ITEM='DELETE_ITEM'
 const MODAL_SHOW='MODAL_SHOW'
 const MODAL_HIDE='MODAL_HIDE'
+const CLEAR_BASKET='CLEAR_BASKET'
 
 const add_to_basket = function (item) {
   return {
@@ -33,6 +34,11 @@ const modal_hide = function () {
     type: MODAL_HIDE,
   }
 }
+const clear_basket = function () {
+  return {
+    type: CLEAR_BASKET,
+  }
+}
 
 export {
   add_to_basket, ADD_TO_BASKET,
@@ -40,4 +46,5 @@ export {
   delete_item, DELETE_ITEM,
   modal_show, MODAL_SHOW,
   modal_hide, MODAL_HIDE,
+  clear_basket, CLEAR_BASKET
 }

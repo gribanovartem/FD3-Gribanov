@@ -6,6 +6,7 @@ import {change_count, delete_item, modal_show} from "../../redux/basketAC";
 import {NavLink} from "react-router-dom";
 import PropTypes from "prop-types"
 import Checkout from "./Checkout";
+import {Modal} from "antd";
 
 class Basket extends React.Component {
 
@@ -16,10 +17,20 @@ class Basket extends React.Component {
     this.props.dispatch(delete_item(i))
   }
   checkout = () => {
-    this.props.dispatch(modal_show())
+    if(this.props.basket.basket.length!==0) {
+      this.props.dispatch(modal_show())
+    }
+    else {
+      this.error()
+    }
+  }
+  error = () => {
+    Modal.error({
+      title: 'Ошибка',
+      content: 'В корзине нет товаров',
+    });
   }
   render() {
-    console.log(this.props.basket.modalShow)
     let basketItems = this.props.basket.basket.map((item, i) => {
       return (
 
@@ -77,7 +88,7 @@ class Basket extends React.Component {
                 </div>
                 <button className="btn checkout right" onClick={this.checkout}>Оформить заказ</button>
               </div>
-              {this.props.basket.modalShow==='show'&&<Checkout correct={this.props.basket.basket.length!==0}/>}
+              {this.props.basket.modalShow&&<Checkout correct={this.props.basket.basket.length!==0}/>}
 
 
             </div>

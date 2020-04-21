@@ -6,54 +6,119 @@ import 'firebase/storage'
 import isoFetch from "isomorphic-fetch"
 import * as firebase from "firebase/app";
 import PropTypes from "prop-types";
-import {modal_hide} from "../../redux/basketAC";
+import {clear_basket, modal_hide} from "../../redux/basketAC";
+import { Modal, Form, Input, InputNumber, DatePicker, Button } from 'antd';
+
+
+
+const layout = {
+  labelCol: {
+    span: 5,
+  },
+  wrapperCol: {
+    span: 16,
+  },
+};
+const validateMessages = {
+  required: 'Это поле не может быть пустым!',
+  types: {
+    email: 'Введите корректный ${label} !',
+    number: '${label} is not a validate number!',
+  },
+  number: {
+    range: '${label} must be between ${min} and ${max}',
+  },
+};
+
 
 class Checkout extends React.Component {
   closeModal = () => {
     this.props.dispatch(modal_hide())
   }
+  onFinish = values => {
+    let newOrder = {...values,
+      order: this.props.basket.basket,
+    }
+    this.props.dispatch(clear_basket())
+    this.props.dispatch(modal_hide())
+    console.log(newOrder)
+  };
   constructor(props) {
     super(props);
-    this.modalChekout = <div className="modal-content">
-                          <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLongTitle">Заказать звонок</h5>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.closeModal}>
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div className="modal-body">
-                            <form className="form">
-                              <div className="form-group">
-                                <label htmlFor="UserName">Имя</label>
-                                <input className="form-control" type="text" id="UserName" ref={this.inputName} />
+    this.modalChekout = <Modal
+                              title="Оформление заказа"
+                              visible={this.props.basket.modalShow}
+                              onOk={this.handleOk}
+                              onCancel={this.closeModal}
+                              footer={[]}
+                        >
+                            <Form {...layout} name="nest-messages" onFinish={this.onFinish} validateMessages={validateMessages}>
+                              <Form.Item
+                                name={['user', 'name']}
+                                label="Имя"
+                                rules={[
+                                  {
+                                    required: true,
+                                  },
+                                ]}
+                              >
+                                <Input />
+                              </Form.Item>
+                              <Form.Item
+                                name={['user', 'lastName']}
+                                label="Фамилия"
+                                rules={[
+                                  {
+                                    required: true,
+                                  },
+                                ]}
+                              >
+                                <Input />
+                              </Form.Item>
+                              <Form.Item
+                                name={['user', 'email']}
+                                label="Email"
+                                rules={[
+                                  {
+                                    type: 'email',
+                                    required: true,
+                                  },
+                                ]}
+                              >
+                                <Input />
+                              </Form.Item>
+                              <Form.Item
+                                name={['user', 'phone']}
+                                label="Телефон"
+                                rules={[
+                                  {
+                                    type: 'string',
+                                    required: true,
+                                  },
+                                ]}
+                              >
+                                <Input />
+                              </Form.Item>
+                              <Form.Item name={['user', 'comment']} label={`Комментарии`}>
+                                <Input.TextArea />
+                              </Form.Item>
+                              <div className='modal-footer'>
+                                <Button key="back" onClick={this.closeModal}>
+                                  Отмена
+                                </Button>,
+                                  <Button type="primary" htmlType="submit">
+                                    Оформить
+                                  </Button>
                               </div>
-                              <div className="form-group">
-                                <label htmlFor="City">Телефон</label>
-                                <input className="form-control" type="text" id="Phone" ref={this.inputPhone} />
-                              </div>
-                            </form>
-                          </div>
-                          <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={this.closeModal}>Отмена</button>
-                            <button type="button" className="btn btn-primary" onClick={this.callRequest}>Заказать звонок</button>
-                          </div>
-                        </div>
-    this.modalError = <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title" id="exampleModalLongTitle">Корзина пуста</h5>
-                          <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.closeModal}>
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                      </div>
+
+                            </Form>
+                        </Modal>
   }
   render() {
     return (
-      <div className='modal callRequest show' id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div className="modal-dialog modal-dialog-centered" role="document">
-          {this.props.correct?this.modalChekout:this.modalError}
-        </div>
-      </div>
+      <>
+          {this.props.correct&&this.modalChekout}
+      </>
     )
   }
 }
