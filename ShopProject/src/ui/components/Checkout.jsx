@@ -8,7 +8,7 @@ import * as firebase from "firebase/app";
 import PropTypes from "prop-types";
 import {clear_basket, modal_hide} from "../../redux/basketAC";
 import { Modal, Form, Input, InputNumber, DatePicker, Button } from 'antd';
-
+import {orderPush} from "../../functions/orderPush";
 
 
 const layout = {
@@ -32,19 +32,13 @@ const validateMessages = {
 
 
 class Checkout extends React.Component {
-  closeModal = () => {
-    this.props.dispatch(modal_hide())
-  }
-  onFinish = values => {
-    let newOrder = {...values,
-      order: this.props.basket.basket,
-    }
-    this.props.dispatch(clear_basket())
-    this.props.dispatch(modal_hide())
-    console.log(newOrder)
-  };
+
   constructor(props) {
     super(props);
+    this.state = {
+      whatShow: 'modal',
+      newOrderNum: 123,
+    }
     this.modalChekout = <Modal
                               title="Оформление заказа"
                               visible={this.props.basket.modalShow}
@@ -114,10 +108,40 @@ class Checkout extends React.Component {
                             </Form>
                         </Modal>
   }
+  closeModal = () => {
+    this.props.dispatch(modal_hide())
+  }
+  onFinish = values => {
+    let newOrder = {...values,
+      order: this.props.basket.basket,
+    }
+
+    orderPush('orderList.json', newOrder)
+      .then((newOrderNum)=> {
+        console.log(newOrderNum)
+        this.setState({newOrderNum: newOrderNum})
+        return newOrderNum
+      })
+      .then(()=>{
+        console.log(this.state)
+        this.setState({whatShow: 'order'})
+      })
+    this.props.dispatch(clear_basket())
+    console.log(this.state)
+  };
   render() {
     return (
       <>
-          {this.props.correct&&this.modalChekout}
+        {this.props.correct&&this.state.whatShow==='modal'&&this.modalChekout}
+        {this.state.whatShow==='order'&&<Modal
+                                            title="Ваш заказ успешно оформлен"
+                                            visible={this.props.basket.modalShow}
+                                            onOk={this.handleOk}
+                                            onCancel={this.closeModal}
+                                            footer={[]}
+                                          >
+                                            {`Номер заказа ${this.state.newOrderNum}`}
+                                          </Modal>}
       </>
     )
   }

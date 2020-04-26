@@ -46,5 +46,5 @@ export {
   delete_item, DELETE_ITEM,
   modal_show, MODAL_SHOW,
   modal_hide, MODAL_HIDE,
-  clear_basket, CLEAR_BASKET
+  clear_basket, CLEAR_BASKET,
 }
