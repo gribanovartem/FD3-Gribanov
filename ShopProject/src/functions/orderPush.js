@@ -32,7 +32,6 @@ const orderPush = async (url, order) => {
   let newOrderList = [...data, newOrder]
   const blob = new Blob([JSON.stringify(newOrderList)], {type : 'application/json'});
   reviewsRef.put(blob)
-  console.log(newOrderNum)
   return newOrderNum
 }
 export {orderPush};

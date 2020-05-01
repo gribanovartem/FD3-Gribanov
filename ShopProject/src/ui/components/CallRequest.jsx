@@ -49,7 +49,7 @@ class CallRequest extends React.Component {
   }
   closeModal=() => {
     this.setState({opacityClass: 'modal callRequest hide'})
-    setTimeout(()=> this.props.dispatch(call_request_hide()), 500)
+    setTimeout(()=> this.props.dispatch(call_request_hide()), 200)
 
   }
   callRequest = () => {
@@ -99,8 +99,8 @@ class CallRequest extends React.Component {
         reviewsRef.put(blob).then(() => {
           this.setState({requestDone: true})
           setTimeout(()=> {
-            setTimeout(()=> this.props.dispatch(call_request_hide()), 2000)
-          },1000)
+            setTimeout(()=> this.props.dispatch(call_request_hide()), 500)
+          },500)
         })
       })
       .catch((error) => {

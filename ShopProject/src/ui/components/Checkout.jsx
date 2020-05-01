@@ -1,13 +1,10 @@
 import React from 'react'
 import '../styles/CallRequest.css'
 import {connect} from "react-redux";
-import {call_request_hide} from "../../redux/callRequestAC";
 import 'firebase/storage'
-import isoFetch from "isomorphic-fetch"
-import * as firebase from "firebase/app";
 import PropTypes from "prop-types";
 import {clear_basket, modal_hide} from "../../redux/basketAC";
-import { Modal, Form, Input, InputNumber, DatePicker, Button } from 'antd';
+import { Modal, Form, Input, Button } from 'antd';
 import {orderPush} from "../../functions/orderPush";
 
 
@@ -118,16 +115,13 @@ class Checkout extends React.Component {
 
     orderPush('orderList.json', newOrder)
       .then((newOrderNum)=> {
-        console.log(newOrderNum)
         this.setState({newOrderNum: newOrderNum})
         return newOrderNum
       })
       .then(()=>{
-        console.log(this.state)
         this.setState({whatShow: 'order'})
       })
     this.props.dispatch(clear_basket())
-    console.log(this.state)
   };
   render() {
     return (
@@ -151,6 +145,11 @@ Checkout.propTypes = {
     callRequest: PropTypes.string,
   }),
   dispatch: PropTypes.func.isRequired,
+  basket: PropTypes.shape({
+    basket: PropTypes.array.isRequired,
+    modalShow: PropTypes.bool,
+  }),
+  correct: PropTypes.bool.isRequired,
 }
 const mapStateToProps = function (state) {
   return {

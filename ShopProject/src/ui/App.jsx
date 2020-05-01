@@ -25,7 +25,6 @@ class App extends React.Component {
     )
   }
 }
-// export default hot(App)
 const mapStateToProps = function (state) {
   return {
     reviews: state.reviews,
@@ -40,5 +39,9 @@ App.propTypes = {
   callRequest: PropTypes.shape({
     callRequest: PropTypes.string,
   }),
+  basket: PropTypes.shape({
+    basket: PropTypes.array.isRequired,
+    modalShow: PropTypes.bool,
+  })
 }
 export default connect(mapStateToProps)(hot(App))

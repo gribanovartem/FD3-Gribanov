@@ -122,7 +122,8 @@ Basket.propTypes = {
   }),
   dispatch: PropTypes.func.isRequired,
   basket: PropTypes.shape({
-    basket: PropTypes.array.isRequired
+    basket: PropTypes.array.isRequired,
+    modalShow: PropTypes.bool,
   })
 }
 Basket.defaultProps = {

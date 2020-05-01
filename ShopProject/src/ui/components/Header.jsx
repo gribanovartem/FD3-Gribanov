@@ -51,7 +51,7 @@ class Header extends React.Component {
               <div className="header-basket_body">
                 <NavLink to="/basket">
                   <img className="basketImg"
-                       src="https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/shopping-cart_icon-icons.com_69303.png?alt=media&token=0f8d2629-ecd6-4210-93e4-d23c1199f52f"
+                       src="https://firebasestorage.googleapis.com/v0/b/shop-gribanov.appspot.com/o/mbrishoppingcart_99558.svg?alt=media&token=7472a305-d2b5-4ea0-93d4-f01bc44ff896"
                        alt="basket"/>
                 </NavLink>
                 <p>Товаров в корзине {this.toCountProductLength()}</p>

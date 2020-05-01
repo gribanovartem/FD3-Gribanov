@@ -34,6 +34,10 @@ SelCategory.propTypes = {
     PropTypes.func,
     PropTypes.object,
   ]),
+  dispatch: PropTypes.func.isRequired,
+  filter: PropTypes.shape({
+    isFilter: PropTypes.bool,
+  }),
 }
 SelCategory.defaultProps = {
   match: PropTypes.number,
